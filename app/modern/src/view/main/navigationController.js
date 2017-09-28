@@ -7,23 +7,23 @@
       //conditions:{':main':'([a-z0-9/./]+)'},
       conditions: {':main': '([0-9a-zA-Z/\.]+)'},
       before: function (id, action) {
-        var me = this,
+        var me = this, account,
           navigation = Ext.Viewport.down('mainNavigation');
+        // console.log(111);
         if (APP.complete) {
           action.resume();
           return false;
         }
-        APP.app.refreshMateData(function (json) {
-          Ext.get('appLoadingIndicator').remove();
-          if (!json.pushKey) {
-            navigation.setActiveItem({xtype: 'login'});
-          } else {
-            navigation.setActiveItem({xtype: 'main'});
-            APP.app.pushStart();
-            action.resume();
-            //navigation.setMasked({xtype:'loadmask',message:'验证中...'});
-          }
-        });
+        // console.log(me);
+        Ext.get('appLoadingIndicator').remove();
+        if (!account) {
+          navigation.setActiveItem({xtype: 'login'});
+        } else {
+          navigation.setActiveItem({xtype: 'main'});
+          APP.app.pushStart();
+          action.resume();
+          //navigation.setMasked({xtype:'loadmask',message:'验证中...'});
+        }
       }
     }
   },
@@ -220,27 +220,31 @@
       login = form.down('field[name=login]').getValue() || '',
       password = form.down('field[name=password]').getValue() || '';
     if (login === '') {
-      Mate.showTask('<h6>错误消息</h6>请输入登陆帐号.', true);
+      Mate.info('<h6>错误消息</h6>请输入登陆帐号.');
       return false;
     }
     if (password === '') {
-      Mate.showTask('<h6>错误消息</h6>请输入登陆密码.', true);
+      Mate.info('<h6>错误消息</h6>请输入登陆密码.');
       return false;
     }
     form.setMasked({xtype: 'loadmask'});
     // button.setDisabled(true);
+    console.log(form.getValues());
     Mate.ajax({
-      url: Boot.appUrl('/login.do'),
+      url: Boot.appUrl('/system/login/login.jsp'),
       params: form.getValues(),
+      method: 'GET',
+      // type: 'jsonp',
+      // dataType: 'jsonp',
       success: function (json, opts) {
-        APP.app.refreshMateData(function (json) {
-          if (json.success) {
-            // form.unmask();
-            // Removes all items currently in the Container, optionally destroying them all.
-            navigation.removeAll();
-            navigation.setActiveItem({xtype: 'main'});
-          }
-        });
+        console.log(111);
+        if (json.success) {
+          console.log(222);
+          // form.unmask();
+          // Removes all items currently in the Container, optionally destroying them all.
+          navigation.removeAll();
+          navigation.setActiveItem({xtype: 'main'});
+        }
       },
       failure: function (json, opts) {
         form.unmask();

@@ -5,7 +5,8 @@ Ext.define('APP.mate.mate', {
       successMessage: '<h6>操作成功</h6>恭喜，指令已成功执行完毕...'
     },
     proxyType: function () {
-      return window.location.host !== Boot.appDomain ? 'jsonp' : 'ajax';
+      // console.log(window.location.host);
+      return window.location.host === Boot.appDomain ? 'jsonp' : 'ajax';
       // return 'ajax';
     },
     ajax: function (opts) {
@@ -13,13 +14,14 @@ Ext.define('APP.mate.mate', {
       // console.log(Mate.proxyType());
       switch (Mate.proxyType()) {
         case 'jsonp': {
+          console.log(444);
           Ext.data.JsonP.request({
             method: opts.method || 'GET',
             url: opts.url,
             params: opts.params || false,
             // timeout:opts.timeout||180*1000,
             callback: function (success, response) {
-              // console.log(success,response)
+              console.log(success, response);
               var rlt = response;
               if (success) {
                 if (rlt.success) {
@@ -44,24 +46,26 @@ Ext.define('APP.mate.mate', {
             method: opts.method || 'POST',
             url: opts.url,
             params: opts.params || false,
-            //timeout:opts.timeout||180*1000,
+            // timeout: opts.timeout || 180 * 1000,
             callback: function (options, success, response) {
-              //console.log(success,response)
-              var rlt = Ext.decode(response.responseText);
+              // console.log(response);
+              // console.log(success);
+              // var rlt = Ext.decode(response.responseText);
               if (success) {
-                if (rlt.success) {
-                  return opts.success ? opts.success(rlt) : false;
-                } else {
-                  Mate.checkErrCode(rlt, opts.failure);
-                  return opts.failure ? opts.failure(rlt) : false;
-                }
+                console.log(333);
+                // if (rlt.success) {
+                //   return opts.success ? opts.success(rlt) : false;
+                // } else {
+                //   Mate.checkErrCode(rlt, opts.failure);
+                //   return opts.failure ? opts.failure(rlt) : false;
+                // }
               } else {
                 Mate.showTask('<h6>应用程序错误</h6>错误代码：' + rlt.status + '　' + rlt.statusText, true)
                 return opts.failure ? opts.failure(rlt) : false;
               }
             }
-            //success:opts.success||false,
-            //failure:opts.failure||false
+            // success: opts.success || false,
+            // failure: opts.failure || false
           });
         }
           break;
@@ -285,17 +289,18 @@ Ext.define('APP.mate.mate', {
       // console.log(Ext.touch); //true
       if (Ext.touch) {
         Ext.toast({
-          //userCls:'x-ui-task',
+          // userCls: 'x-ui-task',
           message: '<div class="x-ui-task"><span class="f-mt ' + cls + '"></span><div>' + message + '</div></div>',
-          //showAnimation:{type:'popIn',duration:8000,easing:'ease-out'},
-          //hideAnimation:{type:'popOut',duration:250,easing:'ease-out'},
-          timeout: 3000
+          // showAnimation: {type: 'popIn', duration: 8000, easing: 'ease-out'},
+          // hideAnimation: {type: 'popOut', duration: 250, easing: 'ease-out'},
+          timeout: 300000000000000
         });
       } else {
         function createBox(s) {
           Ext.get('x-ui-task').update('');
           return '<div class="x-ui-task"><span class="f-mt ' + cls + '"></span><div>' + s + '</div></div>'
         }
+
         if (!Ext.get('x-ui-task')) {
           var msgCt = Ext.DomHelper.insertFirst(document.body, {id: 'x-ui-task'}, true)
         }

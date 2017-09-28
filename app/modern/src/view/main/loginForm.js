@@ -1,16 +1,18 @@
 Ext.define('APP.view.main.loginForm', {
   extend: 'Ext.form.Panel',
   xtype: 'loginForm',
+  // The ViewModel is a data provider for this component and its children. The data contained in the ViewModel is
+  // typically used by adding bind configs to the components that want present or edit this data.
   viewModel: {data: {type: {value: 'login'}}},
-  bodyPadding: 25,
+  bodyPadding: 30,
   items: [
     // Field is the base class for all form fields. It provides a lot of shared functionality to all field subclasses
     // (for example labels, simple validation, clearing and tab index management), but is rarely used directly.
     {xtype: 'field', name: 'cmd', value: 'login', hidden: true},
     {
       xtype: 'container', name: 'logo', userCls: 'x-ui-logo', margin: 20, height: 80, items: [
-      {xtype: 'image', bind: {src: '{oa.basis.logo:oss}'}, alt: 'LOGO'}
-      //{xtype:'image',bind:{src:'/resources/images/logo.png'},alt:'LOGO'}
+      // {xtype: 'image', bind: {src: '{oa.basis.logo:oss}'}, alt: 'LOGO'},
+      {xtype: 'image', bind: {src: '/resources/images/login-banner.png'}, alt: 'LOGO'}
     ]
     },
     {
@@ -23,8 +25,8 @@ Ext.define('APP.view.main.loginForm', {
       // publishing to the viewModel. Some components override this and publish their most useful configs by default.
       publishes: 'value',
       items: [
-        {text: '账号登录', iconCls: 'f-mt mt-user', value: 'login', pressed: true},
-        {text: '手机登录', iconCls: 'f-mt mt-mobile', value: 'mobile'}
+        {text: '账号登录', height: 40, iconCls: 'f-mt mt-user', value: 'login', pressed: true}
+        // {text: '手机登录', iconCls: 'f-mt mt-mobile', value: 'mobile'}
       ]
     },
     {xtype: 'field', name: 'type', bind: {value: '{type.value}'}, hidden: true},
@@ -54,23 +56,23 @@ Ext.define('APP.view.main.loginForm', {
         }
       ]
     },
-    {
-      xtype: 'fieldset', hidden: true,
-      bind: {hidden: '{type.value!="mobile"}', disabled: '{type.value!="mobile"}'},
-      defaults: {labelAlign: 'left', labelWidth: 60, autoComplete: false, clearable: false, require: true},
-      items: [
-        {
-          label: 'Mobile',
-          labelCls: 'f-mt mt-mobile',
-          xtype: 'numberfield',
-          component: {pattern: '[0-9]*'},
-          name: 'mobile',
-          placeholder: 'Mobile',
-          value: Mate.getCache('loginData/mobile')
-        },
-        {label: 'password', labelCls: 'f-mt mt-lock', xtype: 'passwordfield', name: 'password', placeholder: 'Password'}
-      ]
-    },
+    // {
+    //   xtype: 'fieldset', hidden: true,
+    //   bind: {hidden: '{type.value!="mobile"}', disabled: '{type.value!="mobile"}'},
+    //   defaults: {labelAlign: 'left', labelWidth: 60, autoComplete: false, clearable: false, require: true},
+    //   items: [
+    //     {
+    //       label: 'Mobile',
+    //       labelCls: 'f-mt mt-mobile',
+    //       xtype: 'numberfield',
+    //       component: {pattern: '[0-9]*'},
+    //       name: 'mobile',
+    //       placeholder: 'Mobile',
+    //       value: Mate.getCache('loginData/mobile')
+    //     },
+    //     {label: 'password', labelCls: 'f-mt mt-lock', xtype: 'passwordfield', name: 'password', placeholder: 'Password'}
+    //   ]
+    // },
     {
       xtype: 'button',
       text: '登 录',

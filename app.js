@@ -165,37 +165,37 @@ Ext.application({
 
   refreshMateData: function (callback) {
     // Mate.waiting('<h6>正在加载最新配置信息</h6>');
-    var me = this;
+    // var me = this;
     // console.log(APP);
     // console.log(this);
-    Mate.ajax({
-      url: Boot.appUrl('/mate.do'),
-      success: function (json) {
-        // console.log(json);
-        APP.complete = true;
-        // ============================================================构造权限按钮
-        if (json.pushKey) {
-          me.updateAccount(json);
-          //Mate.setJsonStorage('CACHE',json);
-          //console.log(json.account.login,json.pushKey)
-        } else {
-          json.account = {};
-          json.account.wx_userface = '/resources/images/account.png';
-        }
-        me.data = json;
-        me.updateViewData(false, json);
-        // console.log(callback);
-        return callback ? callback(json) : false;
-      },
-      failure: function (json) {
-        Mate.error(
-          json.message,
-          function () {
-            window.location.reload()
-          }
-        );
-      }
-    });
+    // Mate.ajax({
+    //   url: Boot.appUrl('/mate.do'),
+    //   success: function (json) {
+    //     // console.log(json);
+    //     APP.complete = true;
+    //     // ============================================================构造权限按钮
+    //     if (json.pushKey) {
+    //       me.updateAccount(json);
+    //       //Mate.setJsonStorage('CACHE',json);
+    //       //console.log(json.account.login,json.pushKey)
+    //     } else {
+    //       json.account = {};
+    //       json.account.wx_userface = '/resources/images/account.png';
+    //     }
+    //     me.data = json;
+    //     me.updateViewData(false, json);
+    //     // console.log(callback);
+    // return callback ? callback(json) : false;
+    //   },
+    //   failure: function (json) {
+    //     Mate.error(
+    //       json.message,
+    //       function () {
+    //         window.location.reload();
+    //       }
+    //     );
+    //   }
+    // });
   },
 
   pushCount: 0,
@@ -290,6 +290,7 @@ Ext.application({
 
   init: function () {
     // console.log(Worker);
+    // console.log(222);
     if (typeof(Worker) === 'undefined') {
       Mate.error('<h6>浏览器版本过低</h6>请升级您的浏览器后继续...');
     }
@@ -315,10 +316,7 @@ Ext.application({
         date = utc - (3600000 * (localTimeZone - timeZone));
         date = new Date(date);
         // console.log(formatFunctions[format]);
-        // if (formatFunctions[format] === undefined) {
-        //   utilDate.createFormat(format);
-        // }
-        if (formatFunctions[format] == null) {
+        if (formatFunctions[format] === undefined) {
           utilDate.createFormat(format);
         }
         return formatFunctions[format].call(date);

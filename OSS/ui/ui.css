@@ -1627,21 +1627,37 @@ strong, b {
 
 /*TASK*/
 .x-ui-task {
-  min-height: 40px;
-  line-height: 22px;
-  width: 448px;
-  padding-left: 64px;
-  opacity: 1;
   position: fixed;
-  z-index: 99999;
   left: 50%;
   top: -200px;
+  padding: 20px;
   margin-left: -240px;
+  width: 448px;
+  min-height: 40px;
+  line-height: 22px;
+  z-index: 99999;
+  opacity: 1;
   color: #fff;
   background-color: rgba(0, 0, 0, .68);
   border-radius: 5px;
-  padding: 20px;
 }
+
+/*.x-ui-task {*/
+/*position: fixed;*/
+/*left: 50%;*/
+/*top: 0;*/
+/*padding: 20px;*/
+/*!*margin-left: -240px;*!*/
+/*width: 448px;*/
+/*height: 400px;*/
+/*min-height: 400px;*/
+/*line-height: 22px;*/
+/*z-index: 99999;*/
+/*opacity: 1;*/
+/*color: #fff;*/
+/*background-color: rgba(0, 0, 0, .68);*/
+/*border-radius: 5px;*/
+/*}*/
 
 .x-ui-task .f-mt {
   display: inline-block;
