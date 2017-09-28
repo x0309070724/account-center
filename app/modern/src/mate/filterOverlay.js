@@ -1,0 +1,16 @@
+Ext.define('APP.mate.filterOverlay',{
+	extend:'Ext.Container',
+	xtype:'filterOverlay',
+	userCls:'x-ui-filter-overlay',
+	modal:true,
+	zIndex:100,
+	hideOnMaskTap:true,
+	showAnimation:{type:'slide',direction:'down'},
+	hideAnimation:{type:'slideOut',direction:'up'},
+	//showAnimation:{type:'slideIn',direction:'bottom',duration:250,easing:'ease-in'},
+	//hideAnimation:{type:'popOut',duration:250,easing:'ease-out'},
+	//centered:false,
+	scrollable:false,
+	//width:'100%',
+	height:100
+})

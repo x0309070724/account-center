@@ -1,0 +1,14 @@
+Ext.define('APP.store.call.change.staff',{
+    extend:'APP.store.cross',
+	alias:'store.call.change.staff',
+	fields:[
+		{name:'time',type:'date'}
+	],
+	sorters:[{property:'effectivedate',direction:'DESC'},{property:'id',direction:'DESC'}],
+	groupField:'effectivedate',
+	groupDir:'DESC',
+	proxy:{
+		url:Boot.appUrl('/sd/call/change/getStaff.do'),
+		extraParams:{}
+	}
+});

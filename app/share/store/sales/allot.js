@@ -1,0 +1,14 @@
+Ext.define('APP.store.sales.allot',{
+    extend:'APP.store.cross',
+	alias:'store.sales.allot',
+	fields:[
+		{name:'call_firsttime',type:'date'},
+		{name:'call_lasttime',type:'date'},
+		{name:'track_time',type:'date'}
+	],
+	autoLoad:false,
+	sorters:[{property:'id',direction:'DESC'}],
+	proxy:{
+		url:Boot.appUrl('/sd/sales/resources/getAllot.do')
+	}	
+});

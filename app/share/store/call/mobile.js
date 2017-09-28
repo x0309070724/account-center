@@ -1,0 +1,18 @@
+Ext.define('APP.store.call.mobile',{
+    extend:'APP.store.cross',
+	alias:'store.call.mobile',
+	fields:[
+		{name:'id',type:'int'},
+		{name:'synctime',type:'date'},
+		{name:'last_logintime',type:'date'},
+		{name:'opendate',type:'date'},
+		{name:'time',type:'date'},
+		{name:'duration',type:'int'}
+	],
+	remoteSort:true,
+	sorters:[{property:'staffdate',direction:'DESC'},{property:'id',direction:'DESC'}],
+	proxy:{
+		url:Boot.appUrl('/sd/call/getNo.do'),
+		extraParams:{invalid:0,allot:1}
+	}	
+});

@@ -1,0 +1,11 @@
+Ext.define('APP.store.sales.userData',{
+    extend:'APP.store.cross',
+	alias:'store.sales.userData',
+	remoteSort:true,
+	model:'APP.model.resources',
+	sorters:[{property:'track_time',direction:'ASC'}],
+	proxy:{
+		url:Boot.appUrl('/sd/sales/getUserData.do'),
+		extraParams:{}
+	}
+});

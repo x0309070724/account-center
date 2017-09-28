@@ -1,0 +1,107 @@
+html,
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #141C3A;
+  font-family: "microsoft yahei", serif;
+}
+
+.maintenanceLogo {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  width: 300px;
+  height: 70px;
+}
+
+.maintenanceLogo img {
+  width: 100%;
+  height: 100%;
+}
+
+.maintenanceCont {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -350px;
+  width: 500px;
+  height: 700px;
+  text-align: center;
+}
+
+.maintenanceCont h3.maintenance-h3 {
+  margin: 25px auto;
+  width: 275px;
+  height: 50px;
+  font-size: 36px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: 3px;
+  overflow: hidden;
+  animation: maintenanceing 2s infinite linear;
+  -moz-animation: maintenanceing 2s infinite linear;
+  -webkit-animation: maintenanceing 2s infinite linear;
+  -ms-animation: maintenanceing 2s infinite linear;
+}
+
+.maintenanceCont h3.maintenance-h3 i {
+  font-style: inherit;
+  letter-spacing: 0;
+}
+
+.maintenanceCont img.maintenance-img {
+  width: 500px;
+  height: 519px;
+}
+
+.maintenanceCont p.maintenance-p {
+  font-size: 18px;
+  color: #FFFFFF;
+  letter-spacing: 1.67px;
+}
+
+.maintenanceCont span.maintenance-span {
+  font-size: 16px;
+  color: #e1e1e1;
+  letter-spacing: 1.5px;
+}
+
+@keyframes maintenanceing {
+  0% {
+    width: 275px;
+  }
+  100% {
+    width: 375px;
+  }
+}
+
+@-webkit-keyframes maintenanceing {
+  0% {
+    width: 275px;
+  }
+  100% {
+    width: 375px;
+  }
+}
+
+@-ms-keyframes maintenanceing {
+  0% {
+    width: 275px;
+  }
+  100% {
+    width: 375px;
+  }
+}
+
+@-moz-keyframes maintenanceing {
+  0% {
+    width: 275px;
+  }
+  100% {
+    width: 375px;
+  }
+}

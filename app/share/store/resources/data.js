@@ -1,0 +1,16 @@
+Ext.define('APP.store.resources.data',{
+    extend:'APP.store.cross',
+	alias:'store.resources.data',
+	model:'APP.model.resources',
+	fields:[
+		{name:'call_firsttime',type:'date'},
+		{name:'call_lasttime',type:'date'},
+		{name:'track_time',type:'date'}
+	],
+	//sorters:[{property:'time',direction:'DESC'},{property:'id',direction:'ASC'}],
+	remoteSort:true,
+	proxy:{
+		url:Boot.appUrl('/sd/resources/manager/getData.do'),
+		extraParams:{}
+	}
+});

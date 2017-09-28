@@ -1,0 +1,10 @@
+Ext.define('APP.store.sales.funds',{
+    extend:'APP.store.cross',
+	alias:'store.sales.funds',
+	model:'APP.model.account.funds',
+	//remoteSort:true,
+	proxy:{
+		url:Boot.appUrl('/sd/sales/care/getFunds.do'),
+		extraParams:{}
+	}
+});

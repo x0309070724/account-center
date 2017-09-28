@@ -1,0 +1,171 @@
+{
+  "name": "APP",
+  "version": "1.0.0.0",
+  "indexHtmlPath": "index.html",
+  "classpath": [
+    "app/share",
+    "app/${toolkit.name}/src"
+  ],
+  "overrides": [
+    "app/share/overrides",
+    "app/${toolkit.name}/overrides"
+  ],
+  "sass": {
+    "namespace": "APP",
+    "etc": [
+      "sass/etc/all.scss",
+      "app/${toolkit.name}/sass/etc/all.scss"
+    ],
+    "var": [
+      "sass/var/all.scss",
+      "sass/var",
+      "app/${toolkit.name}/sass/var/all.scss"
+    ],
+    "src": [
+      "sass/src",
+      "app/${toolkit.name}/sass/src/"
+    ]
+  },
+  "fashion": {
+    "inliner": {
+      "enable": false
+    }
+  },
+  "js": [
+    {
+      "path": "app.js",
+      "bundle": true,
+      "update": "full"
+    }
+  ],
+  "sd": {
+    "js": [
+      {
+        "path": "${framework.dir}/build/ext-all-debug.js"
+      }
+    ]
+  },
+  "classic": {
+    "js": [
+      {
+        "path": "${framework.dir}/build/ext-all-debug.js"
+      }
+    ]
+  },
+  "modern": {
+    "js": [
+      {
+        "path": "${framework.dir}/build/ext-modern-all-debug.js"
+      }
+    ]
+  },
+  "css": [
+    {
+      "path": "${build.out.css.path}",
+      "bundle": true,
+      "exclude": [
+        "fashion"
+      ]
+    }
+  ],
+  "loader": {
+    "cache": false,
+    "cacheParam": "_dc"
+  },
+  "cache": {
+    "enable": false
+  },
+  "production": {
+    "output": {
+      "appCache": {
+        "enable": true,
+        "path": "cache.appcache"
+      }
+    },
+    "loader": {
+      "cache": "${build.timestamp}"
+    },
+    "cache": {
+      "enable": true
+    },
+    "compressor": {
+      "type": "yui"
+    }
+  },
+  "development": {
+    "watch": {
+      "delay": 250
+    }
+  },
+  "bootstrap": {
+    "base": "${app.dir}",
+    "manifest": "${build.id}.json",
+    "microloader": "bootstrap.js",
+    "css": "bootstrap.css"
+  },
+  "output": {
+    "base": "${workspace.build.dir}/${build.environment}",
+    "page": "index.html",
+    "manifest": "${build.id}.json",
+    "js": "${build.id}/app.js",
+    "resources": {
+      "path": "${build.id}/resources",
+      "shared": "resources"
+    },
+    "appCache": {
+      "enable": true
+    },
+    "deltas": {
+      "enable": true
+    }
+  },
+  "resources": [
+    "upgrade.html",
+    "repair.html",
+    "maintenance.html",
+    {
+      "path": "resources",
+      "output": "shared"
+    }
+  ],
+  "framework": "ext",
+  "locale": "zh_CN",
+  "builds": {
+    "classic": {
+      "toolkit": "classic",
+      "theme": "theme-classic",
+      "css": [
+        {
+          "path": "resources/classic-classic.css"
+        },
+        {
+          "path": "resources/classic.css"
+        }
+      ],
+      "requires": [
+        "locale",
+        "ux",
+        "charts"
+      ]
+    },
+    "modern": {
+      "toolkit": "modern",
+      "theme": "theme-material",
+      "css": [
+        {
+          "path": "resources/modern-material.css"
+        },
+        {
+          "path": "resources/modern.css"
+        }
+      ],
+      "requires": [
+        "charts"
+      ]
+    }
+  },
+  "ignore": [
+    "(^|/)CVS(/?$|/.*?$)"
+  ],
+  "id": "843417c1-97e7-4201-b27f-1a37263ab4d7"
+}

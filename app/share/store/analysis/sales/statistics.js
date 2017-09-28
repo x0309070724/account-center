@@ -1,0 +1,13 @@
+Ext.define('APP.store.analysis.sales.statistics',{
+    extend:'APP.store.summary',
+	alias:'store.analysis.sales.statistics',
+	proxy:{
+		url:Boot.appUrl('/analysis/getStatistics.do'),
+		extraParams:{sp:'SP_SD_SALES_STATISTICS'}
+	},
+	listeners:{
+		load:function(store,records,successful,operation,eOpts){
+			this.summary(store,records,successful,operation,eOpts);
+		}
+	}
+});

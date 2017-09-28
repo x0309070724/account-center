@@ -1,0 +1,10 @@
+Ext.define('APP.store.sales.data',{
+    extend:'APP.store.cross',
+	alias:'store.sales.data',
+	model:'APP.model.resources',
+	remoteSort:true,
+	proxy:{
+		url:Boot.appUrl('/sd/sales/getData.do'),
+		extraParams:{}
+	}
+});

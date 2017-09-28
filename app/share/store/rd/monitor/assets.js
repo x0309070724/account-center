@@ -1,0 +1,12 @@
+Ext.define('APP.store.rd.monitor.assets',{
+    extend:'APP.store.cross',
+	alias:'store.rdMonitorAssets',
+	autoLoad:false,
+	remoteSort:false,
+	pageSize:false,
+	sorters:[{property:'objects',direction:'DESC'}],
+	proxy:{
+		url:Boot.appUrl('/rd/mt4/getAssets.do'),
+		extraParams:{}
+	}
+});

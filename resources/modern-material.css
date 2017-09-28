@@ -1,0 +1,557 @@
+.x-view-empty {
+  width: 50%;
+  font-size: 1.6em;
+  margin: auto;
+  text-align: center;
+  color: #eee;
+  text-shadow: 0 2px 2px rgba(255, 255, 255, .88)
+}
+
+.x-view-empty icon {
+  font-size: 5em;
+  display: block;
+  margin: auto;
+}
+
+/*LOADMASK*/
+.x-mask {
+  background-color: rgba(255, 255, 255, .5);
+}
+
+.x-mask {
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.x-mask .x-mask-inner .x-mask-message {
+  display: none;
+}
+
+/*BUTTON*/
+.x-button .x-inner-el {
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.x-button .x-icon-el {
+  padding: 0px;
+}
+
+.x-button .x-icon-el:before {
+  text-align: center;
+  line-height: 1;
+}
+
+.x-button .x-text-el {
+  min-height: 14px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.x-button {
+  min-height: 24px;
+}
+
+.x-button-border .x-inner-el {
+  border-width: 1px;
+  border-style: solid;
+  background-color: #fff;
+}
+
+.x-button-radius .x-inner-el {
+  border-width: 1px;
+  border-style: solid;
+  background-color: #fff;
+}
+
+.x-button-disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.x-button {
+  min-height: 24px;
+}
+
+.x-button .x-icon-el {
+  padding: 0 10px;
+  height: 14px;
+}
+
+.x-button .x-icon-el:before,
+.x-button .x-text-el {
+  font-size: 14px;
+}
+
+.x-button.x-has-text .x-inner-el {
+  padding: 6px 10px 4px 10px;
+  border-radius: 2px;
+}
+
+.x-button.x-has-text.x-button-radius .x-inner-el {
+  border-radius: 12px;
+}
+
+.x-button-medium {
+  min-height: 36px;
+}
+
+.x-button-medium .x-icon-el {
+  padding: 0 15px;
+  height: 22px;
+}
+
+.x-button-medium .x-icon-el:before,
+.x-button-medium .x-text-el {
+  font-size: 22px;
+}
+
+.x-button-medium.x-has-text .x-inner-el {
+  padding: 6px 15px 4px 15px;
+  border-radius: 2px;
+}
+
+.x-button-medium.x-has-text.x-button-radius .x-inner-el {
+  border-radius: 18px;
+}
+
+.x-button-large {
+  min-height: 48px;
+}
+
+.x-button-large .x-icon-el {
+  padding: 0 20px;
+  height: 28px;
+}
+
+.x-button-large .x-icon-el:before,
+.x-button-large .x-text-el {
+  font-size: 28px;
+}
+
+.x-button-large.x-has-text .x-inner-el {
+  padding: 6px 20px 4px 20px;
+  border-radius: 2px;
+}
+
+.x-button-large.x-has-text.x-button-radius .x-inner-el {
+  border-radius: 24px;
+}
+
+.x-button-back.x-has-text .x-inner-el {
+  padding-left: 0;
+}
+
+.x-button-orange .x-inner-el {
+  border-color: #f5730a;
+}
+
+.x-button-orange .x-icon-el,
+.x-button-orange .x-text-el {
+  color: #f5730a;
+}
+
+.x-button-red .x-inner-el {
+  border-color: #f84b20;
+}
+
+.x-button-red .x-icon-el,
+.x-button-red .x-text-el {
+  color: #f84b20;
+}
+
+.x-button-blue .x-inner-el {
+  border-color: #0099ff;
+}
+
+.x-button-blue .x-icon-el,
+.x-button-blue .x-text-el {
+  color: #0099ff;
+}
+
+.x-button-green .x-inner-el {
+  border-color: #42ba3a;
+}
+
+.x-button-green .x-icon-el,
+.x-button-green .x-text-el {
+  color: #42ba3a;
+}
+
+.x-button-black .x-inner-el {
+  border-color: #000;
+}
+
+.x-button-black .x-icon-el,
+.x-button-black .x-text-el {
+  color: #000;
+}
+
+.x-button-grey {
+  border-color: #fafafa;
+}
+
+.x-button-grey .x-icon-el,
+.x-button-grey .x-text-el {
+  color: #fafafa;
+}
+
+.x-button-orange.x-button-background .x-inner-el {
+  background-color: #f5730a;
+}
+
+.x-button-orange.x-button-background .x-icon-el,
+.x-button-orange.x-button-background .x-text-el {
+  color: rgba(255, 255, 255, .88);
+}
+
+.x-button-red.x-button-background .x-inner-el {
+  background-color: #f84b20;
+}
+
+.x-button-red.x-button-background .x-icon-el,
+.x-button-red.x-button-background .x-text-el {
+  color: rgba(255, 255, 255, .88);
+}
+
+.x-button-blue.x-button-background .x-inner-el {
+  background-color: #0099ff;
+}
+
+.x-button-blue.x-button-background .x-icon-el,
+.x-button-blue.x-button-background .x-text-el {
+  color: rgba(255, 255, 255, .88);
+}
+
+.x-button-green.x-button-background .x-inner-el {
+  background-color: #42ba3a;
+}
+
+.x-button-green.x-button-background .x-icon-el,
+.x-button-green.x-button-background .x-text-el {
+  color: rgba(255, 255, 255, .88);
+}
+
+.x-button-black.x-button-background .x-inner-el {
+  background-color: #000;
+}
+
+.x-button-black.x-button-background .x-icon-el,
+.x-button-black.x-button-background .x-text-el {
+  color: rgba(255, 255, 255, .88);
+}
+
+.x-button-grey.x-button-background .x-inner-el {
+  background-color: #fafafa;
+}
+
+.x-button-grey.x-button-background .x-icon-el,
+.x-button-grey.x-button-background .x-text-el {
+  color: rgba(255, 255, 255, .88);
+}
+
+/*SENGMENTED*/
+.x-button-segmented .x-inner-el {
+  background-color: #fff;
+  padding: 5px 0;
+  border: 1px #0099ff solid;
+}
+
+.x-button-segmented .x-icon-el,
+.x-button-segmented .x-text-el {
+  font-size: 12px;
+  color: #0099ff;
+}
+
+.x-button-segmented.x-pressed .x-inner-el {
+  background-color: #0099ff;
+}
+
+.x-button-segmented.x-pressed .x-icon-el,
+.x-button-segmented.x-pressed .x-text-el {
+  color: rgba(255, 255, 255, 1);
+}
+
+/*PANEL*/
+.x-panel {
+}
+
+.x-paneltitle {
+  font-weight: 400;
+}
+
+.x-messagebox {
+  border-radius: 5px;
+}
+
+.x-messagebox .x-paneltitle.x-has-icon .x-icon-el {
+  display: none;
+}
+
+.x-messagebox .x-dock-horizontal.x-managed-borders {
+  border-bottom: .5px #c8c7cc solid;
+}
+
+.x-messagebox .x-dock-horizontal.x-managed-borders .x-icon {
+  display: block;
+  text-align: center;
+  font-weight: 300px;
+  font-size: 64px;
+  width: 100% !important;
+  height: 64px !important;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1
+}
+
+.x-messagebox .x-messagebox-text {
+  padding-top: 44px;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.x-messagebox .x-messagebox-text h6 {
+  font-weight: 400;
+  font-size: 22px;
+  color: red;
+}
+
+.x-messagebox .x-toolbar-footer {
+  padding: 0;
+}
+
+.x-messagebox .x-toolbar-footer .x-button {
+  height: 48px;
+}
+
+.x-messagebox .x-toolbar-footer .x-button .x-inner-el {
+  border-radius: 0;
+  border: 0;
+}
+
+/*TAB*/
+.x-tabbar.x-toolbar {
+  padding: 0;
+  background-color: transparent;
+}
+
+.x-tab {
+  border: 0;
+  border-radius: 0;
+}
+
+.x-tab.x-active .x-active-indicator-el {
+  height: 2px;
+  display: block !important;
+}
+
+.x-tab.x-has-text .x-inner-el {
+  padding: 5px 0;
+  border-radius: 0px;
+  border: 0;
+}
+
+.x-tab.x-has-text.x-icon-align-top .x-icon-el {
+  margin-bottom: 2px;
+  height: 28px;
+}
+
+.x-tab .x-icon-el:before {
+  font-size: 28px;
+}
+
+.x-tab .x-text-el {
+  font-size: 12px;
+}
+
+.x-toolbar-body-el {
+  padding: 0px;
+  min-height: 34px;
+}
+
+.x-segmentedbutton-tab.x-docked-bottom {
+  border-top: .5px solid #ccc;
+}
+
+.x-segmentedbutton-tab .x-button-segmented .x-inner-el {
+  border: 0;
+  border-radius: 0px;
+  background-color: transparent;
+  padding: 5px 0;
+}
+
+.x-segmentedbutton-tab .x-button-segmented .x-icon-el:before {
+  font-size: 28px;
+}
+
+.x-segmentedbutton-tab .x-button-segmented .x-icon-el,
+.x-segmentedbutton-tab .x-button-segmented .x-text-el {
+  font-size: 12px;
+  color: #0099ff;
+}
+
+.x-segmentedbutton-tab .x-button-segmented.x-has-text.x-icon-align-top .x-icon-el {
+  margin-bottom: 2px;
+  height: 28px;
+}
+
+.x-segmentedbutton-tab .x-button-segmented.x-pressed .x-icon-el,
+.x-segmentedbutton-tab .x-button-segmented.x-pressed .x-text-el {
+  color: red;
+}
+
+/*TOOLBAR*/
+.x-toolbar {
+  padding: 0 5px;
+}
+
+.x-toolbar .x-title {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.x-toolbar.x-docked-top {
+  box-shadow: none;
+  border-radius: 0;
+  border-top: 0;
+  border-bottom: .5px solid #ccc;
+}
+
+.x-toolbar.x-docked-bottom {
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: 0;
+  border-top: .5px solid #ccc;
+}
+
+/*ACTIONSHEET*/
+.x-actionsheet .x-panelheader.x-docked-top {
+  border-width: 0;
+  border-top-width: 1px;
+}
+
+.x-actionsheet.x-panelheader-body-el {
+  padding: 0 10px;
+}
+
+.x-actionsheet-body-el {
+  padding: 10px;
+}
+
+/*FORM*/
+.x-formpanel.x-layout-card-item .x-panelheader {
+  display: none;
+}
+
+.x-form-fieldset {
+  margin: 10px 0;
+}
+
+.x-form-fieldset-title {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 5px 0 15px 0;
+  color: #2196f3;
+  border-bottom: 2px #2196f3 solid;
+}
+
+.x-form-fieldset .x-form-fieldset-body-el {
+  padding: 0;
+}
+
+.x-field {
+  margin-bottom: 10px;
+}
+
+.x-field .x-label-el {
+  min-height: 14px;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+}
+
+.x-field .x-input-el {
+  min-height: 36px;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 0;
+  text-align: left;
+  color: #000;
+}
+
+/*LIST*/
+.x-itemheader {
+  border-top: .5px #c8c7cc solid;
+  border-bottom: .5px #c8c7cc solid;
+  margin-top: -1px;
+}
+
+.x-itemheader-body-el {
+  padding: 12px 12px 6px 12px;
+}
+
+.x-listitem-inner-el {
+  width: 100%;
+}
+
+.x-listitem {
+  background-color: #fff;
+}
+
+.x-listitem:after {
+  display: block;
+  content: '';
+  width: 100%;
+  border-bottom: .5px #dedede solid;
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+}
+
+.x-listitem.x-last:after {
+  border-bottom: 0;
+}
+
+.x-pullrefresh-pulling {
+  height: 0;
+}
+
+/*
+.x-pullrefresh-pulling{display:none;}
+.x-pullrefresh-pulling.x-pullrefresh-holding{ display:flex;}
+.x-pullrefresh-pulling.x-pullrefresh-loaded{ display:flex;}
+.x-listitem.x-first:after{left:0;border-color:#c8c7cc}
+*/
+
+/*
+.x-listitem.x-first:before{display:block;content:'';width:100%;border-top:.5px #c8c7cc solid;position:absolute;top:0;left:0;}
+.x-listitem.x-last:before{display:block;content:'';width:100%;position:absolute;bottom:0;left:0;}
+*/
+.x-draw-container {
+  border-bottom: .5px #c8c7cc solid;
+}
+
+.x-listitem.x-hovered {
+  background-color: #fafafa;
+}
+
+.x-listitem.x-pressed {
+  background-color: #fafafa;
+}
+
+.x-show-selection > .x-listitem.x-selected {
+  background-color: #fafafa;
+}
+
+.x-listitem .x-innerhtml > div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+
+
+

@@ -1,0 +1,15 @@
+Ext.define('APP.store.resources.allot',{
+    extend:'APP.store.cross',
+	alias:'store.resources.allot',
+	fields:[
+		{name:'call_firsttime',type:'date'},
+		{name:'call_lasttime',type:'date'},
+		{name:'track_time',type:'date'}
+	],
+	autoLoad:false,
+	remoteSort:true,
+	sorters:[{property:'id',direction:'DESC'}],
+	proxy:{
+		url:Boot.appUrl('/sd/resources/allot/getRecord.do')
+	}	
+});

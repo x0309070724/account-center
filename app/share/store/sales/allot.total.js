@@ -1,0 +1,9 @@
+Ext.define('APP.store.sales.allot.total',{
+    extend:'APP.store.cross',
+	alias:'store.sales.allot.total',
+	autoLoad:false,
+	sorters:[{property:'date',direction:'DESC'},{property:'no',direction:'DESC'}],
+	proxy:{
+		url:Boot.appUrl('/sd/sales/resources/getAllotTotal.do')
+	}	
+});

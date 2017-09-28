@@ -1,0 +1,11 @@
+Ext.define('APP.store.rd.monitor.alarm',{
+    extend:'APP.store.cross',
+	autoLoad:false,
+	remoteSort:false,
+	alias:'store.rdMonitorAlarm',
+	pageSize:false,
+	sorters:[{property:'time',direction:'DESC'},{property:'id',direction:'DESC'}],
+	proxy:{
+		url:Boot.appUrl('/rd/monitor/getAlarm.do')
+	}
+});

@@ -1,0 +1,25 @@
+Ext.define('APP.view.sd.sales.call.no.stock',{
+	extend:'Ext.List',
+	xtype:'sdSalesCallNostock',
+	controller:'sd.sales.call',	
+	store:{
+		type:'call.mobile',
+		autoLoad:false,
+		grouper:{groupFn:function(record){return Ext.Date.format(record.data.opendate,'Y-m-d')},property:'opendate',direction:'DESC'},
+		proxy:{
+			extraParams:{invalid:0,allot:0}
+		}
+	},
+	plugins:[
+		{type:'pullrefresh'},
+		{type:'listpaging'}
+	],
+	userCls:'x-ui-list',
+	itemTpl:[
+		'{no}'
+	],
+	listeners:{
+		initialize:'onApplyStoreLoad'
+		//itemtap:'onContactsItemtap'
+	}
+});

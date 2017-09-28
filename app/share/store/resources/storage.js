@@ -1,0 +1,12 @@
+Ext.define('APP.store.resources.storage',{
+    extend:'APP.store.cross',
+	alias:'store.resources.storage',
+	autoLoad:false,
+	remoteSort:false,
+	pageSize:false,
+	model:'APP.model.analysis',
+	proxy:{
+		url:Boot.appUrl('/analysis/getStatistics.do'),
+		extraParams:{sp:'SP_SD_RESOURCES_STORAGE'}
+	}
+});

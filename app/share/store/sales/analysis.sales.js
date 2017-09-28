@@ -1,0 +1,13 @@
+Ext.define('APP.store.sales.analysis.sales',{
+    extend:'APP.store.summary',
+	alias:'store.sales.analysis.sales',
+	proxy:{
+		url:Boot.appUrl('/analysis/getTrend.do'),
+		extraParams:{sp:'SP_SD_SALES_TREND',staff:1}
+	},
+	listeners:{
+		load:function(store,records,successful,operation,eOpts){
+			this.summary(store,records,successful,operation,eOpts);
+		}
+	}
+});

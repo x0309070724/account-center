@@ -1,0 +1,9 @@
+Ext.define('APP.store.sales.track',{
+    extend:'APP.store.cross',
+	alias:'store.sales.track',
+	mobile:'APP.model.sales.track',
+	sorters:[{property:'time',direction:'DESC'},{property:'id',direction:'DESC'}],
+	proxy:{
+		url:Boot.appUrl('/sd/sales/getTrack.do')
+	}
+});

@@ -1,0 +1,17 @@
+Ext.define('APP.store.call.package',{
+    extend:'APP.store.cross',
+	alias:'store.call.package',
+	fields:[
+		{name:'id',type:'int'},
+		{name:'opendate',type:'date'},
+		{name:'time',type:'date'}
+	],
+	pageSize:false,
+	sorters:[{property:'month',direction:'DESC'},{property:'id',direction:'DESC'}],
+	//groupField:'month',
+	//groupDir:'DESC',
+	proxy:{
+		url:Boot.appUrl('/sd/call/getPackage.do'),
+		extraParams:{}
+	}	
+});

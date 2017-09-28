@@ -1,0 +1,26 @@
+Ext.define('APP.store.rd.shouting.skill.tc',{
+    extend:'APP.store.cross',
+	autoLoad:false,
+	remoteSort:false,
+	alias:'store.rdShoutingSkillTc',
+	fields:[
+		{name:'id',type:'int'},
+		{name:'title',type:'string'},
+		{name:'content',type:'string'},
+		{name:'type',type:'string'},
+		{name:'ticker',type:'string'},
+		{name:'symbol',type:'string'},
+		{name:'daily',type:'string'},
+		{name:'daily_change',type:'string'},
+		{name:'weekly',type:'string'},
+		{name:'weekly_change',type:'string'},
+		{name:'image',type:'string'},
+		{name:'time',type:'date'}
+	],
+	pageSize:30,
+	grouper:{groupFn:function(record){return Ext.Date.format(record.data.time,'Y-m-d H:00')},property:'time',direction:'DESC'},			
+	proxy:{
+		type:'jsonp',
+		url:'//hk.api.webems.cn/tradingcentral/getRecord.do'
+	}
+});

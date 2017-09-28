@@ -1,0 +1,21 @@
+Ext.define('APP.store.rd.shouting.skill.call',{
+    extend:'APP.store.cross',
+	autoLoad:false,
+	remoteSort:false,
+	alias:'store.rdShoutingSkillCall',
+	fields:[
+		{name:'date',type:'string'},
+		{name:'open_time',type:'date'},
+		{name:'close_time',type:'date'},
+		{name:'creattime',type:'date'},
+		{name:'updatetime',type:'date'}
+	],
+	sorters:[{property:'id',direction:'DESC'}],
+	groupField:'creattime',
+	groupDir:'DESC',
+	proxy:{
+		url:Boot.appUrl('/tool/call.do'),
+		//url:Boot.appUrl('/rd/shouting/skill/call/getRecord.do'),
+		//extraParams:{success:1}
+	}
+});
