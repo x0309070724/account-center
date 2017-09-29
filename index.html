@@ -101,11 +101,11 @@
       Ext.manifest = profile;
 
       // Boot.loadJs('/OSS/lib/mt4/pushservice.js',true);
-      // src = //oss.thjzchina.com/lib/mt4/pushservice.js?_dc=......
-//      Boot.loadJs('//' + Boot.ossDomain + '/lib/mt4/pushservice.js', false);
-//      if (!Ext.touch) {
-//        Boot.loadJs('//' + Boot.ossDomain + '/lib/highstock.js', true);
-//      }
+      // src = //be.account.abc-123.co/lib/mt4/pushservice.js?_dc=......
+      Boot.loadJs('//' + Boot.ossDomain + '/lib/mt4/pushservice.js', false);
+      if (!Ext.touch) {
+        Boot.loadJs('//' + Boot.ossDomain + '/lib/highstock.js', true);
+      }
 //      if (ua.match(/MicroMessenger/i) == 'micromessenger') {
 //        Boot.loadJs('//map.qq.com/api/js?v=2.exp', true);
 //        Boot.loadJs('//res.wx.qq.com/open/js/jweixin-1.0.0.js', true);

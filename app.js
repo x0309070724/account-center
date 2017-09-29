@@ -64,7 +64,7 @@ Ext.application({
     var me = this,
       viewModel = this.getViewModel();
     // 为什么下面else里面的viewModel.set()会影响这里的viewModel的输出呢？是执行时机的问题？
-    // console.log(viewModel);
+    console.log(viewModel);
     if (key) {
       viewModel.set(key, json || {});
     } else {
@@ -141,6 +141,8 @@ Ext.application({
   updateAccount: function (json) {
     var account = json.account,
       roleManager = Ext.String.format('{0}', account.post_manager).split(',');
+    console.log(json);
+    console.log(roleManager);
 
     if (account.administrator) {
       account.roles = {
@@ -155,47 +157,48 @@ Ext.application({
       account.roles = {
         query: json.account.post_query,
         'export': json.account.post_export,
-        creat: roleManager[0] == 1,
-        update: roleManager[1] == 1,
-        remove: roleManager[2] == 1,
-        other: roleManager[3] == 1
+        creat: roleManager[0] === 1,
+        update: roleManager[1] === 1,
+        remove: roleManager[2] === 1,
+        other: roleManager[3] === 1
       };
     }
   },
 
   refreshMateData: function (callback) {
     // Mate.waiting('<h6>正在加载最新配置信息</h6>');
-    // var me = this;
+    var me = this;
     // console.log(APP);
     // console.log(this);
-    // Mate.ajax({
-    //   url: Boot.appUrl('/mate.do'),
-    //   success: function (json) {
-    //     // console.log(json);
-    //     APP.complete = true;
-    //     // ============================================================构造权限按钮
-    //     if (json.pushKey) {
-    //       me.updateAccount(json);
-    //       //Mate.setJsonStorage('CACHE',json);
-    //       //console.log(json.account.login,json.pushKey)
-    //     } else {
-    //       json.account = {};
-    //       json.account.wx_userface = '/resources/images/account.png';
-    //     }
-    //     me.data = json;
-    //     me.updateViewData(false, json);
-    //     // console.log(callback);
-    // return callback ? callback(json) : false;
-    //   },
-    //   failure: function (json) {
-    //     Mate.error(
-    //       json.message,
-    //       function () {
-    //         window.location.reload();
-    //       }
-    //     );
-    //   }
-    // });
+    Mate.ajax({
+      url: Boot.appUrl('/mate.do'),
+      success: function (json) {
+        // console.log('hahaha');
+        // console.log(json);
+        APP.complete = true;
+        // ==============================================================构造权限按钮
+        if (json.pushKey) {
+          me.updateAccount(json);
+          //Mate.setJsonStorage('CACHE',json);
+          //console.log(json.account.login,json.pushKey)
+        } else {
+          json.account = {};
+          json.account.wx_userface = '/resources/images/account.png';
+        }
+        me.data = json;
+        me.updateViewData(false, json);
+        // console.log(callback);
+        return callback ? callback(json) : false;
+      },
+      failure: function (json) {
+        Mate.error(
+          json.message,
+          function () {
+            window.location.reload();
+          }
+        );
+      }
+    });
   },
 
   pushCount: 0,

@@ -6,7 +6,7 @@ Ext.define('APP.mate.mate', {
     },
     proxyType: function () {
       // console.log(window.location.host);
-      return window.location.host === Boot.appDomain ? 'jsonp' : 'ajax';
+      return window.location.host !== Boot.appDomain ? 'jsonp' : 'ajax';
       // return 'ajax';
     },
     ajax: function (opts) {
@@ -14,14 +14,14 @@ Ext.define('APP.mate.mate', {
       // console.log(Mate.proxyType());
       switch (Mate.proxyType()) {
         case 'jsonp': {
-          console.log(444);
+          // console.log(444);
           Ext.data.JsonP.request({
             method: opts.method || 'GET',
             url: opts.url,
             params: opts.params || false,
             // timeout:opts.timeout||180*1000,
             callback: function (success, response) {
-              console.log(success, response);
+              // console.log(success, response);
               var rlt = response;
               if (success) {
                 if (rlt.success) {
@@ -48,17 +48,18 @@ Ext.define('APP.mate.mate', {
             params: opts.params || false,
             // timeout: opts.timeout || 180 * 1000,
             callback: function (options, success, response) {
-              // console.log(response);
+              // console.log(response.responseText);
               // console.log(success);
-              // var rlt = Ext.decode(response.responseText);
+              var rlt = Ext.decode(response.responseText);
               if (success) {
-                console.log(333);
-                // if (rlt.success) {
-                //   return opts.success ? opts.success(rlt) : false;
-                // } else {
-                //   Mate.checkErrCode(rlt, opts.failure);
-                //   return opts.failure ? opts.failure(rlt) : false;
-                // }
+                // console.log(333);
+                // console.log(rlt);
+                if (rlt.success) {
+                  return opts.success ? opts.success(rlt) : false;
+                } else {
+                  Mate.checkErrCode(rlt, opts.failure);
+                  return opts.failure ? opts.failure(rlt) : false;
+                }
               } else {
                 Mate.showTask('<h6>应用程序错误</h6>错误代码：' + rlt.status + '　' + rlt.statusText, true)
                 return opts.failure ? opts.failure(rlt) : false;

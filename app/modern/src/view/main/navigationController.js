@@ -7,23 +7,26 @@
       //conditions:{':main':'([a-z0-9/./]+)'},
       conditions: {':main': '([0-9a-zA-Z/\.]+)'},
       before: function (id, action) {
-        var me = this, account,
+        var me = this,
           navigation = Ext.Viewport.down('mainNavigation');
         // console.log(111);
         if (APP.complete) {
           action.resume();
           return false;
         }
-        // console.log(me);
-        Ext.get('appLoadingIndicator').remove();
-        if (!account) {
-          navigation.setActiveItem({xtype: 'login'});
-        } else {
-          navigation.setActiveItem({xtype: 'main'});
-          APP.app.pushStart();
-          action.resume();
-          //navigation.setMasked({xtype:'loadmask',message:'验证中...'});
-        }
+        APP.app.refreshMateData(function (json) {
+          console.log('hehehe');
+          Ext.get('appLoadingIndicator').remove();
+          console.log(json.pushKey);
+          if (!json.pushKey) {
+            navigation.setActiveItem({xtype: 'login'});
+          } else {
+            navigation.setActiveItem({xtype: 'main'});
+            APP.app.pushStart();
+            action.resume();
+            //navigation.setMasked({xtype:'loadmask',message:'验证中...'});
+          }
+        });
       }
     }
   },
@@ -229,7 +232,8 @@
     }
     form.setMasked({xtype: 'loadmask'});
     // button.setDisabled(true);
-    console.log(form.getValues());
+    // console.log(form.getValues());
+    // console.log(Boot.appUrl('/system/login/login.jsp'));
     Mate.ajax({
       url: Boot.appUrl('/system/login/login.jsp'),
       params: form.getValues(),
@@ -240,7 +244,7 @@
         console.log(111);
         if (json.success) {
           console.log(222);
-          // form.unmask();
+          form.unmask();
           // Removes all items currently in the Container, optionally destroying them all.
           navigation.removeAll();
           navigation.setActiveItem({xtype: 'main'});

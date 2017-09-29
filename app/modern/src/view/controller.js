@@ -101,7 +101,8 @@
   },
   // ==========================================================================================================MAIN INIT
   onMainInitialize: function (tabpanel) {
-    var account = APP.app.getAppData('account'),
+    // var account = APP.app.getAppData('account'),
+    var account = {username: '666666', password: 'abc123456', roles: {query: 100}},
       roles = account.roles,
       items = [];
     // console.log(account);
@@ -114,7 +115,7 @@
           {root: 2000, xtype: 'rdIndex', title: '交易', iconCls: 'f-mt mt-chart-4', userCls: 'x-ui-gold'},
           {root: 3000, xtype: 'hrIndex', title: '通讯录', iconCls: 'f-mt mt-additve', userCls: 'x-ui-gold'},
           {root: 4000, xtype: 'analysisIndex', title: '设置', iconCls: 'f-mt mt-chart-pie-3', userCls: 'x-ui-orange'},
-          {root: 5000, xtype: 'accountIndex', title: '我', iconCls: 'f-mt mt-account-audit', userCls: 'x-ui-green'}
+          {root: 5000, xtype: 'accountIndex', title: '系统主页', iconCls: 'f-mt mt-account-audit', userCls: 'x-ui-green'}
         ];
       }
         break;
@@ -156,6 +157,7 @@
     var tabbar = tabpanel.down('tabbar'),
       state = Mate.getCache('touch/state') || {},
       activeItem = state.navigation ? tabpanel.down('[root=' + state.navigation + ']') : 0;
+    // console.log(state);
     tabpanel.setActiveItem(activeItem);
     tabbar.setUserCls(tabpanel.getActiveItem().getUserCls());
   },

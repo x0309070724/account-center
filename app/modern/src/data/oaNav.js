@@ -129,25 +129,20 @@ Ext.define('APP.data.oaNav',{
 			},
 			{id:8000,iconCls:'f-mt mt-dollar-4',text:'账户',view:'account.index',
 				children:[
-					{id:8001,iconCls:'f-mt mt-out-audit',text:'我',expanded:true,children:[
-						{leaf:true,id:800101,iconCls:'f-mt mt-management',text:'通讯录',description:'企业内部员工通讯录',view:'hr.staff.contacts'}
+					{id:8001,iconCls:'f-mt mt-out-audit',text:'账户',expanded:true,children:[
+						{leaf:true,id:800101,iconCls:'f-mt mt-management',text:'账户信息',description:'账户详情',view:'hr.staff.contacts'}
 					]},
-					{id:8002,iconCls:'f-mt mt-out-audit',text:'公司',expanded:true,children:[
-						{leaf:true,id:800201,iconCls:'f-mt mt-tree-3',text:'组织架构',view:'hr.team.tree'},
-						{leaf:true,id:800202,iconCls:'f-mt mt-tree-2',text:'人员架构',view:'hr.staff.tree'}
+					{id:8002,iconCls:'f-mt mt-out-audit',text:'交易',expanded:true,children:[
+						{leaf:true,id:800201,iconCls:'f-mt mt-tree-3',text:'历史交易',view:'hr.team.tree'}
 					]},
-					{id:8004,iconCls:'f-mt mt-out-audit',text:'档案更新',expanded:true,children:[
-						{leaf:true,id:800401,iconCls:'f-mt mt-mobile',text:'手机',value:'',view:'account.update.mobile'},
-						{leaf:true,id:800402,iconCls:'f-mt mt-email',text:'Email',value:'',view:'account.update.email'},
-						{leaf:true,id:800403,iconCls:'f-mt mt-wechat',text:'微信',value:'',view:'account.update.wechat'},
-						{leaf:true,id:800404,iconCls:'f-mt mt-qq',text:'QQ',value:'',view:'account.update.qq'}
+					{id:8004,iconCls:'f-mt mt-out-audit',text:'订单',expanded:true,children:[
+						{leaf:true,id:800401,iconCls:'f-mt mt-mobile',text:'持仓订单',value:'',view:'account.update.mobile'}
 					]},
-					{id:8005,iconCls:'f-mt mt-out-audit',text:'账户安全',expanded:true,children:[
-						{leaf:true,id:800501,iconCls:'f-mt mt-password',text:'登陆密码',value:'',view:'account.update.password'},
-						{leaf:true,id:800502,iconCls:'f-mt mt-password-safe',text:'安全密码',value:'',view:'account.update.passwordSafe'}
+					{id:8005,iconCls:'f-mt mt-out-audit',text:'技术分析',expanded:true,children:[
+						{leaf:true,id:800501,iconCls:'f-mt mt-password',text:'分析详情',value:'',view:'account.update.password'}
 					]}
 				]
 			}
 		]
 	}
-})
+});

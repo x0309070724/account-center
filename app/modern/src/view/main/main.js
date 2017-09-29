@@ -5,9 +5,6 @@ Ext.define('APP.view.main.main', {
   defaults: {
     // If true, child items will be destroyed as soon as they are removed from this container.
     autoDestroy: true
-    // layout: {animation: {type: 'cover', direction: 'left'}},
-    // layout: {type: 'card', animation: {type: 'cover', direction: 'left'}},
-    // layout: {type: 'card', animation: {type: 'flip'}},
   },
   // 满足安装向导、Tab选项卡等应用面板显示的需求
   layout: {type: 'card', animation: false},
