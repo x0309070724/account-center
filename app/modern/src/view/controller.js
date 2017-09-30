@@ -29,6 +29,7 @@
     // Stops layouts from happening in the whole framework.
     // It's useful to suspend the layout activity while updating multiple components and containers:
     Ext.suspendLayouts();
+    console.log(record);
     if (record.data.view) {
       this.redirectTo('#' + record.data.id);
     } else if (record.data.handler) {
@@ -101,21 +102,21 @@
   },
   // ==========================================================================================================MAIN INIT
   onMainInitialize: function (tabpanel) {
-    // var account = APP.app.getAppData('account'),
-    var account = {username: '666666', password: 'abc123456', roles: {query: 100}},
+    var account = APP.app.getAppData('account'),
+      // var account = {username: '666666', password: 'abc123456', roles: {query: 100}},
       roles = account.roles,
       items = [];
-    // console.log(account);
-    switch (parseInt(roles.query)) {
+    console.log(account);
+    switch (parseInt(account.id)) {
       // ===============================================================总监
       case 1:
-      case 100: {
+      case 666666: {
         items = [
-          {root: 1000, xtype: 'sdIndex', title: '销售', iconCls: 'f-mt mt-access', userCls: 'x-ui-corange'},
-          {root: 2000, xtype: 'rdIndex', title: '交易', iconCls: 'f-mt mt-chart-4', userCls: 'x-ui-gold'},
-          {root: 3000, xtype: 'hrIndex', title: '通讯录', iconCls: 'f-mt mt-additve', userCls: 'x-ui-gold'},
-          {root: 4000, xtype: 'analysisIndex', title: '设置', iconCls: 'f-mt mt-chart-pie-3', userCls: 'x-ui-orange'},
-          {root: 5000, xtype: 'accountIndex', title: '系统主页', iconCls: 'f-mt mt-account-audit', userCls: 'x-ui-green'}
+          // {root: 1000, xtype: 'sdIndex', title: '销售', iconCls: 'f-mt mt-access', userCls: 'x-ui-corange'},
+          // {root: 2000, xtype: 'rdIndex', title: '交易', iconCls: 'f-mt mt-chart-4', userCls: 'x-ui-gold'},
+          // {root: 3000, xtype: 'hrIndex', title: '通讯录', iconCls: 'f-mt mt-additve', userCls: 'x-ui-gold'},
+          // {root: 4000, xtype: 'analysisIndex', title: '设置', iconCls: 'f-mt mt-chart-pie-3', userCls: 'x-ui-orange'},
+          {root: 5000, xtype: 'systemIndex', title: '系统主页', iconCls: 'f-mt mt-account-audit', userCls: 'x-ui-green'}
         ];
       }
         break;

@@ -1,6 +1,6 @@
-﻿Ext.define('APP.view.account.controller', {
+﻿Ext.define('APP.view.system.controller', {
   extend: 'APP.view.controller',
-  alias: 'controller.account',
+  alias: 'controller.system',
   // ===========================================================================================================退出系统
   onLogoutTap: function (button) {
     Mate.confirm('<h6>确定要退出系统？</h6>退出后，将清空当前登录用户的缓存信息并返回至登录界面...',

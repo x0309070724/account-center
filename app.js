@@ -12,6 +12,7 @@ Ext.application({
     'post'
   ],
   getAppData: function (key) {
+    // crm/basis
     var data = this.data;
     if (key) {
       var arrKey = key.split('/');
@@ -174,7 +175,7 @@ Ext.application({
       url: Boot.appUrl('/mate.do'),
       success: function (json) {
         // console.log('hahaha');
-        // console.log(json);
+        console.log(json);
         APP.complete = true;
         // ==============================================================构造权限按钮
         if (json.pushKey) {

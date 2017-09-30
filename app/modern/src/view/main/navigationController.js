@@ -235,20 +235,18 @@
     // console.log(form.getValues());
     // console.log(Boot.appUrl('/system/login/login.jsp'));
     Mate.ajax({
-      url: Boot.appUrl('/system/login/login.jsp'),
+      url: Boot.appUrl('/login.do'),
       params: form.getValues(),
-      method: 'GET',
-      // type: 'jsonp',
-      // dataType: 'jsonp',
       success: function (json, opts) {
-        console.log(111);
-        if (json.success) {
-          console.log(222);
-          form.unmask();
-          // Removes all items currently in the Container, optionally destroying them all.
-          navigation.removeAll();
-          navigation.setActiveItem({xtype: 'main'});
-        }
+        console.log(json);
+        APP.app.refreshMateData(function (json) {
+          if (json.success) {
+            // form.unmask();
+            // Removes all items currently in the Container, optionally destroying them all.
+            navigation.removeAll();
+            navigation.setActiveItem({xtype: 'main'});
+          }
+        });
       },
       failure: function (json, opts) {
         form.unmask();

@@ -22,6 +22,7 @@ Ext.define('APP.mate.mate', {
             // timeout:opts.timeout||180*1000,
             callback: function (success, response) {
               // console.log(success, response);
+              // console.log(success, response);
               var rlt = response;
               if (success) {
                 if (rlt.success) {
