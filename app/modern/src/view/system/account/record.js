@@ -60,7 +60,7 @@ Ext.define('APP.view.system.account.record', {
     '</div>'
   ],
   listeners: {
-    itemtap: 'onRecordItemtap'
+    itemtap: 'onRecordTap'
     // painted: function (me) {
     //   var account = APP.app.getAppData('account');
     //   console.log(account);

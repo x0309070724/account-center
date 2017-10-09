@@ -19,7 +19,7 @@ var Boot = Boot || {
   //   // }
   //   // js有对象自己的属性和原型属性，for in 会迭代原型属性，所以编译器会报一个hasOwnProperty() check的警告
   //   // 建议：
-  //   // 1、不要用for in遍历数组，全部统一采用标准的for循环变量数组(我们无法保证我们引入的js是否会采用prototype扩展原生的Array)
+  //   // 1、不要用for in遍历数组，全部统一采用标准的for循环遍历数组(我们无法保证我们引入的js是否会采用prototype扩展原生的Array)
   //   // 2、如果要对js的原生类扩展的时候，不要采用prototype了
   //   for (var property in source) {
   //     destination[property] = source[property];

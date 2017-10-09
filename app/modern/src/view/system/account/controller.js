@@ -14,6 +14,34 @@
   },
 
   // ===========================================================================================================账户详情
+  onRecordTap: function (list, idx, el, record) {
+    var navigation = list.up('navigationview');
+    // console.log(record.data.account.login);
+    // var login = record.data.account.login;
+    // login = parseInt(login) || 0;
+    var view = Ext.create({
+      xtype: 'systemAccountDetailInfo',
+      // parameter: {login: login},
+      title: '账户详情信息==> ' + record.data.account.namecn
+    });
+    navigation.push(view);
+    // console.log(record);
+    view.setRecord(record);
+  },
+
+  // ========================================================================================================历史订单详情
+  onHistoryOrderTap: function (list, idx, el, record) {
+    var navigation = list.up('navigationview');
+    var view = Ext.create({
+      xtype: 'systemAccountHistoryOrder',
+      // parameter: {login: login},
+      title: '历史订单详情信息'
+    });
+    navigation.push(view);
+    view.setRecord(record);
+  },
+
+  // ===========================================================================================================账户详情
   onRecordItemtap: function (list, idx, el, record) {
     var navigation = list.up('navigationview');
     // console.log(record);
@@ -39,6 +67,7 @@
     // console.log(parameter);
     Mate.ajax({
       // url:Boot.appUrl('/sd/account/checkMt4Login.do'),
+      // url: Boot.appUrl('/sd/account/manager/getRecord.do'),
       url: Boot.appUrl('/sd/account/manager/getRecord.do'),
       params: {login: parameter.login},
       success: function (json, opts) {
@@ -47,7 +76,8 @@
             mt4Data = buffers.getUser(parameter.login);
           var data = json.plant[0];
           data.mt4Data = mt4Data;
-          //console.log(parameter.login,data)
+          // console.log(parameter.login, data);
+          console.log(parameter.login, data);
           view.setData(data);
           view.unmask();
         });

@@ -141,12 +141,12 @@ Ext.define('APP.data.oaNav', {
           },
           {
             id: 8002, iconCls: 'f-mt mt-out-audit', text: '交易', expanded: true, children: [
-            {leaf: true, id: 800201, iconCls: 'f-mt mt-tree-3', text: '历史交易', view: 'hr.team.tree'}
+            {leaf: true, id: 800201, iconCls: 'f-mt mt-tree-3', text: '历史订单', view: 'system.account.order'}
           ]
           },
           {
             id: 8004, iconCls: 'f-mt mt-out-audit', text: '订单', expanded: true, children: [
-            {leaf: true, id: 800401, iconCls: 'f-mt mt-mobile', text: '持仓订单', value: '', view: 'account.update.mobile'}
+            {leaf: true, id: 800401, iconCls: 'f-mt mt-mobile', text: '持仓订单', value: '', view: 'system.account.position'}
           ]
           },
           {
