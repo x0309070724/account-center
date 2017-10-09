@@ -146,7 +146,14 @@ Ext.define('APP.data.oaNav', {
           },
           {
             id: 8004, iconCls: 'f-mt mt-out-audit', text: '订单', expanded: true, children: [
-            {leaf: true, id: 800401, iconCls: 'f-mt mt-mobile', text: '持仓订单', value: '', view: 'system.account.position'}
+            {
+              leaf: true,
+              id: 800401,
+              iconCls: 'f-mt mt-mobile',
+              text: '持仓订单',
+              value: '',
+              view: 'system.account.position'
+            }
           ]
           },
           {
@@ -161,6 +168,68 @@ Ext.define('APP.data.oaNav', {
             }
           ]
           }
+        ]
+      },
+      {
+        id: 7000, iconCls: 'f-mt mt-dollar-4', text: '账户管理', view: 'account.index',
+        children: [
+          {
+            id: 7001, iconCls: 'f-mt mt-out-audit', text: '常用', expanded: true, children: [
+            {
+              leaf: true,
+              id: 700101,
+              iconCls: 'f-mt mt-management',
+              text: '账户信息',
+              description: '',
+              view: 'system.account.record'
+            },
+            {
+              leaf: true,
+              id: 700102,
+              iconCls: 'f-mt mt-management',
+              text: '账户统计',
+              description: '',
+              view: 'system.account.record'
+            },
+            {
+              leaf: true,
+              id: 700103,
+              iconCls: 'f-mt mt-management',
+              text: '资产记录',
+              description: '',
+              view: 'system.account.record'
+            }
+          ]
+          },
+          // {
+          //   id: 8002, iconCls: 'f-mt mt-out-audit', text: '交易', expanded: true, children: [
+          //   {leaf: true, id: 800201, iconCls: 'f-mt mt-tree-3', text: '历史订单', view: 'system.account.order'}
+          // ]
+          // },
+          // {
+          //   id: 8004, iconCls: 'f-mt mt-out-audit', text: '订单', expanded: true, children: [
+          //   {
+          //     leaf: true,
+          //     id: 800401,
+          //     iconCls: 'f-mt mt-mobile',
+          //     text: '持仓订单',
+          //     value: '',
+          //     view: 'system.account.position'
+          //   }
+          // ]
+          // },
+          // {
+          //   id: 8005, iconCls: 'f-mt mt-out-audit', text: '技术分析', expanded: true, children: [
+          //   {
+          //     leaf: true,
+          //     id: 800501,
+          //     iconCls: 'f-mt mt-password',
+          //     text: '分析详情',
+          //     value: '',
+          //     view: 'account.update.password'
+          //   }
+          // ]
+          // }
         ]
       }
     ]
