@@ -15,9 +15,9 @@ Ext.define('APP.view.account.index', {
       }
     ]
     },
-    {xtype: 'navList', navigation: 7001, hideTitle: true},
+    {xtype: 'navList', navigation: 7001, hideTitle: false},
     {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 7002, hideTitle: false},
-    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 7003},
+    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 7003}
   ],
   listeners: {}
 });

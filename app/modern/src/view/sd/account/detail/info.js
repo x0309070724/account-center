@@ -97,14 +97,3 @@ Ext.define('APP.view.sd.account.detail.info',{
 		initialize:'onDetailInfoInitialize'
 	}
 });
-
-
-
-
-
-
-
-
-
-
-

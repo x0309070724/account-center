@@ -1,3 +1,12 @@
+/**
+  覆盖ext的样式
+ */
+
+/*.x-listitem-tool-dock > .x-inner-el {*/
+/*padding: 0;*/
+/*margin: 10px 0;*/
+/*}*/
+
 html {
   font-size: 1em;
   color: #081424;
@@ -1104,15 +1113,24 @@ html * {
   border-top: .5px solid #c8c7cc;
 }
 
-.x-ui-list .x-ui-left {
-  position: relative;
-  width: 70%;
-  padding: 5px 10px;
-  /*把 font-size 设置为基于父元素的一个百分比值*/
-  font-size: 150%;
-  /*设置数字，此数字会与当前的字体尺寸相乘来设置行间距*/
-  line-height: 1.2;
-  color: #3a97ff;
+/*.x-ui-list .x-ui-left {*/
+/*position: relative;*/
+/*width: 30%;*/
+/*!*把 font-size 设置为基于父元素的一个百分比值*!*/
+/*font-size: 150%;*/
+/*!*设置数字，此数字会与当前的字体尺寸相乘来设置行间距*!*/
+/*line-height: 1.2;*/
+/*color: #3a97ff;*/
+/*}*/
+
+.x-ui-list .x-innerhtml {
+  /*border: 1px solid #ccc;*/
+  /*border-radius: 3px;*/
+}
+
+.x-ui-list .x-ui-left div {
+  color: #666;
+  transform: rotate(90deg);
 }
 
 /*height:5.6em;line-height:5.6em;*/
@@ -1140,20 +1158,35 @@ html * {
 }
 
 .x-ui-list .x-ui-left.x-ui-block {
-  width: 33%;
-  background-color: #f9f9f9;
-  border-radius: 3px;
-  padding: 0 .4em;
-  text-shadow: 1px 1px 2px #fff;
-  color: #bbb;
+  width: 10%;
+  height: 100px;
   min-height: 1.65em;
-  line-height: 1.65em;
+  line-height: 100px;
+  text-align: center;
+  background-color: #ddd;
+  border-radius: 3px;
+  text-shadow: 1px 1px 2px #fff;
 }
 
 .x-ui-list .x-ui-explain {
-  width: 30%;
+  margin-left: 10px;
+  padding-left: 5px;
+  /*width: 90%;*/
   font-size: 100%;
   overflow: hidden;
+}
+
+.x-ui-list .x-ui-explain .bank-icon {
+  margin: 5px 0;
+}
+
+.x-ui-list .x-ui-explain .card-no, .branch {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #bbb;
 }
 
 .x-ui-list .x-ui-explain > p {

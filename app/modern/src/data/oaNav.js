@@ -178,58 +178,56 @@ Ext.define('APP.data.oaNav', {
             {
               leaf: true,
               id: 700101,
-              iconCls: 'f-mt mt-management',
+              iconCls: 'f-mt mt-dollar-4',
               text: '账户信息',
               description: '',
-              view: 'system.account.record'
+              view: 'account.info.index'
             },
             {
               leaf: true,
               id: 700102,
-              iconCls: 'f-mt mt-management',
+              iconCls: 'f-mt mt-results',
               text: '账户统计',
               description: '',
-              view: 'system.account.record'
+              view: 'account.statistics.index'
             },
             {
               leaf: true,
               id: 700103,
-              iconCls: 'f-mt mt-management',
+              iconCls: 'f-mt mt-dollar-1',
               text: '资产记录',
               description: '',
               view: 'system.account.record'
             }
           ]
           },
-          // {
-          //   id: 8002, iconCls: 'f-mt mt-out-audit', text: '交易', expanded: true, children: [
-          //   {leaf: true, id: 800201, iconCls: 'f-mt mt-tree-3', text: '历史订单', view: 'system.account.order'}
-          // ]
-          // },
-          // {
-          //   id: 8004, iconCls: 'f-mt mt-out-audit', text: '订单', expanded: true, children: [
-          //   {
-          //     leaf: true,
-          //     id: 800401,
-          //     iconCls: 'f-mt mt-mobile',
-          //     text: '持仓订单',
-          //     value: '',
-          //     view: 'system.account.position'
-          //   }
-          // ]
-          // },
-          // {
-          //   id: 8005, iconCls: 'f-mt mt-out-audit', text: '技术分析', expanded: true, children: [
-          //   {
-          //     leaf: true,
-          //     id: 800501,
-          //     iconCls: 'f-mt mt-password',
-          //     text: '分析详情',
-          //     value: '',
-          //     view: 'account.update.password'
-          //   }
-          // ]
-          // }
+          {
+            id: 7002, iconCls: 'f-mt mt-out-audit', text: '资料更改', expanded: true, children: [
+            {leaf: true, id: 700201, iconCls: 'f-mt mt-tree-3', text: '更改杠杆', view: 'system.account.order'},
+            {leaf: true, id: 700202, iconCls: 'f-mt mt-mobile', text: '更换手机', view: 'system.account.order'},
+            {leaf: true, id: 700203, iconCls: 'f-mt mt-email', text: '更换电邮', view: 'system.account.order'}
+          ]
+          },
+          {
+            id: 7003, iconCls: 'f-mt mt-out-audit', text: '安全设置', expanded: true, children: [
+            {
+              leaf: true,
+              id: 700301,
+              iconCls: 'f-mt mt-password',
+              text: '主密码',
+              value: '',
+              view: 'system.account.position'
+            },
+            {
+              leaf: true,
+              id: 700302,
+              iconCls: 'f-mt mt-password-safe',
+              text: '投资人密码',
+              value: '',
+              view: 'system.account.position'
+            }
+          ]
+          }
         ]
       }
     ]

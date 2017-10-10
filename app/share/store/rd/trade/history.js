@@ -4,7 +4,7 @@ Ext.define('APP.store.rd.trade.history', {
   model: 'APP.model.sd.trade.record',
   sorters: [{property: 'close_time', direction: 'DESC'}, {property: 'id', direction: 'DESC'}],
   proxy: {
-    url: Boot.appUrl('/sd/trade/history/getRecord.do'),
+    url: Boot.appUrl('/history/getRecord.do'),
     extraParams: false
   }
 });

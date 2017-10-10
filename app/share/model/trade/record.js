@@ -24,7 +24,9 @@
     {name: 'comment', type: 'string'},
     {name: 'clear', type: 'number'},
     {name: 'timestamp', type: 'date'},
-    {name: 'account_typeid', type: 'int'}, {name: 'account_type', type: 'string'},
-    {name: 'account_namecn', type: 'string'}, {name: 'account_name', type: 'string'}
+    {name: 'account_typeid', type: 'int'},
+    {name: 'account_type', type: 'string'},
+    {name: 'account_namecn', type: 'string'},
+    {name: 'account_name', type: 'string'}
   ]
 });
