@@ -197,15 +197,15 @@ Ext.define('APP.data.oaNav', {
               iconCls: 'f-mt mt-dollar-1',
               text: '资产记录',
               description: '',
-              view: 'system.account.record'
+              view: 'account.asset.record'
             }
           ]
           },
           {
             id: 7002, iconCls: 'f-mt mt-out-audit', text: '资料更改', expanded: true, children: [
-            {leaf: true, id: 700201, iconCls: 'f-mt mt-tree-3', text: '更改杠杆', view: 'system.account.order'},
-            {leaf: true, id: 700202, iconCls: 'f-mt mt-mobile', text: '更换手机', view: 'system.account.order'},
-            {leaf: true, id: 700203, iconCls: 'f-mt mt-email', text: '更换电邮', view: 'system.account.order'}
+            {leaf: true, id: 700201, iconCls: 'f-mt mt-tree-3', text: '更改杠杆', view: 'account.update.leverage'},
+            {leaf: true, id: 700202, iconCls: 'f-mt mt-mobile', text: '更换手机', view: 'account.update.mobile'},
+            {leaf: true, id: 700203, iconCls: 'f-mt mt-email', text: '更换电邮', view: 'account.update.email'}
           ]
           },
           {
@@ -216,7 +216,7 @@ Ext.define('APP.data.oaNav', {
               iconCls: 'f-mt mt-password',
               text: '主密码',
               value: '',
-              view: 'system.account.position'
+              view: 'account.update.password'
             },
             {
               leaf: true,
@@ -224,7 +224,7 @@ Ext.define('APP.data.oaNav', {
               iconCls: 'f-mt mt-password-safe',
               text: '投资人密码',
               value: '',
-              view: 'system.account.position'
+              view: 'account.update.passwordInvestor'
             }
           ]
           }

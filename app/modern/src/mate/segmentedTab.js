@@ -5,13 +5,7 @@ Ext.define('APP.mate.segmentedTab', {
   ui: 'tab',
   docked: 'bottom',
   defaults: {xtype: 'button', iconAlign: 'top', ripple: {color: 'blue'}, flex: 1},
-  items: [
-    // 貌似没啥用，干掉
-    // {text: 'TEXT'},
-    // {text: 'TEXT'},
-    // {text: 'TEXT'},
-    // {text: 'TEXT'}
-  ],
+  items: [],
   listeners: {
     // Fires when the value changes.
     change: function (segmented, value) {
@@ -21,6 +15,8 @@ Ext.define('APP.mate.segmentedTab', {
         params = view.parameter || {};
       // console.log(params);
       // console.log(value);
+      // console.log(segmented.name);
+      // console.log(store);
       if (params.datepart && !params.menu && !params.startdate) {
         var dt = new Date();
         switch (params.datepart) {
@@ -57,6 +53,8 @@ Ext.define('APP.mate.segmentedTab', {
             boxDatepart = view.down('boxdatepart'),
             boxTotal = view.down('boxtotal'),
             cartesian = view.down('cartesian');
+          // console.log(records);
+          // console.log(store.chartData);
           if (cartesian) {
             cartesian.getStore().setData(store.chartData);
             cartesian.setHidden(false);
@@ -65,9 +63,12 @@ Ext.define('APP.mate.segmentedTab', {
             // console.log(params);
             boxDatepart.setHidden(!params.startdate);
             var html = '';
+            // console.log(params.startdate);
             if (params.startdate === params.enddate) {
-              html = '<b>' + params.enddate + '<b>'
+              // console.log(111);
+              // html = '<b>' + params.enddate + '<b>'
             } else {
+
               html = 'From <b>' + params.startdate + '</b> To <b>' + params.enddate + '</b>'
             }
             boxDatepart.setHtml(html);

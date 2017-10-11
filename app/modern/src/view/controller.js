@@ -29,7 +29,7 @@
     // Stops layouts from happening in the whole framework.
     // It's useful to suspend the layout activity while updating multiple components and containers:
     Ext.suspendLayouts();
-    console.log(record);
+    // console.log(record);
     if (record.data.view) {
       this.redirectTo('#' + record.data.id);
     } else if (record.data.handler) {
@@ -114,9 +114,9 @@
         items = [
           // {root: 1000, xtype: 'sdIndex', title: '销售', iconCls: 'f-mt mt-access', userCls: 'x-ui-corange'},
           // {root: 2000, xtype: 'rdIndex', title: '交易', iconCls: 'f-mt mt-chart-4', userCls: 'x-ui-gold'},
-          // {root: 3000, xtype: 'hrIndex', title: '通讯录', iconCls: 'f-mt mt-additve', userCls: 'x-ui-gold'},
-          {root: 4000, xtype: 'accountIndex', title: '账户管理', iconCls: 'f-mt mt-chart-pie-3', userCls: 'x-ui-orange'},
-          {root: 5000, xtype: 'systemIndex', title: '系统主页', iconCls: 'f-mt mt-account-audit', userCls: 'x-ui-green'}
+          {root: 3000, xtype: 'transitionIndex', title: '交易指引', iconCls: 'f-mt mt-chart-4', userCls: 'x-ui-gold'},
+          {root: 4000, xtype: 'accountIndex', title: '账户管理', iconCls: 'f-mt mt-chart-pie-3', userCls: 'x-ui-orange'}
+          // {root: 5000, xtype: 'systemIndex', title: '系统主页', iconCls: 'f-mt mt-account-audit', userCls: 'x-ui-green'}
         ];
       }
         break;

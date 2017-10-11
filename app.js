@@ -65,7 +65,7 @@ Ext.application({
     var me = this,
       viewModel = this.getViewModel();
     // 为什么下面else里面的viewModel.set()会影响这里的viewModel的输出呢？是执行时机的问题？
-    console.log(viewModel);
+    // console.log(viewModel);
     if (key) {
       viewModel.set(key, json || {});
     } else {
@@ -142,8 +142,8 @@ Ext.application({
   updateAccount: function (json) {
     var account = json.account,
       roleManager = Ext.String.format('{0}', account.post_manager).split(',');
-    console.log(json);
-    console.log(roleManager);
+    // console.log(json);
+    // console.log(roleManager);
 
     if (account.administrator) {
       account.roles = {
@@ -175,7 +175,7 @@ Ext.application({
       url: Boot.appUrl('/mate.do'),
       success: function (json) {
         // console.log('hahaha');
-        console.log(json);
+        // console.log(json);
         APP.complete = true;
         // ==============================================================构造权限按钮
         if (json.pushKey) {

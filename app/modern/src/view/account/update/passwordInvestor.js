@@ -1,12 +1,14 @@
-Ext.define('APP.view.account.update.passwordSafe', {
+Ext.define('APP.view.account.update.passwordInvestor', {
   extend: 'Ext.form.Panel',
-  xtype: 'updatePasswordSafe',
+  xtype: 'updatepasswordInvestor',
   controller: 'account',
   items: [
     {
       xtype: 'fieldset', name: 'mateNew',
       items: [
         {xtype: 'textfield', name: 'oldValue', hidden: true},
+        {xtype: 'field', label: '提示：投资人密码用于交易客户端的登陆（仅限数据查看）'},
+        {xtype: 'textfield', name: 'login', label: '账号', readOnly: true, bind: {value: '{account.login}'}},
         {
           xtype: 'passwordfield',
           name: 'newValue',
@@ -19,7 +21,7 @@ Ext.define('APP.view.account.update.passwordSafe', {
       ]
     },
     {xtype: 'field', name: 'field', value: 'password_safe', hidden: true},
-    {xtype: 'field', name: 'fieldName', value: '安全密码', hidden: true},
+    {xtype: 'field', name: 'fieldName', value: '投资人密码', hidden: true},
     {
       xtype: 'button',
       text: '确认更换',
@@ -39,11 +41,11 @@ Ext.define('APP.view.account.update.passwordSafe', {
     var account = APP.app.getAppData('account'),
       button = me.down('button[name=submit]'),
       mateNew = me.down('fieldset[name=mateNew]');
-    if (account.password_safe === '') {
+    if (account.password_investor === '') {
       button.setText('设置');
       mateNew.setTitle('设置安全密码');
     } else {
-      button.setText('更换安全密码');
+      button.setText('确认更换');
       mateNew.setTitle('更换为');
     }
   }
