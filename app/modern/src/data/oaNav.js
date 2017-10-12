@@ -75,24 +75,77 @@ Ext.define('APP.data.oaNav', {
 // 					]}
 // 				]
 // 			},
-// 			{id:2000,iconCls:'f-mt mt-dollar-4',text:'交易',view:'rd.index',
-// 				children:[
-// 					{id:2004,iconCls:'f-mt mt-out-audit',text:'交易报表',expanded:true,children:[
-// 						{leaf:true,id:200401,iconCls:'f-mt mt-customer',text:'账户',view:'rd.analysis.account.report',parameter:{field:'funds'}},
-// 						{leaf:true,id:200402,iconCls:'f-mt mt-additve',text:'代理',view:'rd.analysis.agent.report',parameter:{field:'agent'}},
-// 						{leaf:true,id:200403,iconCls:'f-mt mt-additve',text:'商品',view:'rd.analysis.symbol.report',parameter:{field:'trade'}}
-// 					]},
-// 					{id:2005,iconCls:'f-mt mt-out-audit',text:'持仓报表',expanded:true,children:[
-// 						{leaf:true,id:200501,iconCls:'f-mt mt-customer',text:'账户',view:'rd.analysis.account.market',parameter:{field:'funds'}},
-// 						{leaf:true,id:200502,iconCls:'f-mt mt-additve',text:'代理',view:'rd.analysis.agent.market',parameter:{field:'agent'}},
-// 						{leaf:true,id:200503,iconCls:'f-mt mt-additve',text:'商品',view:'rd.analysis.symbol.market',parameter:{field:'trade'}}
-// 					]},
-// 					{id:2008,iconCls:'f-mt mt-out-audit',text:'QQ 群',expanded:true,children:[
-// 						{leaf:true,id:200801,iconCls:'f-mt mt-users',text:'群查询',view:'rd.qun.record'},
-// 						{leaf:true,id:200802,iconCls:'f-mt mt-user-3',text:'成员查询',view:'rd.qun.memberRecord'}
-// 					]}
-// 				]
-// 			},
+      {
+        id: 2000, iconCls: 'f-mt mt-dollar-4', text: '交易', view: 'transition.index',
+        children: [
+          {
+            id: 2004, iconCls: 'f-mt mt-out-audit', text: '交易报表', expanded: true, children: [
+            {
+              leaf: true,
+              id: 200401,
+              iconCls: 'f-mt mt-customer',
+              text: '交易报表（日、周、月）',
+              view: 'transition.report.report',
+              // parameter: {field: 'funds'}
+            }
+          ]
+          },
+          {
+            id: 2005, iconCls: 'f-mt mt-out-audit', text: '交易分析', expanded: true, children: [
+            {
+              leaf: true,
+              id: 200501,
+              iconCls: 'f-mt mt-customer',
+              text: '综合分析',
+              view: 'transition.analysis.complex',
+              // parameter: {field: 'funds'}
+            },
+            {
+              leaf: true,
+              id: 200502,
+              iconCls: 'f-mt mt-customer',
+              text: '商品',
+              // view: 'transition.report.report',
+              // parameter: {field: 'funds'}
+            }
+          ]
+          },
+          // {
+          //   id: 2005, iconCls: 'f-mt mt-out-audit', text: '持仓报表', expanded: true, children: [
+          //   {
+          //     leaf: true,
+          //     id: 200501,
+          //     iconCls: 'f-mt mt-customer',
+          //     text: '账户',
+          //     view: 'rd.analysis.account.market',
+          //     parameter: {field: 'funds'}
+          //   },
+          //   {
+          //     leaf: true,
+          //     id: 200502,
+          //     iconCls: 'f-mt mt-additve',
+          //     text: '代理',
+          //     view: 'rd.analysis.agent.market',
+          //     parameter: {field: 'agent'}
+          //   },
+          //   {
+          //     leaf: true,
+          //     id: 200503,
+          //     iconCls: 'f-mt mt-additve',
+          //     text: '商品',
+          //     view: 'rd.analysis.symbol.market',
+          //     parameter: {field: 'trade'}
+          //   }
+          // ]
+          // },
+          // {
+          //   id: 2008, iconCls: 'f-mt mt-out-audit', text: 'QQ 群', expanded: true, children: [
+          //   {leaf: true, id: 200801, iconCls: 'f-mt mt-users', text: '群查询', view: 'rd.qun.record'},
+          //   {leaf: true, id: 200802, iconCls: 'f-mt mt-user-3', text: '成员查询', view: 'rd.qun.memberRecord'}
+          // ]
+          // }
+        ]
+      },
 // 			{id:3000,iconCls:'f-mt mt-dollar-4',text:'人事',view:'hr.index',
 // 				children:[
 // 					{id:3001,iconCls:'f-mt mt-out-audit',text:'公司',expanded:true,children:[

@@ -13,7 +13,7 @@ Ext.define('APP.mate.segmentedTab', {
         store = view.getStore(),
         button = segmented.down('button[pressed=true]'),
         params = view.parameter || {};
-      // console.log(params);
+      console.log(params);
       // console.log(value);
       // console.log(segmented.name);
       // console.log(store);
@@ -44,6 +44,7 @@ Ext.define('APP.mate.segmentedTab', {
       // }
       params[segmented.name] = value;
       Ext.apply(store.proxy.extraParams, params);
+      // console.log(Ext.Date.format(new Date(), 'Y-m-d'));
       // console.log(store);
       // Loads a given 'page' of data by setting the start and limit values appropriately. Internally this just causes
       // a normal load operation, passing in calculated 'start' and 'limit' params.
