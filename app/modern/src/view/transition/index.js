@@ -61,9 +61,9 @@ Ext.define('APP.view.transition.index', {
         }
       ]
     },
+    {xtype: 'navList', type: 'box', userCls: 'x-ui-nav x-ui-mini', navigation: 2006},
     {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 2004, hideTitle: false},
-    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 2005, hideTitle: false},
-    // {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 6003}
+    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 2005, hideTitle: false}
   ],
   listeners: {}
 });

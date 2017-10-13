@@ -173,5 +173,25 @@
       Mate.updateCache('touch', {state: {navigation: active.root}});
       tabbar.setUserCls(active.getUserCls());
     });
+  },
+  rendererSeriesTooltip: function (tooltip, record, item) {
+    console.log(222);
+    var me = this,
+      chartView = this.lookup('chartView') || {},
+      parameter = chartView.mateParameters || {},
+      renderer = parameter.renderer;
+
+    if (renderer) {
+      var value = record.get(item.field),
+        html = me[renderer](value);
+    } else {
+      //console.log(tooltip,record,item)
+      var value = record.get(item.field),
+        value = parseInt(value) == parseFloat(value) ? Ext.util.Format.stringInteger(value) : Ext.util.Format.stringNumeral(value, 2),
+        html = '';
+      html += record.get('title') ? '<b>' + record.get('title') + '</b><br/>' : '';
+      html += record.get('objects') + '：' + value;
+    }
+    tooltip.setHtml(html);
   }
 });

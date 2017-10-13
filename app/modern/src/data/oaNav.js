@@ -105,8 +105,60 @@ Ext.define('APP.data.oaNav', {
               id: 200502,
               iconCls: 'f-mt mt-customer',
               text: '商品',
-              // view: 'transition.report.report',
+              view: 'transition.analysis.symbol',
               // parameter: {field: 'funds'}
+            }
+          ]
+          },
+          {
+            id: 2006, iconCls: 'f-mt mt-out-audit', text: '历史交易', expanded: true, children: [
+            {
+              leaf: true,
+              id: 200601,
+              iconCls: 'f-mt mt-customer',
+              text: '全部',
+              // view: 'transition.analysis.complex',
+              // parameter: {field: 'funds'}
+            },
+            {
+              leaf: true,
+              id: 200602,
+              iconCls: 'f-mt mt-customer',
+              text: '市价单',
+              // view: 'transition.analysis.symbol',
+              // parameter: {field: 'funds'}
+            },
+            {
+              leaf: true,
+              id: 200603,
+              iconCls: 'f-mt mt-customer',
+              text: '挂单记录',
+              // view: 'transition.analysis.symbol',
+              // parameter: {field: 'funds'}
+            },
+            {
+              leaf: true,
+              id: 200604,
+              iconCls: 'f-mt mt-customer',
+              text: '入金记录',
+              view: 'transition.history.record',
+              parameter: {app: 'deposit'}
+            },
+            {
+              leaf: true,
+              id: 200605,
+              iconCls: 'f-mt mt-customer',
+              text: '出金记录',
+              view: 'transition.history.record',
+              parameter: {app: 'withdrawal'}
+            },
+            {
+              leaf: true,
+              id: 200606,
+              iconCls: 'f-mt mt-customer',
+              text: '信用记录',
+              view: 'transition.history.record',
+              parameter: {app: 'credit'}
             }
           ]
           },

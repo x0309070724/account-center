@@ -1,5 +1,5 @@
 Ext.define('APP.mate.box.pieChart', {
-  extend: 'Ext.chart.CartesianChart',
+  extend: 'Ext.chart.PolarChart',
   alias: 'widget.piechart',
   docked: 'top',
   // Whether or not this Component is hidden (its CSS display property is set to none).
@@ -10,31 +10,15 @@ Ext.define('APP.mate.box.pieChart', {
     pageSize: 10,
     sorters: [{property: 'label', direction: 'ASC'}]
   },
-  interactions: [{type: 'crosshair', enabled: true}],
+  name: 'pie',
   series: [
     {
-
-
-
-
-      // label:{
-      //   display:"name",
-      //   contrast:true,
-      // },
-
       type: 'pie',
-      angleField:"data",
-      donut:true,
+      angleField: "value",
+      // tooltip: {renderer: 'rendererSeriesTooltip'},
+      donut: true,
       showInLegend: true,
-      xField: 'label',
-      yField: 'value',
-      label: {display: 'objects', contrast: true, fontSize: 8, color: '#000'}
+      label: {field: 'label',contrast: true, fontSize: 8, color: '#000'}
     }
-  ],
-  axes: [
-    {type: 'category', position: 'bottom', grid: false, label: {fontSize: 8, rotate: -45}}
   ]
 });
-
-
-

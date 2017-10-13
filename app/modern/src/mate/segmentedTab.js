@@ -53,10 +53,19 @@ Ext.define('APP.mate.segmentedTab', {
           var params = store.getProxy().getExtraParams(),
             boxDatepart = view.down('boxdatepart'),
             boxTotal = view.down('boxtotal'),
-            cartesian = view.down('cartesian');
+            cartesian = view.down('cartesian'),
+            polar = view.down('polar');
           // console.log(records);
           // console.log(store.chartData);
+          if (polar) {
+            // console.log(1111);
+            // console.log(store.chartData);
+            polar.getStore().setData(store.chartData);
+            polar.setHidden(false);
+          }
           if (cartesian) {
+            // console.log(1111);
+            // console.log(store.chartData);
             cartesian.getStore().setData(store.chartData);
             cartesian.setHidden(false);
           }

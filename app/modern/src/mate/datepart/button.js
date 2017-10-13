@@ -44,6 +44,7 @@ Ext.define('APP.mate.datepart.button', {
           {xtype: 'datePackForm', view: view, store: store, hideDatepart: button.hideDatepart || false}
         ]
       });
+      // console.log(menu.getDisplayed());
       menu.setDisplayed(!menu.getDisplayed());
     }
   }
