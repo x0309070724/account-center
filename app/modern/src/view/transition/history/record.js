@@ -16,9 +16,9 @@ Ext.define('APP.view.transition.history.record', {
       }
     }
   },
-  plugins: [
-    {type: 'pullrefresh'}
-  ],
+  // plugins: [
+  //   {type: 'pullrefresh'}
+  // ],
   viewModel: {data: {parameter: {field: 'idxkey'}}},
   items: [
     {

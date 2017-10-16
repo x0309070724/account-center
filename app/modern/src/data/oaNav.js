@@ -112,30 +112,30 @@ Ext.define('APP.data.oaNav', {
           },
           {
             id: 2006, iconCls: 'f-mt mt-out-audit', text: '历史交易', expanded: true, children: [
-            {
-              leaf: true,
-              id: 200601,
-              iconCls: 'f-mt mt-customer',
-              text: '全部',
-              // view: 'transition.analysis.complex',
-              // parameter: {field: 'funds'}
-            },
-            {
-              leaf: true,
-              id: 200602,
-              iconCls: 'f-mt mt-customer',
-              text: '市价单',
-              // view: 'transition.analysis.symbol',
-              // parameter: {field: 'funds'}
-            },
-            {
-              leaf: true,
-              id: 200603,
-              iconCls: 'f-mt mt-customer',
-              text: '挂单记录',
-              // view: 'transition.analysis.symbol',
-              // parameter: {field: 'funds'}
-            },
+            // {
+            //   leaf: true,
+            //   id: 200601,
+            //   iconCls: 'f-mt mt-customer',
+            //   text: '全部',
+            //   // view: 'transition.analysis.complex',
+            //   // parameter: {field: 'funds'}
+            // },
+            // {
+            //   leaf: true,
+            //   id: 200602,
+            //   iconCls: 'f-mt mt-customer',
+            //   text: '市价单',
+            //   // view: 'transition.analysis.symbol',
+            //   // parameter: {field: 'funds'}
+            // },
+            // {
+            //   leaf: true,
+            //   id: 200603,
+            //   iconCls: 'f-mt mt-customer',
+            //   text: '挂单记录',
+            //   // view: 'transition.analysis.symbol',
+            //   // parameter: {field: 'funds'}
+            // },
             {
               leaf: true,
               id: 200604,
@@ -198,22 +198,63 @@ Ext.define('APP.data.oaNav', {
           // }
         ]
       },
-// 			{id:3000,iconCls:'f-mt mt-dollar-4',text:'人事',view:'hr.index',
-// 				children:[
-// 					{id:3001,iconCls:'f-mt mt-out-audit',text:'公司',expanded:true,children:[
-// 						{leaf:true,id:300101,iconCls:'f-mt mt-tree-3',text:'组织架构',view:'hr.team.tree'},
-// 						{leaf:true,id:300102,iconCls:'f-mt mt-tree-2',text:'人员架构',view:'hr.staff.tree'}
-// 					]}
-// 	//				{id:3002,iconCls:'f-mt mt-out-audit',text:'电话管理',expanded:true,children:[
-// 	//					{leaf:true,id:300201,iconCls:'f-mt mt-friends',text:'库存查询',view:'sd.sales.call.no.stock'},
-// 	//					{leaf:true,id:300202,iconCls:'f-mt mt-friends',text:'号码查询',view:'sd.sales.call.no.record'},
-// 	//					{leaf:true,id:300203,iconCls:'f-mt mt-friends',text:'余量查询',view:'sd.sales.call.no.package'},
-// 	//					{leaf:true,id:300204,iconCls:'f-mt mt-friends',text:'通话记录',view:'sd.sales.call.no.list'},
-// 	//					{leaf:true,id:300205,iconCls:'f-mt mt-report-day',text:'按时统计',view:'sd.sales.call.analysis.trend',parameter:{datepart:'month'}},
-// 	//					{leaf:true,id:300206,iconCls:'f-mt mt-report-day',text:'按人统计',view:'sd.sales.call.analysis.statistics',parameter:{menu:'staff',field:'duration'}}
-// 	//				]}
-// 				]
-// 			},
+
+      {
+        id: 2007, iconCls: 'f-mt mt-out-audit', text: '持仓交易', expanded: true, children: [
+        {
+          leaf: true,
+          id: 200701,
+          iconCls: 'f-mt mt-customer',
+          text: '持仓订单',
+          // view: 'transition.history.record',
+          // parameter: {app: 'deposit'}
+        },
+        {
+          leaf: true,
+          id: 200702,
+          iconCls: 'f-mt mt-customer',
+          text: '仓位汇总',
+          // view: 'transition.history.record',
+          // parameter: {app: 'withdrawal'}
+        }
+      ]
+      },
+
+
+      {
+        id: 3000, iconCls: 'f-mt mt-dollar-4', text: '出入金', view: 'deopwith.index',
+        children: [
+          {
+            id: 3001, iconCls: 'f-mt mt-out-audit', text: '入金相关', expanded: true, children: [
+            {leaf: true, id: 300101, iconCls: 'f-mt mt-tree-3', text: '账户入金'},
+            {
+              leaf: true,
+              id: 300102,
+              iconCls: 'f-mt mt-tree-2',
+              text: '入金记录',
+              view: 'depowith.depowith',
+              parameter: {app: 'withdraw'}
+            },
+            {leaf: true, id: 300103, iconCls: 'f-mt mt-tree-2', text: '入金统计'}
+            // {leaf: true, id: 300102, iconCls: 'f-mt mt-tree-2', text: '入金统计', view: 'hr.staff.tree'}
+          ]
+          },
+          {
+            id: 3002, iconCls: 'f-mt mt-out-audit', text: '出金相关', expanded: true, children: [
+            {leaf: true, id: 300201, iconCls: 'f-mt mt-tree-3', text: '账户出金'},
+            {leaf: true, id: 300202, iconCls: 'f-mt mt-tree-2', text: '出金记录'},
+            {leaf: true, id: 300203, iconCls: 'f-mt mt-tree-2', text: '出金统计'}
+            // {leaf: true, id: 300102, iconCls: 'f-mt mt-tree-2', text: '入金统计', view: 'hr.staff.tree'}
+          ]
+          },
+          {
+            id: 3003, iconCls: 'f-mt mt-out-audit', text: '转账相关', expanded: true, children: [
+            {leaf: true, id: 300301, iconCls: 'f-mt mt-tree-3', text: '账户转账'},
+            {leaf: true, id: 300302, iconCls: 'f-mt mt-tree-2', text: '转账记录'}
+          ]
+          }
+        ]
+      },
 // 			{id:5000,iconCls:'f-mt mt-dollar-4',text:'分析',view:'analysis.index',
 // 				children:[
 // 					{id:5001,iconCls:'f-mt mt-out-audit',text:'盘面',expanded:true,children:[

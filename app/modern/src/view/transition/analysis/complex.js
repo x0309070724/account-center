@@ -16,9 +16,9 @@ Ext.define('APP.view.transition.analysis.complex', {
       }
     }
   },
-  plugins: [
-    {type: 'pullrefresh'}
-  ],
+  // plugins: [
+  //   {type: 'pullrefresh'}
+  // ],
   viewModel: {data: {parameter: {field: 'trade_profit_total'}}},
   items: [
     {xtype: 'navbar', menu: [

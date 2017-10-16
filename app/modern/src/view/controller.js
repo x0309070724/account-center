@@ -106,14 +106,14 @@
       // var account = {username: '666666', password: 'abc123456', roles: {query: 100}},
       roles = account.roles,
       items = [];
-    console.log(account);
+    // console.log(account);
     switch (parseInt(account.id)) {
       // ===============================================================总监
       case 1:
       case 666666: {
         items = [
           // {root: 1000, xtype: 'sdIndex', title: '销售', iconCls: 'f-mt mt-access', userCls: 'x-ui-corange'},
-          // {root: 2000, xtype: 'rdIndex', title: '交易', iconCls: 'f-mt mt-chart-4', userCls: 'x-ui-gold'},
+          {root: 2000, xtype: 'depowithIndex', title: '出入金', iconCls: 'f-mt mt-chart-4', userCls: 'x-ui-gold'},
           {root: 3000, xtype: 'transitionIndex', title: '交易', iconCls: 'f-mt mt-chart-4', userCls: 'x-ui-green'},
           {root: 4000, xtype: 'accountIndex', title: '账户管理', iconCls: 'f-mt mt-chart-pie-3', userCls: 'x-ui-orange'}
           // {root: 5000, xtype: 'systemIndex', title: '系统主页', iconCls: 'f-mt mt-account-audit', userCls: 'x-ui-green'}

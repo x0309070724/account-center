@@ -14,9 +14,10 @@ Ext.define('APP.view.transition.report.report', {
       }
     }
   },
-  plugins: [
-    {type: 'pullrefresh'}
-  ],
+  // 用了plugins,会报isWidget of null 的错
+  // plugins: [
+  //   {type: 'pullrefresh'}
+  // ],
   viewModel: {data: {parameter: {field: 'funds'}}},
   items: [
     {

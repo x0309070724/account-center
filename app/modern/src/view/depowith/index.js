@@ -1,7 +1,7 @@
-Ext.define('APP.view.transition.index', {
+Ext.define('APP.view.depowith.index', {
   extend: 'Ext.Container',
-  xtype: 'transitionIndex',
-  controller: 'transition',
+  xtype: 'depowithIndex',
+  controller: 'depowith',
   scrollable: true,
   defaults: {scrollable: false},
   items: [
@@ -61,10 +61,10 @@ Ext.define('APP.view.transition.index', {
         }
       ]
     },
-    {xtype: 'navList', type: 'box', userCls: 'x-ui-nav x-ui-mini', navigation: 2006},
-    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 2004, hideTitle: false},
-    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 2005, hideTitle: false},
-    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 2007, hideTitle: false}
+    // {xtype: 'navList', type: 'box', userCls: 'x-ui-nav x-ui-mini', navigation: 2006},
+    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 3001, hideTitle: false},
+    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 3002, hideTitle: false},
+    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 3003, hideTitle: false}
   ],
   listeners: {}
 });

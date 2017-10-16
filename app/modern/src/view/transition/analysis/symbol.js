@@ -16,9 +16,9 @@ Ext.define('APP.view.transition.analysis.symbol', {
       }
     }
   },
-  plugins: [
-    {type: 'pullrefresh'}
-  ],
+  // plugins: [
+  //   {type: 'pullrefresh'}
+  // ],
   viewModel: {data: {parameter: {field: 'trade_volume'}}},
   items: [
     {xtype: 'navbar', menu: [
