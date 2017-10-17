@@ -16,10 +16,7 @@ Ext.define('APP.view.transition.analysis.complex', {
       }
     }
   },
-  // plugins: [
-  //   {type: 'pullrefresh'}
-  // ],
-  viewModel: {data: {parameter: {field: 'trade_profit_total'}}},
+  viewModel: {data: {parameter: {_field: 'trade_profit_total'}}},
   items: [
     {xtype: 'navbar', menu: [
       {xtype: 'spacer'},
@@ -28,7 +25,7 @@ Ext.define('APP.view.transition.analysis.complex', {
     {xtype: 'boxdatepart'},
     {xtype: 'boxchart'},
     {
-      xtype: 'segmentedtab', ui: 'tab', name: 'field', bind: {value: '{parameter.field}'},
+      xtype: 'segmentedtab', ui: 'tab', name: '_field', bind: {value: '{parameter._field}'},
       items: [
         {text: '净盈亏', value: 'trade_profit_total', iconCls: 'f-mt mt-field-account'},
         {text: '交易盈亏', value: 'trade_profit', iconCls: 'f-mt mt-field-funds'},
@@ -44,7 +41,7 @@ Ext.define('APP.view.transition.analysis.complex', {
       '<b>{objects}</b>',
     '</div>',
     '<div class="x-ui-float-right">',
-      '<tpl switch="field">',
+      '<tpl switch="_field">',
         // =====================================================================================净盈亏
         '<tpl case="trade_profit_total">',
           '<b>{trade_profit_total:stringInteger}</b>',

@@ -18,7 +18,7 @@ Ext.define('APP.view.transition.report.report', {
   // plugins: [
   //   {type: 'pullrefresh'}
   // ],
-  viewModel: {data: {parameter: {field: 'funds'}}},
+  viewModel: {data: {parameter: {_field: 'funds'}}},
   items: [
     {
       xtype: 'navbar', menu: [
@@ -28,7 +28,7 @@ Ext.define('APP.view.transition.report.report', {
     },
     {xtype: 'boxdatepart'},
     {
-      xtype: 'segmentedtab', ui: 'tab', name: 'field', bind: {value: '{parameter.field}'},
+      xtype: 'segmentedtab', ui: 'tab', name: '_field', bind: {value: '{parameter._field}'},
       items: [
         {
           text: '净入金',
@@ -59,7 +59,7 @@ Ext.define('APP.view.transition.report.report', {
       '<p>{objects}</p>',
       // '<p>{objects_tip}</p>',
     '</div>',
-    '<tpl switch="field">',
+    '<tpl switch="_field">',
       // =====================================================================================净入金
       '<tpl case="funds">',
         '<div class="x-ui-explain">',

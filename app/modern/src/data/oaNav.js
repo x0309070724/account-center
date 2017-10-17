@@ -226,24 +226,37 @@ Ext.define('APP.data.oaNav', {
         children: [
           {
             id: 3001, iconCls: 'f-mt mt-out-audit', text: '入金相关', expanded: true, children: [
-            {leaf: true, id: 300101, iconCls: 'f-mt mt-tree-3', text: '账户入金'},
+            {
+              leaf: true, id: 300101, iconCls: 'f-mt mt-tree-3', text: '账户入金', view: 'depowith.accountDeposit',
+              // parameter: {app: 'deposit'}
+            },
             {
               leaf: true,
               id: 300102,
               iconCls: 'f-mt mt-tree-2',
               text: '入金记录',
               view: 'depowith.depowith',
-              parameter: {app: 'withdraw'}
+              parameter: {app: 'deposit'}
             },
-            {leaf: true, id: 300103, iconCls: 'f-mt mt-tree-2', text: '入金统计'}
-            // {leaf: true, id: 300102, iconCls: 'f-mt mt-tree-2', text: '入金统计', view: 'hr.staff.tree'}
+            {
+              leaf: true, id: 300103, iconCls: 'f-mt mt-tree-2', text: '入金统计',
+              view: 'depowith.statistics',
+              parameter: {field: 'deposit'}
+            }
           ]
           },
           {
             id: 3002, iconCls: 'f-mt mt-out-audit', text: '出金相关', expanded: true, children: [
             {leaf: true, id: 300201, iconCls: 'f-mt mt-tree-3', text: '账户出金'},
-            {leaf: true, id: 300202, iconCls: 'f-mt mt-tree-2', text: '出金记录'},
-            {leaf: true, id: 300203, iconCls: 'f-mt mt-tree-2', text: '出金统计'}
+            {
+              leaf: true, id: 300202, iconCls: 'f-mt mt-tree-2', text: '出金记录',
+              view: 'depowith.depowith',
+              parameter: {app: 'withdraw'}
+            },
+            {
+              leaf: true, id: 300203, iconCls: 'f-mt mt-tree-2', text: '出金统计', view: 'depowith.statisticsWith',
+              parameter: {field: 'withdrawal'}
+            }
             // {leaf: true, id: 300102, iconCls: 'f-mt mt-tree-2', text: '入金统计', view: 'hr.staff.tree'}
           ]
           },

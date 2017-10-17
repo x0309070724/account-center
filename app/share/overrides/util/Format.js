@@ -346,6 +346,11 @@ Ext.define('Override.util.Format', {
         text = '<span class="x-ui-label x-ui-bg-red"><icon class="f-mt mt-hollow-state-no"></icon> 已拒绝</span>';
       }
         break;
+      case -2: {
+        icon = '<span class="x-ui-text-red f-mt mt-solid-state-no"></span>';
+        text = '<span class="x-ui-label x-ui-bg-grey"><icon class="f-mt mt-hollow-state-no"></icon> 已取消</span>';
+      }
+        break;
       default: {
         icon = '<span class="x-ui-text-blue f-mt mt-solid-state-wait"></span>';
         text = '<span class="x-ui-label x-ui-bg-blue"><icon class="f-mt mt-hollow-state-wait"></icon> 处理中</span>';

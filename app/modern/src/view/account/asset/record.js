@@ -11,13 +11,13 @@ Ext.define('APP.view.account.asset.record', {
   // plugins: [
   //   {type: 'pullrefresh'}
   // ],
-  viewModel: {data: {parameter: {field: 'balance'}}},
+  viewModel: {data: {parameter: {_field: 'balance'}}},
   items: [
     {xtype: 'navbar'},
     {xtype: 'boxdatepart'},
     {xtype: 'boxchart'},
     {
-      xtype: 'segmentedtab', ui: 'tab', name: 'field', bind: {value: '{parameter.field}'},
+      xtype: 'segmentedtab', ui: 'tab', name: '_field', bind: {value: '{parameter._field}'},
       items: [
         {text: '余额', value: 'balance', iconCls: 'f-mt mt-field-account'},
         {text: '净值', value: 'equity', iconCls: 'f-mt mt-field-funds'}
@@ -32,7 +32,7 @@ Ext.define('APP.view.account.asset.record', {
       '<b>{time}</b>',
     '</div>',
     '<div class="x-ui-float-right">',
-      '<tpl switch="field">',
+      '<tpl switch="_field">',
         // =====================================================================================余额
         '<tpl case="balance">',
           '<b>{balance:stringInteger}</b>',

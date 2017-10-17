@@ -1,12 +1,33 @@
-Ext.define('APP.mate.segmentedTab', {
-  extend: 'Ext.SegmentedButton',
-  alias: 'widget.segmentedtab',
-  name: 'field',
-  ui: 'tab',
-  docked: 'bottom',
-  defaults: {xtype: 'button', iconAlign: 'top', ripple: {color: 'blue'}, flex: 1},
-  items: [],
-  listeners: {
+Ext.define('APP.view.depowith.accountDeposit', {
+  extend: 'Ext.List',
+  controller: 'depowith',
+  items: [
+    {
+      xtype: 'depowithTab', ui: 'tab', name: '_field', bind: {value: '{parameter._field}'},
+      items: [
+        {
+          text: '储蓄卡',
+          iconCls: 'f-mt mt-field-clear',
+          value: 'deposit_card',
+          // sorter: {property: 'trade_clear', direction: 'DESC'}
+        },
+        {
+          text: '信用卡',
+          iconCls: 'f-mt mt-field-clear',
+          value: 'credit_card',
+          // sorter: {property: 'trade_clear', direction: 'DESC'}
+        },
+        {
+          text: 'APP支付',
+          iconCls: 'f-mt mt-field-clear',
+          value: '',
+          // sorter: {property: 'trade_clear', direction: 'DESC'}
+        }
+      ]
+    }
+    // {xtype: 'boxtotal'}
+  ],
+  /*listeners: {
     // Fires when the value changes.
     change: function (segmented, value) {
       var view = segmented.up('list'),
@@ -93,5 +114,5 @@ Ext.define('APP.mate.segmentedTab', {
         store.sort(button.sorter);
       }
     }
-  }
+  }*/
 });

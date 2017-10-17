@@ -16,10 +16,7 @@ Ext.define('APP.view.transition.history.record', {
       }
     }
   },
-  // plugins: [
-  //   {type: 'pullrefresh'}
-  // ],
-  viewModel: {data: {parameter: {field: 'idxkey'}}},
+  viewModel: {data: {parameter: {_field: 'idxkey'}}},
   items: [
     {
       xtype: 'navbar', menu: [
@@ -29,7 +26,7 @@ Ext.define('APP.view.transition.history.record', {
     },
     {xtype: 'boxdatepart'},
     {
-      xtype: 'segmentedtab', ui: 'tab', name: 'field', bind: {value: '{parameter.field}'},
+      xtype: 'segmentedtab', ui: 'tab', name: '_field', bind: {value: '{parameter._field}'},
       items: [
         {
           text: '交易类型',
@@ -54,7 +51,7 @@ Ext.define('APP.view.transition.history.record', {
       '<p>#{order}</p>',
       // '<p>{objects_tip}</p>',
     '</div>',
-    '<tpl switch="field">',
+    '<tpl switch="_field">',
       // =====================================================================================交易类型
       '<tpl case="idxkey">',
         '<div class="x-ui-explain">',

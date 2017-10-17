@@ -1,33 +1,27 @@
 Ext.define('APP.view.depowith.depowith', {
   extend: 'Ext.List',
   controller: 'depowith',
-  // grouped:true,
+  grouped:true,
   store: {
     type: 'depowith.record',
     autoLoad: false,
     // super: true,
     proxy: {
       extraParams: {
-        app: 'withdraw',
+        // app: 'withdraw',
         // datepart: 'day',
         // startdate: Ext.Date.format(new Date(new Date().getFullYear(),new Date().getMonth()-1,new Date().getDate()), 'Y-m-d'),
         // enddate: Ext.Date.format(new Date(), 'Y-m-d')
       }
     }
   },
-  // 用了plugins,会报isWidget of null 的错
-  // plugins: [
-  //   {type: 'pullrefresh'}
-  // ],
-  viewModel: {data: {parameter: {field: 'reject'}}},
+  viewModel: {data: {parameter: {_field: 'all'}}},
   items: [
     {
-      xtype: 'navbar' /*, menu: [
-      {xtype: 'spacer'},
-      {xtype: 'datepartbutton'}]*/
+      xtype: 'navbar'
     },
     {
-      xtype: 'segmentedtab', ui: 'tab', name: 'field', bind: {value: '{parameter.field}'},
+      xtype: 'segmentedtab', ui: 'tab', name: '_field', bind: {value: '{parameter._field}'},
       items: [
         {
           text: '已拒绝',
@@ -42,9 +36,15 @@ Ext.define('APP.view.depowith.depowith', {
           // sorter: {property: 'trade_clear', direction: 'DESC'}
         },
         {
+          text: '已取消',
+          iconCls: 'f-mt mt-field-clear',
+          value: 'cancel',
+          // sorter: {property: 'trade_clear', direction: 'DESC'}
+        },
+        {
           text: '处理中',
           iconCls: 'f-mt mt-field-clear',
-          value: 'processing',
+          value: 'pending',
           // sorter: {property: 'trade_clear', direction: 'DESC'}
         },
         {
@@ -60,61 +60,41 @@ Ext.define('APP.view.depowith.depowith', {
   userCls:'x-ui-list',
   itemCls: 'x-ui-list-report',
   itemTpl:[
-    /*'<div class="x-ui-left x-ui-block">',
-          // '{time:date("H:i A")}',
-          'hehe',
-        '</div>',*/
-    '<tpl switch="field">',
-      '<tpl case="reject">',
+    '<div class="x-ui-left x-ui-block">',
+      '{time:date("H:i A")}',
+    '</div>',
+    '<div class="x-ui-explain">',
+      '<tpl if="cmd==3">',
+        '<p><label>对方：</label>{transfer}</p>',
+      '<tpl else>',
+        '<p><label>银行：</label>{bank_name}</p>',
+      '</tpl>',
+      '<p class="x-ui-state">{audit:strAudit}</p>',
+    '</div>',
+    '<div class="x-ui-right">',
+      '<tpl switch="cmd">',
         // ====================================================================================出入金
-        '<tpl if="audit==-1">',
-          '<div class="x-ui-left x-ui-block">',
-            '{time:date("H:i A")}',
-          '</div>',
+        '<tpl case="1">',
           '<tpl if="direction==1">',
-            '<label>入金</label><b class="x-ui-font-number x-ui-text-green">{money:usMoney}</b>',
+              '<label>入金</label><b class="x-ui-font-number x-ui-text-green">{money:usMoney}</b>',
           '<tpl else>',
-            '<label>出金</label><b class="x-ui-font-number x-ui-text-red">{money:usMoney}</b>',
+              '<label>出金</label><b class="x-ui-font-number x-ui-text-red">{money:usMoney}</b>',
           '</tpl>',
-        '</tpl>',
-
-        /*'<div class="x-ui-left x-ui-block">',
-          // '{time:date("H:i A")}',
-          'hehe',
-        '</div>',*/
-        /*'<div class="x-ui-explain">',
-          '<tpl if="cmd==3">',
-            '<p><label>对方：</label>{transfer}</p>',
+        // =====================================================================================信用
+        '<tpl case="2">',
+          '<tpl if="direction==1">',
+              '<label>借款</label><b class="x-ui-font-number x-ui-text-green">{money:usMoney}</b>',
           '<tpl else>',
-            '<p><label>银行：</label>{bank_name}</p>',
+              '<label>还款</label><b class="x-ui-font-number x-ui-text-red">{money:usMoney}</b>',
           '</tpl>',
-          '<p class="x-ui-state">{audit:strAudit}</p>',
-        '</div>',*/
-        /*'<div class="x-ui-right">',
-          '<tpl switch="cmd">',
-            // ====================================================================================出入金
-            '<tpl case="1">',
-              '<tpl if="direction==1">',
-                  '<label>入金</label><b class="x-ui-font-number x-ui-text-green">{money:usMoney}</b>',
-              '<tpl else>',
-                  '<label>出金</label><b class="x-ui-font-number x-ui-text-red">{money:usMoney}</b>',
-              '</tpl>',
-            // =====================================================================================信用
-            '<tpl case="2">',
-              '<tpl if="direction==1">',
-                  '<label>借款</label><b class="x-ui-font-number x-ui-text-green">{money:usMoney}</b>',
-              '<tpl else>',
-                  '<label>还款</label><b class="x-ui-font-number x-ui-text-red">{money:usMoney}</b>',
-              '</tpl>',
-            '<tpl case="3">',
-              '<tpl if="direction==1">',
-                  '<label>转入</label><b class="x-ui-font-number x-ui-text-green">{money:usMoney}</b>',
-              '<tpl else>',
-                  '<label>转出</label><b class="x-ui-font-number x-ui-text-red">{money:usMoney}</b>',
-              '</tpl>',
+        '<tpl case="3">',
+          '<tpl if="direction==1">',
+              '<label>转入</label><b class="x-ui-font-number x-ui-text-green">{money:usMoney}</b>',
+          '<tpl else>',
+              '<label>转出</label><b class="x-ui-font-number x-ui-text-red">{money:usMoney}</b>',
           '</tpl>',
-        '</div>',*/
-    '</tpl>'
+      '</tpl>',
+    '</div>'
 	],
   listeners:{
     // initialize:'onApplyStoreLoad',

@@ -1,12 +1,13 @@
-Ext.define('APP.mate.segmentedTab', {
+Ext.define('APP.mate.depowithTab', {
   extend: 'Ext.SegmentedButton',
-  alias: 'widget.segmentedtab',
-  name: 'field',
+  alias: 'widget.depowithTab',
+  name: '_field',
   ui: 'tab',
   docked: 'bottom',
   defaults: {xtype: 'button', iconAlign: 'top', ripple: {color: 'blue'}, flex: 1},
-  items: [],
-  listeners: {
+  items: [
+  ],
+  /*listeners: {
     // Fires when the value changes.
     change: function (segmented, value) {
       var view = segmented.up('list'),
@@ -93,5 +94,5 @@ Ext.define('APP.mate.segmentedTab', {
         store.sort(button.sorter);
       }
     }
-  }
+  }*/
 });

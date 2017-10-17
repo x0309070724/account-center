@@ -11,13 +11,13 @@ Ext.define('APP.store.summary', {
   summary: function (store, records, successful, operation, eOpts) {
     if (successful) {
       var params = store.getProxy().getExtraParams();
-      // console.log(params);
-      var totalField = params.field;
+      console.log(params);
+      var totalField = params._field;
       switch (params.sp) {
         // =========================================================================================================销售
         case 'SP_SD_SALES_STATISTICS':
         case 'SP_SD_SALES_TREND': {
-          switch (params.field) {
+          switch (params._field) {
             case 'resources': {
               totalField = 'resources'
             }
@@ -40,9 +40,13 @@ Ext.define('APP.store.summary', {
         case 'SP_RD_TRADE_STATISTICS':
         case 'SP_RD_TRADE_TREND':
         case 'SP_VMS_TRADE_TREND': {
-          switch (params.field) {
+          switch (params._field) {
             case 'account': {
               totalField = 'account_new_count'
+            }
+              break;
+            case 'funds_deposit': {
+              totalField = 'funds_deposit'
             }
               break;
             case 'funds': {
@@ -81,7 +85,7 @@ Ext.define('APP.store.summary', {
       store.each(function (record, i) {
         record.set({
           menu: params.menu || '',
-          field: params.field || '',
+          _field: params._field || '',
           ranking: i + 1
         });
         totalValue = totalValue + record.data[totalField];
@@ -91,11 +95,12 @@ Ext.define('APP.store.summary', {
         //     value: record.data[totalField]
         //   });
         // }
-        var label = record.data.objects?record.data.objects:record.data.time;
+        var label = record.data.objects ? record.data.objects : record.data.time;
+        // var value = record.data[params.field] ? record.data[params.field] : record.data['funds_deposit'];
         if (i < 10) {
           chartData.push({
             label: label,
-            value: record.data[params.field]
+            value: record.data[params._field]
           });
         }
       });
@@ -107,7 +112,7 @@ Ext.define('APP.store.summary', {
         case 'SP_SD_RESULTS_TREND':
         case 'SP_RD_TRADE_STATISTICS':
         case 'SP_RD_TRADE_TREND': {
-          switch (params.field) {
+          switch (params._field) {
             case 'account': {
               totalValueString = Ext.util.Format.stringInteger(totalValue)
             }
@@ -122,7 +127,7 @@ Ext.define('APP.store.summary', {
         // =========================================================================================================业绩
         case 'SP_SD_SALES_STATISTICS':
         case 'SP_SD_SALES_TREND': {
-          switch (params.field) {
+          switch (params._field) {
             case 'call': {
               totalValueString = Ext.util.Format.timeFilter(totalValue)
             }

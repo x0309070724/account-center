@@ -19,7 +19,7 @@ Ext.define('APP.view.transition.analysis.symbol', {
   // plugins: [
   //   {type: 'pullrefresh'}
   // ],
-  viewModel: {data: {parameter: {field: 'trade_volume'}}},
+  viewModel: {data: {parameter: {_field: 'trade_volume'}}},
   items: [
     {xtype: 'navbar', menu: [
       {xtype: 'spacer'},
@@ -28,7 +28,7 @@ Ext.define('APP.view.transition.analysis.symbol', {
     {xtype: 'boxdatepart'},
     {xtype: 'piechart'},
     {
-      xtype: 'segmentedtab', ui: 'tab', name: 'field', bind: {value: '{parameter.field}'},
+      xtype: 'segmentedtab', ui: 'tab', name: '_field', bind: {value: '{parameter._field}'},
       items: [
         {text: '交易量', value: 'trade_volume', iconCls: 'f-mt mt-field-account'},
         {text: '交易盈亏', value: 'trade_profit', iconCls: 'f-mt mt-field-funds'}
@@ -43,7 +43,7 @@ Ext.define('APP.view.transition.analysis.symbol', {
       '<b>{objects}</b>',
     '</div>',
     '<div class="x-ui-float-right">',
-      '<tpl switch="field">',
+      '<tpl switch="_field">',
         // =====================================================================================交易量
         '<tpl case="trade_volume">',
           '<b>{trade_volume:money}量 | {trade_count:stringInteger}笔</b>',
