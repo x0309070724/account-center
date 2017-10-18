@@ -10,6 +10,7 @@ Ext.define('APP.store.analysis.trade.trend', {
   listeners: {
     load: function (store, records, successful, operation, eOpts) {
       this.summary(store, records, successful, operation, eOpts);
+      console.log(store);
     }
   }
 });

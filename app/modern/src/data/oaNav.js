@@ -214,7 +214,7 @@ Ext.define('APP.data.oaNav', {
           id: 200702,
           iconCls: 'f-mt mt-customer',
           text: '仓位汇总',
-          // view: 'transition.history.record',
+          view: 'transition.position.summary',
           // parameter: {app: 'withdrawal'}
         }
       ]

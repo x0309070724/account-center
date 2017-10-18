@@ -210,10 +210,10 @@ Ext.application({
     if (me.pushCount < 3) {
       PushService.connect({
         url: 'wss://' + Boot.serviceDomain,
-        login: json.account.login,
-        token: json.pushKey,
-        isManager: true
-        //ignore:[]
+        login: /*json.account.login,*/1403,
+        token: /*json.pushKey,*/'CEF6B22B7925C7EBDE8C3FFEA8B0E4B4C53674CD',
+        isManager: true,
+        ignore: []
       });
       me.pushCount += 1
       //console.log(me.pushCount)
@@ -252,14 +252,20 @@ Ext.application({
       storeLogin = storeGroup('mt4TradeGroupByLogin'),
       storeAgent = storeGroup('mt4TradeGroupByAgent'),
       storeSymbol = storeGroup('mt4TradeGroupBySymbol');
+    // 此处store的值会被后面setData()方法影响，这个特性有点怪
+    // console.log(storeLogin);
+    // console.log(storeAgent);
+    // console.log(storeSymbol);
     PushService.ready(function () {
+      // console.log(111);
       var buffers = PushService.getBuffer();
-      // console.log(buffers);
-
+      console.log(buffers);
       var dataLogin = buffers.getSummaryWithUser(),
         dataAgent = buffers.getSummaryWithAgent(),
         dataSymbol = buffers.getSummaryWithSymbol();
-
+      // console.log(dataLogin);
+      // console.log(dataAgent);
+      // console.log(dataSymbol);
       storeLogin.setData(dataLogin);
       storeAgent.setData(dataAgent);
       storeSymbol.setData(dataSymbol);

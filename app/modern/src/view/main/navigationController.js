@@ -4,7 +4,7 @@
   routes: {
     ':main': {
       action: 'onMainRouteChange',
-      //conditions:{':main':'([a-z0-9/./]+)'},
+      // conditions:{':main':'([a-z0-9/./]+)'},
       conditions: {':main': '([0-9a-zA-Z/\.]+)'},
       before: function (id, action) {
         var me = this,
@@ -17,14 +17,14 @@
         APP.app.refreshMateData(function (json) {
           // console.log('hehehe');
           Ext.get('appLoadingIndicator').remove();
-          // console.log(json.pushKey);
+          console.log(json.pushKey);
           if (!json.pushKey) {
             navigation.setActiveItem({xtype: 'login'});
           } else {
             navigation.setActiveItem({xtype: 'main'});
             APP.app.pushStart();
             action.resume();
-            //navigation.setMasked({xtype:'loadmask',message:'验证中...'});
+            // navigation.setMasked({xtype: 'loadmask', message: '验证中...'});
           }
         });
       }
@@ -245,6 +245,8 @@
             // Removes all items currently in the Container, optionally destroying them all.
             navigation.removeAll();
             navigation.setActiveItem({xtype: 'main'});
+            APP.app.pushStart();
+
           }
         });
       },
