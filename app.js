@@ -251,7 +251,8 @@ Ext.application({
       },
       storeLogin = storeGroup('mt4TradeGroupByLogin'),
       storeAgent = storeGroup('mt4TradeGroupByAgent'),
-      storeSymbol = storeGroup('mt4TradeGroupBySymbol');
+      storeSymbol = storeGroup('mt4TradeGroupBySymbol'),
+      storeTrades = storeGroup('mt4TradeGroupByTrades');
     // 此处store的值会被后面setData()方法影响，这个特性有点怪
     // console.log(storeLogin);
     // console.log(storeAgent);
@@ -262,13 +263,15 @@ Ext.application({
       console.log(buffers);
       var dataLogin = buffers.getSummaryWithUser(),
         dataAgent = buffers.getSummaryWithAgent(),
-        dataSymbol = buffers.getSummaryWithSymbol();
+        dataSymbol = buffers.getSummaryWithSymbol(),
+        dataTrades = buffers.getTrades();
       // console.log(dataLogin);
       // console.log(dataAgent);
       // console.log(dataSymbol);
       storeLogin.setData(dataLogin);
       storeAgent.setData(dataAgent);
       storeSymbol.setData(dataSymbol);
+      storeTrades.setData(dataTrades);
 
       if (!Ext.touch) {
         Ext.TaskManager.start({

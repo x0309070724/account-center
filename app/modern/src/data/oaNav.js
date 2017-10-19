@@ -206,7 +206,7 @@ Ext.define('APP.data.oaNav', {
           id: 200701,
           iconCls: 'f-mt mt-customer',
           text: '持仓订单',
-          // view: 'transition.history.record',
+          view: 'transition.position.order',
           // parameter: {app: 'deposit'}
         },
         {

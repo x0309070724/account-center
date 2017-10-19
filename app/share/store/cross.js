@@ -116,6 +116,11 @@ Ext.define('APP.store.cross', {
       proxy.limitParam = false;
       proxy.startParam = false;
     }
+
+    console.log(proxy.pageParam);
+    console.log(proxy.limitParam);
+    console.log(proxy.startParam);
+
     // console.log(this, config.super, config.proxy)
     if (this.super) {
       proxy.url = proxy.url.replace('/analysis/', '/super/');
