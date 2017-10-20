@@ -23,8 +23,6 @@ Ext.define('Override.util.Format', {
     } else {
       return value;
     }
-
-
   },
   nullToNA: function (value) {
     if (!value || value == null || value == '') {
@@ -588,9 +586,25 @@ Ext.define('Override.util.Format', {
         break;
     }
     return v;
+  },
+  // ----------------------------------------------------------------------------------------------------Funds Transfer
+  returnTransferType: function (value, cell, record) {
+    var text = '', style = '';
+    switch (parseInt(value)) {
+      case 1: {
+        style = 'x-ui-bg-green';
+        text = '转入';
+      }
+        break;
+      case 2: {
+        style = 'x-ui-bg-blue';
+        text = '转出';
+      }
+        break;
+    }
+    var outHtml = '<label class="x-ui-label ' + style + '">' + text + '</label>';
+    return outHtml
   }
-
-
 });
 
 

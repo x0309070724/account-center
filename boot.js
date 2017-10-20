@@ -5,6 +5,7 @@ var Boot = Boot || {
   // appDomain: 'localhost:8082',
   // appDomain: 'be.oa.thjzchina.com',
   appDomain: 'be.account.abc-123.co',
+  // appDomain: '192.168.31.101:8080/ABC_TRADE',
   // appDomain:'test.oa.mrc2.com',
   // appDomain:'192.168.31.127:8080',
   apiDomain: 'api.thjzchina.com',

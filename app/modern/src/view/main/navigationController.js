@@ -17,7 +17,7 @@
         APP.app.refreshMateData(function (json) {
           // console.log('hehehe');
           Ext.get('appLoadingIndicator').remove();
-          console.log(json.pushKey);
+          // console.log(json.pushKey);
           if (!json.pushKey) {
             navigation.setActiveItem({xtype: 'login'});
           } else {

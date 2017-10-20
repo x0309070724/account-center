@@ -262,8 +262,8 @@ Ext.define('APP.data.oaNav', {
           },
           {
             id: 3003, iconCls: 'f-mt mt-out-audit', text: '转账相关', expanded: true, children: [
-            {leaf: true, id: 300301, iconCls: 'f-mt mt-tree-3', text: '账户转账'},
-            {leaf: true, id: 300302, iconCls: 'f-mt mt-tree-2', text: '转账记录'}
+            {leaf: true, id: 300301, iconCls: 'f-mt mt-tree-3', text: '账户转账', view: 'depowith.transfer.account'},
+            {leaf: true, id: 300302, iconCls: 'f-mt mt-tree-2', text: '转账记录', view: 'depowith.transfer.record'}
           ]
           }
         ]
