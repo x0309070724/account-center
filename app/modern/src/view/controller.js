@@ -18,7 +18,7 @@
         }
         // The initial set of data to apply to the tpl to update the content area of the Component.
         me.setData(node.childNodes);
-        // console.log(node.childNodes);
+        console.log(node.childNodes);
       } else {
         me.setHtml(false);
         me.setHidden(true);

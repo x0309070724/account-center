@@ -22,7 +22,7 @@
             navigation.setActiveItem({xtype: 'login'});
           } else {
             navigation.setActiveItem({xtype: 'main'});
-            APP.app.pushStart();
+            // APP.app.pushStart();
             action.resume();
             // navigation.setMasked({xtype: 'loadmask', message: '验证中...'});
           }
@@ -103,6 +103,7 @@
       // Updates the hash on the window. This shouldn't need to be used directly but use the add method instead.
       // Ext.util.History.setHash('main')
       // Add a new token to the history stack.
+      console.log(222);
       Ext.util.History.add('main');
     }
   },
@@ -245,7 +246,7 @@
             // Removes all items currently in the Container, optionally destroying them all.
             navigation.removeAll();
             navigation.setActiveItem({xtype: 'main'});
-            APP.app.pushStart();
+            // APP.app.pushStart();
 
           }
         });

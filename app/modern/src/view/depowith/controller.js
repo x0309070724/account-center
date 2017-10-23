@@ -129,5 +129,50 @@
         }
       });
     }
+  },
+
+  // ===========================================================================================================账户详情
+  onRecordItemtap: function (list, idx, el, record) {
+    // Mate.alert('此功能正在开发中……');
+    // return false;
+    var navigation = list.up('navigationview');
+    // console.log(record);
+    var token = Ext.util.History.getToken();
+    token = token.substring(0, token.length - 2);
+    var store = Ext.getStore('nav'),
+      node = store.findNode('id', token);
+
+    // console.log(node.data.children[1].text);
+    // console.log(record.data.namecn);
+    Ext.util.History.add(token);
+    navigation.pop(1);
+    node.data.children[1].text = record.data.namecn;
+    // store.setData(node);
+    // store.load();
+
+    // var login = record.data.objects ? record.data.objects : record.data.login;
+    // login = parseInt(login) || 0;
+    // var view = Ext.create({
+    //   xtype: 'sdAccountDetailIndex',
+    //   title: login.toString(),
+    //   items: [
+    //     {xtype: 'sdAccountDetailInfo', title: '档案', iconCls: 'f-mt mt-account-strate', parameter: {login: login}},
+    //     {xtype: 'sdAccountDetailFunds', title: '出入金', iconCls: 'f-mt mt-trading', parameter: {login: login}},
+    //     {xtype: 'sdAccountDetailPositions', title: '持仓订单', iconCls: 'f-mt mt-premium-chart', parameter: {login: login}},
+    //     {xtype: 'sdAccountDetailOrder', title: '历史订单', iconCls: 'f-mt mt-check-order', parameter: {login: login}}
+    //   ]
+    // });
+    // navigation.push(view);
+
+    // Ext.util.History.add('main')
+
+  },
+
+  onNavigationPop: function (button) {
+    var token = Ext.util.History.getToken();
+    token = token.substring(0, token.length - 2);
+    Ext.util.History.add(token);
+    var navigation = button.up('navigationview');
+    navigation.pop(1);
   }
 });

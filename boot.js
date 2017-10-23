@@ -1,7 +1,7 @@
 var Boot = Boot || {
   version: '1.9.7',
   wxAppid: 'wxb9c69c9ab1d9172f',
-  ossDomain: 'oss.thjzchina.com',
+  // ossDomain: 'oss.thjzchina.com',
   // appDomain: 'localhost:8082',
   // appDomain: 'be.oa.thjzchina.com',
   appDomain: 'be.account.abc-123.co',
@@ -32,7 +32,7 @@ var Boot = Boot || {
   },
   loadJs: function (src, cdn) {
     src = !cdn ? src + '?_dc=' + Boot.random() : src;
-    document.write('<' + 'script src="' + src + '"' + ' defer><' + '/script>');
+    // document.write('<' + 'script src="' + src + '"' + ' defer><' + '/script>');
   }
   // maintenance: function () {
   //   window.location.href = 'maintenance.html';

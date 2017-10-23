@@ -227,8 +227,53 @@ Ext.define('APP.data.oaNav', {
           {
             id: 3001, iconCls: 'f-mt mt-out-audit', text: '入金相关', expanded: true, children: [
             {
-              leaf: true, id: 300101, iconCls: 'f-mt mt-tree-3', text: '账户入金', view: 'depowith.accountDeposit',
-              // parameter: {app: 'deposit'}
+              // leaf: true,
+              id: 300101,
+              iconCls: 'f-mt mt-tree-3',
+              text: '账户入金',
+              view: 'depowith.deposit.index',
+              children: [
+                {
+                  // leaf: true,
+                  id: 30010101,
+                  iconCls: 'f-mt mt-tree-3',
+                  text: '请选择入金方式',
+                  // expanded: true, children: [
+                  // {
+                  //   leaf: true,
+                  //   id: 3001010101,
+                  //   iconCls: 'f-mt mt-tree-3',
+                  //   text: '入金方式1',
+                  //   view: 'depowith.deposit.bank',
+                  // }
+                // ]
+                },
+                {
+                  // leaf: true,
+                  id: 30010102,
+                  iconCls: 'f-mt mt-tree-3',
+                  text: '请选择银行',
+                  view: 'depowith.deposit.bank',
+                  // parameter: {payAisle: 'bank'}
+                  // expanded: true, children: [
+                  // {
+                  //   leaf: true,
+                  //   id: 30010101,
+                  //   iconCls: 'f-mt mt-tree-3',
+                  //   text: '入金方式1',
+                  // }
+                  // ]
+                  // view: 'depowith.deposit.index',
+                },
+                // {
+                //   leaf: true,
+                //   id: 30010102,
+                //   iconCls: 'f-mt mt-tree-3',
+                //   text: '选择银行',
+                //   // view: 'depowith.deposit.index',
+                // }
+              ],
+              parameter: {app: 'deposit'}
             },
             {
               leaf: true,

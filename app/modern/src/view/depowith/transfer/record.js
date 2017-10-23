@@ -149,58 +149,6 @@ Ext.define('APP.view.depowith.transfer.record', {
               '<b>{explain}</b>',
             '</div>',
         '</tpl>',
-      // // =====================================================================================挂单
-      // '<tpl case="pending">',
-      // '<tpl switch="menu">',
-      // // ===================================================交易类型
-      // '<tpl case="type">',
-      // '<div class="x-ui-explain">',
-      // '<p><b class="x-ui-text-green">{cmd:tradeCmd}==>{symbol}</b></p>',
-      // '</div>',
-      // '<div class="x-ui-right">',
-      // '<label>成交量</label>',
-      // '<b>{volume:money}</b>',
-      // '</div>',
-      // // ===================================================开仓
-      // '<tpl case="open_price">',
-      // '<div class="x-ui-explain">',
-      // '<p><b class="x-ui-text-green">{timestamp:date("Y-m-d")}</b></p>',
-      // '<p><b class="x-ui-text-green">{timestamp:date("H:i:s")}</b></p>',
-      // '</div>',
-      // '<div class="x-ui-right">',
-      // '<label>开仓价</label>',
-      // '<b>{open_price:money}</b>',
-      // '</div>',
-      // '</tpl>',
-      //
-      //
-      // // =====================================================================================订单
-      // '<tpl case="order">',
-      // '<div class="x-ui-explain">',
-      // '<p><b class="x-ui-text-green">{cmd:tradeCmd}==>{symbol}</b></p>',
-      // '</div>',
-      // '<div class="x-ui-right">',
-      // '<label>成交量</label>',
-      // '<b>{volume:money}</b>',
-      // '</div>',
-    // // =====================================================================================手续费
-    // '<tpl case="pending">',
-    //   '<div class="x-ui-explain">',
-    //     '<p><label>净头寸：</label><b class="x-ui-text-green">{position_volume:money}</b></p>',
-    //   '</div>',
-    //   '<div class="x-ui-right">',
-    //     '<label>手续费</label>',
-    //     '<b>{commission:usMoney}</b>',
-    //   '</div>',
-    // // =====================================================================================交易盈亏
-    // '<tpl case="order">',
-    //   '<div class="x-ui-explain">',
-    //     '<p><label>库存费：</label><b class="x-ui-text-green">{storage:money}</b></p>',
-    //   '</div>',
-    //   '<div class="x-ui-right">',
-    //     '<label>交易盈亏</label>',
-    //     '<b>{clear:money}</b>',
-    //   '</div>',
     '</tpl>'
   ],
   listeners: {
