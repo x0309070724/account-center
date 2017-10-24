@@ -15,10 +15,10 @@ Ext.define('APP.mate.searchBar', {
       {
         xtype: 'searchfield', ui: 'faded', name: 'query', flex: 1, margin: '5 0',
         placeholder: 'Search',
-        // labelIconAlign:'center',
-        // textAlign:'center',
+        // labelIconAlign: 'center',
+        // textAlign: 'center',
         inputType: 'text',
-        // inputType:me.inputType||'search',
+        // inputType: me.inputType || 'search',
         component: me.component || {},
         listeners: {
           initialize: function (field) {
@@ -38,7 +38,7 @@ Ext.define('APP.mate.searchBar', {
               params = store.getProxy().getExtraParams();
             // field.setTextAlign('center');
             if (field.getValue() && field.getValue() !== '') {
-              Ext.apply(params, {query: field.getValue()});
+              Ext.apply(params, {query: field.getValue(), login: field.getValue()});
               // Loads a given 'page' of data by setting the start and limit values appropriately. Internally this just
               // causes a normal load operation, passing in calculated 'start' and 'limit' params.
               // page :  Number
@@ -46,7 +46,6 @@ Ext.define('APP.mate.searchBar', {
               store.loadPage(1);
             }
           },
-          // 我觉得这个方法的逻辑有问题
           clearicontap: function (button, field) {
             var store = button.up('list').getStore(),
               params = store.getProxy().getExtraParams();

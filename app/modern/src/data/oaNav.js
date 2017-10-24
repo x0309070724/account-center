@@ -42,27 +42,17 @@ Ext.define('APP.data.oaNav', {
 // 					]}
 // 				]
 // 			},
-// 			{id:1000,iconCls:'f-mt mt-dollar-4',text:'CRM',view:'sd.index',
-// 				children:[
-// //					{id:1001,iconCls:'f-mt mt-out-audit',text:'销售报表',expanded:true,children:[
-// //						{leaf:true,id:100101,iconCls:'f-mt mt-staff',text:'销售员',view:'sd.analysis.sales.objects',parameter:{menu:'staff',datepart:'month',field:'resources'}},
-// //						{leaf:true,id:100102,iconCls:'f-mt mt-department',text:'部门',view:'sd.analysis.sales.objects',parameter:{menu:'t1',datepart:'month',field:'resources'}},
-// //						{leaf:true,id:100103,iconCls:'f-mt mt-team',text:'网点',view:'sd.analysis.sales.objects',parameter:{menu:'branch',datepart:'month',field:'resources'}},
-// //						{leaf:true,id:100104,iconCls:'f-mt mt-day',text:'日报',view:'sd.analysis.sales.time',parameter:{datepart:'day',field:'resources'}},
-// //						{leaf:true,id:100105,iconCls:'f-mt mt-week',text:'周报',view:'sd.analysis.sales.time',parameter:{datepart:'week',field:'resources'}},
-// //						{leaf:true,id:100106,iconCls:'f-mt mt-month',text:'月报',view:'sd.analysis.sales.time',parameter:{datepart:'month',field:'resources'}}
-// //					]},
-// 					{id:1002,iconCls:'f-mt mt-out-audit',text:'业绩报表',expanded:true,children:[
-// 						{leaf:true,id:100201,iconCls:'f-mt mt-staff',text:'销售员',view:'sd.analysis.results.objects',parameter:{menu:'staff',datepart:'month',field:'funds'}},
-// 						{leaf:true,id:100202,iconCls:'f-mt mt-department',text:'部门',view:'sd.analysis.results.objects',parameter:{menu:'t1',datepart:'month',field:'funds'}},
-// 						{leaf:true,id:100203,iconCls:'f-mt mt-team',text:'网点',view:'sd.analysis.results.objects',parameter:{menu:'branch',datepart:'month',field:'funds'}},
-// 						{leaf:true,id:100204,iconCls:'f-mt mt-day',text:'日报',view:'sd.analysis.results.time',parameter:{datepart:'day',field:'funds'}},
-// 						{leaf:true,id:100205,iconCls:'f-mt mt-week',text:'周报',view:'sd.analysis.results.time',parameter:{datepart:'week',field:'funds'}},
-// 						{leaf:true,id:100206,iconCls:'f-mt mt-month',text:'月报',view:'sd.analysis.results.time',parameter:{datepart:'month',field:'funds'}},
-// 						{leaf:true,id:100207,iconCls:'f-mt mt-day',text:'测试',view:'sd.analysis.results.time',parameter:{datepart:'day',field:'funds'}},
-// 						{leaf:true,id:100208,iconCls:'f-mt mt-week',text:'测试',view:'sd.analysis.results.time',parameter:{datepart:'week',field:'funds'}},
-// 						{leaf:true,id:100209,iconCls:'f-mt mt-month',text:'测试',view:'sd.analysis.results.time',parameter:{datepart:'month',field:'funds'}}
-// 					]},
+			{id:1000,iconCls:'f-mt mt-dollar-4',text:'代理专区',view:'agent.index',
+				children:[
+					{id:1001,iconCls:'f-mt mt-out-audit',text:'账户相关',expanded:true,children:[
+						{leaf:true,id:100101,iconCls:'f-mt mt-staff',text:'申请记录',view:'agent.account.record'},
+						{leaf:true,id:100102,iconCls:'f-mt mt-department',text:'账户管理',view:'agent.account.manage'},
+						{leaf:true,id:100103,iconCls:'f-mt mt-team',text:'仓位总结',view:'agent.account.statistics'}
+					]},
+					{id:1002,iconCls:'f-mt mt-out-audit',text:'账户佣金',expanded:true,children:[
+						{leaf:true,id:100201,iconCls:'f-mt mt-staff',text:'佣金明细',view:'sd.analysis.results.objects',parameter:{menu:'staff',datepart:'month',field:'funds'}},
+						{leaf:true,id:100202,iconCls:'f-mt mt-department',text:'佣金统计',view:'sd.analysis.results.objects',parameter:{menu:'t1',datepart:'month',field:'funds'}},
+					]},
 // 					{id:1003,iconCls:'f-mt mt-out-audit',text:'账户',expanded:true,children:[
 // 						{leaf:true,id:100301,iconCls:'f-mt mt-account-strate',text:'申请记录',description:'查询账户申请的处理结果',view:'sd.account.applyRecord',parameter:{audit:'1'}},
 // 						{leaf:true,id:100302,iconCls:'f-mt mt-fulltime',text:'账户查询',description:'查询账户详细信息',view:'sd.account.record',parameter:{app:''}},
@@ -73,8 +63,8 @@ Ext.define('APP.data.oaNav', {
 // 						{leaf:true,id:100401,iconCls:'f-mt mt-access-gold-1',text:'申请记录',description:'查询账户出入金的处理结果',view:'sd.funds.applyRecord',parameter:{audit:''}},
 // 						{leaf:true,id:100402,iconCls:'f-mt mt-parttime-job',text:'出入金查询',description:'查询账户历史出入金记录',view:'sd.funds.record',parameter:{menu:''}}
 // 					]}
-// 				]
-// 			},
+				]
+			},
       {
         id: 2000, iconCls: 'f-mt mt-dollar-4', text: '交易', view: 'transition.index',
         children: [
