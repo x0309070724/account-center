@@ -50,7 +50,7 @@ Ext.define('APP.data.oaNav', {
 						{leaf:true,id:100103,iconCls:'f-mt mt-team',text:'仓位总结',view:'agent.account.statistics'}
 					]},
 					{id:1002,iconCls:'f-mt mt-out-audit',text:'账户佣金',expanded:true,children:[
-						{leaf:true,id:100201,iconCls:'f-mt mt-staff',text:'佣金明细',view:'sd.analysis.results.objects',parameter:{menu:'staff',datepart:'month',field:'funds'}},
+						{leaf:true,id:100201,iconCls:'f-mt mt-staff',text:'佣金明细',view:'agent.commission.detail',parameter:{menu:'staff',datepart:'month',field:'funds'}},
 						{leaf:true,id:100202,iconCls:'f-mt mt-department',text:'佣金统计',view:'sd.analysis.results.objects',parameter:{menu:'t1',datepart:'month',field:'funds'}},
 					]},
 // 					{id:1003,iconCls:'f-mt mt-out-audit',text:'账户',expanded:true,children:[

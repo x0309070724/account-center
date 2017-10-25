@@ -207,12 +207,16 @@ Ext.application({
   pushConnect: function () {
     var me = this,
       json = this.data;
+    console.log(json);
     if (me.pushCount < 3) {
       PushService.connect({
         url: 'wss://' + Boot.serviceDomain,
-        login: /*json.account.login,*/1403,
-        token: /*json.pushKey,*/'CEF6B22B7925C7EBDE8C3FFEA8B0E4B4C53674CD',
-        isManager: true,
+        login: json.account.login,
+        // login: 666666,
+        token: json.pushKey,
+        // token: 'CEF6B22B7925C7EBDE8C3FFEA8B0E4B4C53674CD',
+        // isManager: true,
+        isManager: false,
         ignore: []
       });
       me.pushCount += 1
@@ -228,6 +232,7 @@ Ext.application({
     PushService.addEventListener('error', function (e) {
       if (e.message) {
         console.log(e.message)
+        console.log(e)
       }
       //me.pushConnect();
     });
@@ -240,8 +245,6 @@ Ext.application({
         console.log('close', me.pushCount)
       }, 1000 * 60 * 3)
     });
-
-
     var storeGroup = function (storeId) {
         return Ext.create('Ext.data.Store', {
           storeId: storeId,
@@ -257,8 +260,9 @@ Ext.application({
     // console.log(storeLogin);
     // console.log(storeAgent);
     // console.log(storeSymbol);
+    console.log(222222);
     PushService.ready(function () {
-      // console.log(111);
+      console.log(111222);
       var buffers = PushService.getBuffer();
       console.log(buffers);
       var dataLogin = buffers.getSummaryWithUser(),

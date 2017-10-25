@@ -18,7 +18,7 @@
         }
         // The initial set of data to apply to the tpl to update the content area of the Component.
         me.setData(node.childNodes);
-        console.log(node.childNodes);
+        // console.log(node.childNodes);
       } else {
         me.setHtml(false);
         me.setHidden(true);
@@ -106,7 +106,7 @@
       // var account = {username: '666666', password: 'abc123456', roles: {query: 100}},
       roles = account.roles,
       items = [];
-    console.log(account);
+    // console.log(account);
     switch (parseInt(account.id)) {
       // ===============================================================总监
       case 1:

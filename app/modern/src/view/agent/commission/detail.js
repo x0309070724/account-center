@@ -1,17 +1,17 @@
-Ext.define('APP.view.agent.account.statistics', {
+Ext.define('APP.view.agent.commission.detail', {
   extend: 'Ext.List',
-  xtype: 'agentAccountStatistics',
-  controller: 'agent.account',
-  viewModel: {data: {parameter: {_field: 'account'}}},
+  xtype: 'agentCommissionDetail',
+  controller: 'agent.commission',
+  viewModel: {data: {parameter: {_field: 'order'}}},
   store: {
-    type: 'agent.statistics',
+    type: 'agent.commission.record',
     autoLoad: false,
     proxy: {
       extraParams: {
-        app:'account',
-        datepart: 'month',
-        startdate: Ext.Date.format(new Date(new Date().getFullYear()-1,new Date().getMonth()+1), 'Y-m'),
-        enddate: Ext.Date.format(new Date(), 'Y-m')
+        app:'rebate',
+        // datepart: 'month',
+        startdate: Ext.Date.format(new Date(new Date().getFullYear(),new Date().getMonth()-1,new Date().getDate()), 'Y-m-d'),
+        enddate: Ext.Date.format(new Date(), 'Y-m-d')
       }
     }
   },
@@ -21,11 +21,10 @@ Ext.define('APP.view.agent.account.statistics', {
       {xtype: 'datepartbutton'}
     ]},
     {xtype: 'boxdatepart'},
-    {xtype: 'searchbar', component: {pattern: '[0-9]*'}},
     {
       xtype: 'segmentedtab', ui: 'tab', name: '_field', bind: {value: '{parameter._field}'},
       items: [
-        {text: '账户类型', iconCls: 'f-mt mt-user-3', value: 'account'}
+        {text: '账户类型', iconCls: 'f-mt mt-user-3', value: 'order'}
       ]
     }
   ],

@@ -4,11 +4,11 @@ Ext.define('APP.view.depowith.deposit.index', {
   controller: 'depowith',
   scrollable: true,
   defaults: {scrollable: false},
-  // tpl: [
-  //   '<div class="x-ui-nav-icon"><span class="{iconCls}">fdfdffdf</span></div>',
-  // ],
   items: [
-    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 300101, hideTitle: false},
+    {xtype: 'field', label: '入金方式：'},
+    {xtype: 'comboCommissionWay'},
+    {xtype: 'field', label: '请选择支付方式：'},
+    {xtype: 'comboBank'},
     {
       xtype: 'fieldset', name: 'mateNew', title: '入金金额', items: [
       {
@@ -23,7 +23,7 @@ Ext.define('APP.view.depowith.deposit.index', {
       xtype: 'button', name: 'submit',
       text: '确认并提交',
       ui: 'border background red large', margin: 20, handler: 'onSubmitAccountUpdate'
-    },
+    }
   ],
   listeners: {}
 });

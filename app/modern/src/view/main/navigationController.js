@@ -22,7 +22,7 @@
             navigation.setActiveItem({xtype: 'login'});
           } else {
             navigation.setActiveItem({xtype: 'main'});
-            // APP.app.pushStart();
+            APP.app.pushStart();
             action.resume();
             // navigation.setMasked({xtype: 'loadmask', message: '验证中...'});
           }
@@ -246,8 +246,7 @@
             // Removes all items currently in the Container, optionally destroying them all.
             navigation.removeAll();
             navigation.setActiveItem({xtype: 'main'});
-            // APP.app.pushStart();
-
+            APP.app.pushStart();
           }
         });
       },
