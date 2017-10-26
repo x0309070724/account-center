@@ -3,10 +3,10 @@ Ext.define('APP.view.combo.payAisle', {
   xtype: 'comboBank',
   store: {
     type: 'depowith.payAisle',
-    autoLoad: true,
+    autoLoad: false,
     proxy: {
       extraParams: {
-        payAisle: 'bank'
+        // payAisle: 'bank'
       }
     }
   },
@@ -16,11 +16,11 @@ Ext.define('APP.view.combo.payAisle', {
   valueField: 'code',
   displayField: 'namecn',
   forceSelection: false,
-  listConfig: {
-    getInnerTpl: function () {
-      return '<span class="x-ui-text-grey">{login}</span>'
-    }
-  },
+  // listConfig: {
+  //   getInnerTpl: function () {
+  //     return '<span class="x-ui-text-grey">{login}</span>'
+  //   }
+  // },
   // initComponent: function () {
   //   this.callParent();
   //   var combo = this,

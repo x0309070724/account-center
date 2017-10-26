@@ -6,7 +6,7 @@ Ext.define('APP.view.combo.commissionWay', {
     data: [
       ['deposit', '储蓄卡'],
       ['credit', '信用卡'],
-      ['APP', 'APP支付']
+      ['app', 'APP支付']
     ]
   },
   readOnly: true,
@@ -15,16 +15,20 @@ Ext.define('APP.view.combo.commissionWay', {
   valueField: 'value',
   displayField: 'display',
   forceSelection: false,
-  listConfig: {
-    getInnerTpl: function () {
-      return '<span class="x-ui-text-grey">hahaha</span>'
-    }
-  },
+  // listConfig: {
+  //   getInnerTpl: function () {
+  //     return '<span class="x-ui-text-grey">hahaha</span>'
+  //   }
+  // },
   listeners: {
     select: function (combo) {
       var form = combo.up('formpanel'),
-        xtype = form.down('comboBank');
-      console.log(xtype);
+        comboBank = form.down('comboBank'),
+        value = combo.getValue(),
+        storeBank = comboBank.getStore();
+      comboBank.setValue('');
+      Ext.apply(storeBank.proxy.extraParams, {payAisle: value});
+      storeBank.load();
     }
     // combo.on("select",function(comboBox){
     // var value=comboBox.getValue();

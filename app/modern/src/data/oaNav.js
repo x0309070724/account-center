@@ -358,7 +358,7 @@ Ext.define('APP.data.oaNav', {
               iconCls: 'f-mt mt-password',
               text: '分析详情',
               value: '',
-              view: 'account.update.password'
+              // view: 'account.update.password'
             }
           ]
           }

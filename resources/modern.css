@@ -229,12 +229,14 @@ html * {
   min-width: 60%;
   opacity: 1;
   color: #fff;
-  background-color: rgba(0, 0, 0, .68);
+  /*background-color: rgba(0, 0, 0, .68);*/
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 5px;
 }
 
 .x-toast .x-toast-text {
   padding: .8em;
+  height: 60px;
   color: #fff;
   font-weight: 400;
   text-align: left;
@@ -264,7 +266,6 @@ html * {
   color: yellow;
   font-size: 120%;
   font-weight: normal;
-  background-color: red;
 }
 
 /*UPLOAD BOX*/
@@ -1114,13 +1115,13 @@ html * {
 }
 
 /*.x-ui-list .x-ui-left {*/
-  /*position: relative;*/
-  /*width: 30%;*/
-  /*!*把 font-size 设置为基于父元素的一个百分比值*!*/
-  /*font-size: 150%;*/
-  /*!*设置数字，此数字会与当前的字体尺寸相乘来设置行间距*!*/
-  /*line-height: 1.2;*/
-  /*color: #3a97ff;*/
+/*position: relative;*/
+/*width: 30%;*/
+/*!*把 font-size 设置为基于父元素的一个百分比值*!*/
+/*font-size: 150%;*/
+/*!*设置数字，此数字会与当前的字体尺寸相乘来设置行间距*!*/
+/*line-height: 1.2;*/
+/*color: #3a97ff;*/
 /*}*/
 
 .x-ui-list .x-ui-left {

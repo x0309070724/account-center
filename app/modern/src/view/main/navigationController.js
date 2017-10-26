@@ -224,11 +224,11 @@
       login = form.down('field[name=login]').getValue() || '',
       password = form.down('field[name=password]').getValue() || '';
     if (login === '') {
-      Mate.info('<h6>错误消息</h6>请输入登陆帐号.');
+      Mate.showTask('<h6>错误消息</h6>请输入登陆帐号...', true);
       return false;
     }
     if (password === '') {
-      Mate.info('<h6>错误消息</h6>请输入登陆密码.');
+      Mate.showTask('<h6>错误消息</h6>请输入登陆密码...', true);
       return false;
     }
     form.setMasked({xtype: 'loadmask'});
@@ -252,6 +252,7 @@
       },
       failure: function (json, opts) {
         form.unmask();
+        // Mate.info('<h6>错误消息</h6>登录失败（帐号/密码错误）.');
         // button.setDisabled(false).removeCls('x-submiting');
       }
     });

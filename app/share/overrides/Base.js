@@ -18,14 +18,6 @@ Ext.define('Override.draw.Container',{
 		downloadServerUrl:'/'
 	}
 });
-
-
-
-
-
-
-
-
 Ext.define('Override.data.Store',{
     override:'Ext.data.Store',
 //	autoLoad:false,

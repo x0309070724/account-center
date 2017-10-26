@@ -73,24 +73,24 @@ Ext.define('APP.mate.mate', {
           break;
       }
     },
-    //============================================================================验证 MATE 数据
+    // ===================================================================================================验证 MATE 数据
     checkErrCode: function (rlt, callback) {
       if (rlt.success) {
         return false
       }
-      //console.log('checkErrCode',rlt)
-      switch (rlt.errCode) {
+      console.log('checkErrCode', rlt);
+      switch (rlt.code) {
         case '-9999': {
           Mate.showTask('<h6>系统繁忙</h6>请稍后重试...', true);
         }
           break;
         case '-1000': {
-          //========================会话过期 重新登陆
+          // ========================会话过期 重新登陆
           APP.app.reLogin(callback);
         }
           break;
         case '-1001': {
-          //========================会话过期 重新登陆
+          // ========================会话过期 重新登陆
           APP.app.reLogin(callback);
         }
           break;
@@ -101,71 +101,62 @@ Ext.define('APP.mate.mate', {
         case '-2001': {
           Mate.showTask('<h6>验证未通过</h6>安全密码有误...', true);
         }
-          ;
           break;
-
-
         case '-100001': {
           Mate.showTask('<h6>验证未通过</h6>账户名无效...', true);
         }
-          ;
           break;
         case '-100002': {
           Mate.showTask('<h6>验证未通过</h6>账户登陆密码有误...', true);
         }
-          ;
           break;
         case '-100003': {
           Mate.showTask('<h6>验证未通过</h6>账号已被锁定...', true);
         }
-          ;
           break;
         case '-100004': {
           Mate.showTask('<h6>验证未通过</h6>账号已失效...', true);
         }
-          ;
           break;
         case '-100005': {
           Mate.showTask('<h6>异地登陆</h6>当前账户未在常用地区登陆，请获取验证码后继续...', true);
         }
-          ;
           break;
         case '-100006': {
           Mate.showTask('<h6>验证码错误</h6>注意：请以最后所获取到的验证码为准...', true);
         }
-          ;
           break;
         case '-100007': {
           Mate.showTask('<h6>验证码错误</h6>注意：请以最后所获取到的验证码为准...', true);
         }
-          ;
           break;
         case '-100011': {
           Mate.showTask('<h6>密码异常</h6>抱歉！您输入的密码错误次数过多，请联系管理员解除异常！', true);
         }
-          ;
           break;
-
-
         case '-200001': {
           Mate.showTask('<h6>验证未通过</h6>原值与新值一致...', true);
         }
-          ;
           break;
         case '-200002': {
           Mate.showTask('<h6>验证未通过</h6>原密码有误...', true);
         }
-          ;
           break;
         case '-200003': {
           Mate.showTask('<h6>验证未通过</h6>2次输入的密码不一致...', true);
         }
-          ;
           break;
         case '-200010': {
           Mate.showTask('<h6>执行资料更新对接 失败</h6>请联络管理员核实...', true);
         }
-          ;
+          break;
+        case 'C-100001': {
+          Mate.showTask('<h6>验证未通过</h6>用户名或密码错误...', true);
+        }
+          break;
+        case 'C-100002': {
+          Mate.showTask('<h6>验证未通过</h6>用户名或密码错误...', true);
+        }
           break;
         default: {
           if (!Ext.touch) {
@@ -284,18 +275,18 @@ Ext.define('APP.mate.mate', {
       return false;
     },
 
-
-    // ====================================================================================================各类提醒 START
+    // Mate.showTask('<h6>验证未通过</h6>用户名或密码错误...', true);
+    // ===================================================================================================各类提醒 START
     showTask: function (message, warning, callback, times) {
       var cls = warning ? 'mt-warning' : 'mt-notice';
-      // console.log(Ext.touch); //true
+      // console.log(Ext.touch); // true
       if (Ext.touch) {
         Ext.toast({
           // userCls: 'x-ui-task',
           message: '<div class="x-ui-task"><span class="f-mt ' + cls + '"></span><div>' + message + '</div></div>',
           // showAnimation: {type: 'popIn', duration: 8000, easing: 'ease-out'},
           // hideAnimation: {type: 'popOut', duration: 250, easing: 'ease-out'},
-          timeout: 300000000000000
+          timeout: 3000
         });
       } else {
         function createBox(s) {
