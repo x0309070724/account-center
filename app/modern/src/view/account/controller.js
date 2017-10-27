@@ -212,11 +212,11 @@
   // =============================================================================================================详情页
   onDetailInfoInitialize: function (view) {
     view.setMasked({xtype: 'loadmask'});
-    // var parameter = view.parameter;
-    // console.log(parameter);
+    var parameter = view.parameter;
+    console.log(parameter);
     var account = APP.app.getAppData('account');
-    account.funds_total = account.funds_deposit + account.funds_withdrawal + account.funds_credit;
-    account.trade_total = account.trade_profit + account.trade_storage + account.trade_commission_agent;
+    // account.funds_total = account.funds_deposit + account.funds_withdrawal + account.funds_credit;
+    // account.trade_total = account.trade_profit + account.trade_storage + account.trade_commission_agent;
     view.setData(account);
     view.unmask();
     // Mate.ajax({

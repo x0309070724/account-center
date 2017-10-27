@@ -6,6 +6,7 @@ Ext.define('Override.util.Format', {
     }
     if (!Ext.isDate(value)) {
       // console.log(format);// Y-m-d H:i A
+      value *= 1000;
       value = new Date(value);
     }
     return Ext.Date.dateFormat(value, format || Ext.Date.defaultFormat);
@@ -604,6 +605,13 @@ Ext.define('Override.util.Format', {
     }
     var outHtml = '<label class="x-ui-label ' + style + '">' + text + '</label>';
     return outHtml
+  },
+  // ----------------------------------------------------------------------------------------------------Funds Transfer
+  stringSl: function (value) {
+    if (value <= 0) {
+      return 'NIL'
+    }
+    return value
   }
 });
 

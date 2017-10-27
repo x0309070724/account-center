@@ -8,14 +8,15 @@ Ext.define('APP.view.account.info.bank', {
   },
   userCls: 'x-ui-list',
   itemTpl: [
-    '<div class="x-ui-left x-ui-block">',
+    /*'<div class="x-ui-left x-ui-block">',
       '<div>{currency}</div>',
-    '</div>',
+    '</div>',*/
     '<div class="x-ui-explain">',
-      '<span id="haha" class="x-ui-bank-icon ICBC bank-icon"></span>',
+      '<span class="x-ui-bank-icon {icon} bank-icon"></span>',
       '<div class="card-no">{cardno}</div>',
       '<div class="branch">{branch}</div>',
     '</div>'
+
   ],
   listeners: {
     // initialize: 'onApplyStoreLoad',

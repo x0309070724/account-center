@@ -174,5 +174,67 @@
     Ext.util.History.add(token);
     var navigation = button.up('navigationview');
     navigation.pop(1);
+  },
+
+  onIndexActivate: function (view) {
+    var me = this,
+      carousel = view.down('carousel'),
+      // Retrieves all descendant components which match the passed selector.
+      boxs = carousel.query('box');
+    // direction = 'next';
+    console.log(444);
+    PushService.ready(function () {
+      var buffers = PushService.getBuffer();
+      if (this.task) {
+        Ext.TaskManager.destroy(this.task)
+      }
+      // console.log(buffers.getOnline());
+      // console.log(buffers.getOnlines());
+      // console.log(buffers.getOnlinesRef());
+      // console.log(buffers.getQuotes());
+      // console.log(buffers.getSummaryByAgentLogin());
+      // console.log(buffers.getSummaryRef());
+      // console.log(buffers.getSummaryWithAgent());
+      // console.log(buffers.getSummaryWithSymbol());
+      // console.log(buffers.getSummaryWithUser());
+      // console.log(buffers.getSymbol());
+      // console.log(buffers.getSymbols());
+      // console.log(buffers.getSymbolsRef());
+      // console.log(buffers.getTradeByOrder());
+      // console.log(buffers.getTradesByLogin());
+      // console.log(buffers.getUsers());
+      // this.task = Ext.TaskManager.start({
+      //   run: function () {
+      //     if (view.isHidden()) {
+      //       Ext.TaskManager.destroy(me.task);
+      //       return false;
+      //     }
+      //     me.getIndexData(function (data) {
+      //       var day = '今日业绩,' + data.day,
+      //         week = '本周业绩,' + data.week,
+      //         month = '本月业绩,' + data.month;
+      //       // console.log(day.split(','));
+      //       boxs[0].setData(day.split(','));
+      //       boxs[1].setData(week.split(','));
+      //       boxs[2].setData(month.split(','));
+      //     });
+      //   },
+      //   interval: 1000 * 60 * 3
+      // });
+    });
+  },
+
+  getIndexData: function (callback) {
+    Mate.ajax({
+      url: Boot.appUrl('/super/getTrend.do'),
+      params: {
+        sp: 'SP_ANALYSIS_RESULTS',
+        date: Ext.util.Format.utcDate(new Date(), 'Y-m-d')
+      },
+      success: function (json, opts) {
+        var data = json.plant[0];
+        return callback(data);
+      }
+    });
   }
 });

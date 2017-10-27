@@ -2,23 +2,14 @@ Ext.define('APP.view.transition.position.order', {
   extend: 'Ext.List',
   xtype: 'transitionPositionOrder',
   controller: 'transition.position',
-  // name: 'results',
   store: {
     type: 'transition.position.order',
-    // autoLoad: false,
-    // super: true,
+    autoLoad: false,
     proxy: {
-      extraParams: {
-        // datepart: 'month',
-        // startdate: Ext.Date.format(new Date(), 'Y-m'),
-        // enddate: Ext.Date.format(new Date(), 'Y-m')
-      }
+      extraParams: {}
     }
   },
-  // plugins: [
-  //   {type: 'pullrefresh'}
-  // ],
-  viewModel: {data: {parameter: {_field: 'pending', menu: 'type'}}},
+  viewModel: {data: {parameter: {_field: 'all', menu: 'type'}}},
   items: [
     {
       xtype: 'navbar', hiddenTitle: true, menu: [
@@ -32,11 +23,9 @@ Ext.define('APP.view.transition.position.order', {
           {text: '全部', value: 'all', sorter: {property: 'trade_volume', direction: 'DESC'}}
         ]
       },
-      {xtype: 'spacer'},
-      // {xtype: 'datepartbutton'}
+      {xtype: 'spacer'}
     ]
     },
-    // {xtype: 'boxdatepart'},
     {
       xtype: 'segmentedtab', ui: 'tab', name: 'menu', bind: {value: '{parameter.menu}'},
       items: [
@@ -45,75 +34,59 @@ Ext.define('APP.view.transition.position.order', {
         {text: '现价', iconCls: 'f-mt mt-team', value: 'close_price'},
         {text: '交易盈亏', iconCls: 'f-mt mt-team', value: 'profit'}
       ]
-    },
-    // {xtype: 'boxtotal'}
+    }
   ],
   userCls: 'x-ui-list',
   itemCls: 'x-ui-listitem-ranking',
   itemTpl: [
-    // '<tpl switch="menu">',
-    // // =====================================================================================销售
-    //   '<tpl case="staff">',
-    //     '<div class="x-ui-no x-ui-no-{ranking}">',
-    //       '<b>{ranking}</b>',
-    //     '</div>',
-    //   '<div class="x-ui-userface">',
-    //     '<img src="{objects_icon:resizeWxImg("/0","/64")}" alt="" onerror="this.src=\'/resources/images/userface.png\'"/>',
-    //   '</div>',
-    //   '<div class="x-ui-name">',
-    //     '<p>{objects}</p>',
-    //     '<p>{objects_tip}{[this.postName(values)]}</p>',
-    //   '</div>',
-    // // =====================================================================================团队
-    //   '<tpl default>',
-    //     '<div class="x-ui-no x-ui-no-{ranking}">',
-    //       '<b>{ranking}</b>',
-    //     '</div>',
-    //   '<div class="x-ui-name">',
-    //     '<p>{objects}</p>',
-    //     '<p>{manager_namecn} <span>{manager_name}</span></p>',
-    //   '</div>',
-    // '</tpl>',
-    // '<div class="x-ui-value">',
-    //   '<tpl switch="field">',
-    //   // =====================================================================================开户量
-    //     '<tpl case="account">',
-    //       '<label>开户量</label>',
-    //       '<b>{account_new_count:stringInteger}</b>',
-    //   // =====================================================================================净入金
-    //     '<tpl case="funds">',
-    //       '<label>净入金</label>',
-    //       '<b>{funds_net_deposit:money}</b>',
-    //   // =====================================================================================交易量
-    //     '<tpl case="volume">',
-    //       '<label>交易量</label>',
-    //       '<b>{trade_volume:stringNumeral(3)}</b>',
-    //   '</tpl>',
-    // '</div>',
-    // {
-    //   postName: function (record, a, b) {
-    //     // console.log(record,this);
-    //     if (record.id === record.managerid && record.teamid.toString().substr(9, 3) === '000') {
-    //       return '·经理'
-    //     } else if (record.id == record.managerid) {
-    //       return '·主管'
-    //     }
-    //   }
-    // }
     '<div class="x-ui-objects">',
       '<p>#{order}</p>',
-      // '<p>{objects_tip}</p>',
     '</div>',
     '<tpl switch="_field">',
       // =====================================================================================全部
       '<tpl case="all">',
-        '<div class="x-ui-explain">',
-          '<p><b class="x-ui-text-green">{cmd:tradeCmd}==>{symbol}</b></p>',
-        '</div>',
-        '<div class="x-ui-right">',
-          '<label>成交量</label>',
-          '<b>{volume:money}</b>',
-        '</div>',
+        '<tpl switch="menu">',
+          // ===================================================交易类型
+          '<tpl case="type">',
+            '<div class="x-ui-explain">',
+              '<p><b class="x-ui-text-green">{cmd:tradeCmd}==>{symbol}</b></p>',
+            '</div>',
+            '<div class="x-ui-right">',
+              '<label>成交量</label>',
+              '<b>{volume:money}</b>',
+            '</div>',
+          // ===================================================开仓
+          '<tpl case="open_price">',
+            '<div class="x-ui-explain">',
+              '<p><b class="x-ui-text-green">{open_time:date("Y-m-d")}</b></p>',
+              '<p><b class="x-ui-text-green">{open_time:date("H:i:s")}</b></p>',
+            '</div>',
+            '<div class="x-ui-right">',
+              '<label>开仓价</label>',
+              '<b>{open_price:money}</b>',
+            '</div>',
+          // ===================================================现价
+          '<tpl case="close_price">',
+            '<div class="x-ui-explain">',
+              '<p><b class="x-ui-text-green">{sl:stringSl} | {sl:stringSl}</b></p>',
+            '</div>',
+            '<div class="x-ui-right">',
+              '<label>现价</label>',
+              '<b>{close_price:money}</b>',
+            '</div>',
+          // ===================================================交易盈亏
+          '<tpl case="profit">',
+            '<div class="x-ui-explain">',
+              '<p>',
+                '<b class="x-ui-text-green">手续费：{taxes:usMoney}</b></br>',
+                '<b class="x-ui-text-green">库存费：{storage:usMoney}</b>',
+              '</p>',
+            '</div>',
+            '<div class="x-ui-right">',
+              '<label>交易盈亏</label>',
+              '<b>{profit:usMoney}</b>',
+            '</div>',
+        '</tpl>',
       // =====================================================================================挂单
       '<tpl case="pending">',
         '<tpl switch="menu">',
@@ -129,44 +102,79 @@ Ext.define('APP.view.transition.position.order', {
           // ===================================================开仓
           '<tpl case="open_price">',
             '<div class="x-ui-explain">',
-              '<p><b class="x-ui-text-green">{timestamp:date("Y-m-d")}</b></p>',
-              '<p><b class="x-ui-text-green">{timestamp:date("H:i:s")}</b></p>',
+              '<p><b class="x-ui-text-green">{open_time:date("Y-m-d")}</b></p>',
+              '<p><b class="x-ui-text-green">{open_time:date("H:i:s")}</b></p>',
             '</div>',
             '<div class="x-ui-right">',
               '<label>开仓价</label>',
               '<b>{open_price:money}</b>',
             '</div>',
+          // ===================================================现价
+          '<tpl case="close_price">',
+            '<div class="x-ui-explain">',
+              '<p><b class="x-ui-text-green">{sl:stringSl} | {sl:stringSl}</b></p>',
+            '</div>',
+            '<div class="x-ui-right">',
+              '<label>现价</label>',
+              '<b>{close_price:money}</b>',
+            '</div>',
+          // ===================================================交易盈亏
+          '<tpl case="profit">',
+            '<div class="x-ui-explain">',
+              '<p>',
+                '<b class="x-ui-text-green">手续费：{taxes:usMoney}</b></br>',
+                '<b class="x-ui-text-green">库存费：{storage:usMoney}</b>',
+              '</p>',
+            '</div>',
+            '<div class="x-ui-right">',
+              '<label>交易盈亏</label>',
+              '<b>{profit:usMoney}</b>',
+            '</div>',
         '</tpl>',
-
-
-
       // =====================================================================================订单
       '<tpl case="order">',
-        '<div class="x-ui-explain">',
-          '<p><b class="x-ui-text-green">{cmd:tradeCmd}==>{symbol}</b></p>',
-        '</div>',
-        '<div class="x-ui-right">',
-          '<label>成交量</label>',
-          '<b>{volume:money}</b>',
-        '</div>',
-    // // =====================================================================================手续费
-    // '<tpl case="pending">',
-    //   '<div class="x-ui-explain">',
-    //     '<p><label>净头寸：</label><b class="x-ui-text-green">{position_volume:money}</b></p>',
-    //   '</div>',
-    //   '<div class="x-ui-right">',
-    //     '<label>手续费</label>',
-    //     '<b>{commission:usMoney}</b>',
-    //   '</div>',
-    // // =====================================================================================交易盈亏
-    // '<tpl case="order">',
-    //   '<div class="x-ui-explain">',
-    //     '<p><label>库存费：</label><b class="x-ui-text-green">{storage:money}</b></p>',
-    //   '</div>',
-    //   '<div class="x-ui-right">',
-    //     '<label>交易盈亏</label>',
-    //     '<b>{clear:money}</b>',
-    //   '</div>',
+        '<tpl switch="menu">',
+          // ===================================================交易类型
+          '<tpl case="type">',
+            '<div class="x-ui-explain">',
+              '<p><b class="x-ui-text-green">{cmd:tradeCmd}==>{symbol}</b></p>',
+            '</div>',
+            '<div class="x-ui-right">',
+              '<label>成交量</label>',
+              '<b>{volume:money}</b>',
+            '</div>',
+          // ===================================================开仓
+          '<tpl case="open_price">',
+            '<div class="x-ui-explain">',
+              '<p><b class="x-ui-text-green">{open_time:date("Y-m-d")}</b></p>',
+              '<p><b class="x-ui-text-green">{open_time:date("H:i:s")}</b></p>',
+            '</div>',
+            '<div class="x-ui-right">',
+              '<label>开仓价</label>',
+              '<b>{open_price:money}</b>',
+            '</div>',
+          // ===================================================现价
+          '<tpl case="close_price">',
+            '<div class="x-ui-explain">',
+              '<p><b class="x-ui-text-green">{sl:stringSl} | {sl:stringSl}</b></p>',
+            '</div>',
+            '<div class="x-ui-right">',
+              '<label>现价</label>',
+              '<b>{close_price:money}</b>',
+            '</div>',
+          // ===================================================交易盈亏
+          '<tpl case="profit">',
+            '<div class="x-ui-explain">',
+              '<p>',
+                '<b class="x-ui-text-green">手续费：{taxes:usMoney}</b></br>',
+                '<b class="x-ui-text-green">库存费：{storage:usMoney}</b>',
+              '</p>',
+            '</div>',
+            '<div class="x-ui-right">',
+              '<label>交易盈亏</label>',
+              '<b>{profit:usMoney}</b>',
+            '</div>',
+        '</tpl>',
     '</tpl>'
   ],
   listeners: {

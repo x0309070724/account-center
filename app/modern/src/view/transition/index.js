@@ -66,5 +66,8 @@ Ext.define('APP.view.transition.index', {
     {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 2005, hideTitle: false},
     {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 2007, hideTitle: false}
   ],
-  listeners: {}
+  listeners: {
+    // Fires whenever item within the Container is activated.
+    activate: 'onIndexActivate'
+  }
 });
