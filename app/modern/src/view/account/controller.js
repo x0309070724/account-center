@@ -1,32 +1,6 @@
 ﻿Ext.define('APP.view.account.controller', {
   extend: 'APP.view.controller',
   alias: 'controller.account',
-  // // ===========================================================================================================退出系统
-  // onLogoutTap: function (button) {
-  //   Mate.confirm('<h6>确定要退出系统？</h6>退出后，将清空当前登录用户的缓存信息并返回至登录界面...',
-  //     function (button) {
-  //       if (button === 'yes') {
-  //         // A configuration to allow you to mask this container. You can optionally pass an object block with and xtype
-  //         // of loadmask, and an optional message value to display
-  //         APP.app.getViewport().setMasked({xtype: 'loadmask', message: 'Exiting...'});
-  //         // Mate.waiting('<h6>正在安全退出系统</h6>请等待指令执行完成...');
-  //         Mate.ajax({
-  //           url: Boot.appUrl('/outLogin.do'),
-  //           success: function (data, opts) {
-  //             APP.app.getViewport().unmask();
-  //             // console.log(window.location);
-  //             // 重新加载文档
-  //             window.location.reload();
-  //           },
-  //           failure: function (data, opts) {
-  //             APP.app.getViewport().unmask();
-  //             Mate.showTask(data.message, true);
-  //           }
-  //         });
-  //       }
-  //     }
-  //   );
-  // },
 
   onSubmitAccountUpdate: function (button) {
     Mate.info('暂不开放.', true);
@@ -168,82 +142,20 @@
     // console.log(record);
     view.setRecord(record);
   },
-
-  /*// ===========================================================================================================账户详情
-  onRecordItemtap: function (list, idx, el, record) {
-    var navigation = list.up('navigationview');
-    // console.log(record);
-    var login = record.data.objects ? record.data.objects : record.data.login;
-    login = parseInt(login) || 0;
-    var view = Ext.create({
-      xtype: 'sdAccountDetailIndex',
-      title: login.toString(),
-      items: [
-        {xtype: 'sdAccountDetailInfo', title: '档案', iconCls: 'f-mt mt-account-strate', parameter: {login: login}},
-        {xtype: 'sdAccountDetailFunds', title: '出入金', iconCls: 'f-mt mt-trading', parameter: {login: login}},
-        {xtype: 'sdAccountDetailPositions', title: '持仓订单', iconCls: 'f-mt mt-premium-chart', parameter: {login: login}},
-        {xtype: 'sdAccountDetailOrder', title: '历史订单', iconCls: 'f-mt mt-check-order', parameter: {login: login}}
-      ]
-    });
-    navigation.push(view);
-  },*/
-
-  // ===========================================================================================================账户详情
-  onRecordItemtap: function (list, idx, el, record) {
-    Mate.alert('此功能正在开发中……');
-    return false;
-    // var navigation = list.up('navigationview');
-    // // console.log(record);
-    // var login = record.data.objects ? record.data.objects : record.data.login;
-    // login = parseInt(login) || 0;
-    // var view = Ext.create({
-    //   xtype: 'sdAccountDetailIndex',
-    //   title: login.toString(),
-    //   items: [
-    //     {xtype: 'sdAccountDetailInfo', title: '档案', iconCls: 'f-mt mt-account-strate', parameter: {login: login}},
-    //     {xtype: 'sdAccountDetailFunds', title: '出入金', iconCls: 'f-mt mt-trading', parameter: {login: login}},
-    //     {xtype: 'sdAccountDetailPositions', title: '持仓订单', iconCls: 'f-mt mt-premium-chart', parameter: {login: login}},
-    //     {xtype: 'sdAccountDetailOrder', title: '历史订单', iconCls: 'f-mt mt-check-order', parameter: {login: login}}
-    //   ]
-    // });
-    // navigation.push(view);
-  },
-
   // =============================================================================================================详情页
   onDetailInfoInitialize: function (view) {
     view.setMasked({xtype: 'loadmask'});
-    var parameter = view.parameter;
-    console.log(parameter);
     var account = APP.app.getAppData('account');
-    // account.funds_total = account.funds_deposit + account.funds_withdrawal + account.funds_credit;
-    // account.trade_total = account.trade_profit + account.trade_storage + account.trade_commission_agent;
+    account.funds_total = account.funds_deposit + account.funds_withdrawal + account.funds_credit;
+    account.trade_total = account.trade_profit + account.trade_storage + account.trade_commission_agent;
+    PushService.ready(function () {
+      var buffers = PushService.getBuffer(),
+        mt4Data = buffers.getUser(account.login);
+      // console.log(mt4Data);
+      account.mt4Data = mt4Data;
+    });
     view.setData(account);
     view.unmask();
-    // Mate.ajax({
-    //   // url:Boot.appUrl('/sd/account/checkMt4Login.do'),
-    //   // url: Boot.appUrl('/sd/account/manager/getRecord.do'),
-    //   url: Boot.appUrl('/mate.do'),
-    //   params: {login: parameter.login},
-    //   success: function (json, opts) {
-    //     console.log(json);
-    //     PushService.ready(function () {
-    //       console.log(111);
-    //       var buffers = PushService.getBuffer(),
-    //         mt4Data = buffers.getUser(parameter.login);
-    //       var data = json.plant[0];
-    //       data.mt4Data = mt4Data;
-    //       //console.log(parameter.login,data)
-    //       view.setData(data);
-    //       view.unmask();
-    //     });
-    //     // view.setData(json);
-    //     // view.unmask();
-    //   },
-    //   failure: function (json, opts) {
-    //     view.unmask();
-    //     return false;
-    //   }
-    // });
   },
   // =============================================================================================================出入金
   // onDetailFundsInitialize: function (list) {

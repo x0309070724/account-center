@@ -44,13 +44,13 @@ Ext.define('APP.view.transition.analysis.complex', {
       '<tpl switch="_field">',
         // =====================================================================================净盈亏
         '<tpl case="trade_profit_total">',
-          '<b>{trade_profit_total:stringInteger}</b>',
+          '<b class="{trade_profit:moneyColor}">{trade_profit_total:usMoney}</b>',
         // =====================================================================================交易盈亏
         '<tpl case="trade_profit">',
-          '<b class="{trade_profit:moneyColor}">{trade_profit:money}</b>',
+          '<b class="{trade_profit:moneyColor}">{trade_profit:usMoney}</b>',
         // =====================================================================================每手收益
         '<tpl case="trade_profit_average">',
-          '<b class="{trade_profit_average:moneyColor}">{trade_profit_average:money}</b>',
+          '<b class="{trade_profit_average:moneyColor}">{trade_profit_average:usMoney}</b>',
       '</tpl>',
     '</div>'
   ]

@@ -20,7 +20,6 @@ Ext.define('APP.view.account.update.mobile', {
   ],
   listeners: {
     activate: function (me) {
-      // console.log(me);
       me.setFieldset();
     }
   },
@@ -30,7 +29,6 @@ Ext.define('APP.view.account.update.mobile', {
     var button = me.down('button[name=submit]'),
       mateNow = me.down('fieldset[name=mateNow]'),
       mateNew = me.down('fieldset[name=mateNew]');
-    // console.log(account);
     if (account.mobile === '') {
       button.setText('绑定');
       mateNow.hide();

@@ -4,7 +4,7 @@ Ext.define('APP.view.account.info.index', {
   layout: 'card',
   controller: 'account',
   items: [
-    {xtype: 'accountInfoAccountInfo', title: '档案', iconCls: 'f-mt mt-account-strate', parameter: {login: 666666}},
+    {xtype: 'accountInfoAccountInfo', title: '档案', iconCls: 'f-mt mt-account-strate'},
     {xtype: 'accountInfoBank', title: '收款银行卡', iconCls: 'f-mt mt-trading'}
   ],
   tabBar: {

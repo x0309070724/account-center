@@ -14,9 +14,6 @@ Ext.define('APP.view.transition.position.summary', {
       }
     }
   },
-  // plugins: [
-  //   {type: 'pullrefresh'}
-  // ],
   viewModel: {data: {parameter: {_field: 'buy_sell'}}},
   items: [
     {
@@ -58,8 +55,8 @@ Ext.define('APP.view.transition.position.summary', {
       // =====================================================================================买卖
       '<tpl case="buy_sell">',
         '<div class="x-ui-explain">',
-          '<p><label>买入：</label><b class="x-ui-text-green">{buy_volume:money}<r>{buy_profit:money}</r></b></p>',
-          '<p><label>卖出：</label><b class="x-ui-text-red">{sell_volume:money}<r>{sell_profit:money}</r></b></p>',
+          '<p><label>买入：</label><b class="x-ui-text-green">{buy_volume:usMoney}<r>{buy_profit:usMoney}</r></b></p>',
+          '<p><label>卖出：</label><b class="x-ui-text-red">{sell_volume:usMoney}<r>{sell_profit:usMoney}</r></b></p>',
         '</div>',
       // =====================================================================================手续费
       '<tpl case="commission">',
@@ -73,11 +70,11 @@ Ext.define('APP.view.transition.position.summary', {
       // =====================================================================================交易盈亏
       '<tpl case="trades">',
         '<div class="x-ui-explain">',
-          '<p><label>库存费：</label><b class="x-ui-text-green">{storage:money}</b></p>',
+          '<p><label>库存费：</label><b class="x-ui-text-green">{storage:usMoney}</b></p>',
         '</div>',
         '<div class="x-ui-right">',
           '<label>交易盈亏</label>',
-          '<b>{clear:money}</b>',
+          '<b>{clear:usMoney}</b>',
         '</div>',
     '</tpl>'
   ],

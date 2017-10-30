@@ -6,7 +6,7 @@ Ext.define('Override.util.Format', {
     }
     if (!Ext.isDate(value)) {
       // console.log(format);// Y-m-d H:i A
-      value *= 1000;
+      // value *= 1000;
       value = new Date(value);
     }
     return Ext.Date.dateFormat(value, format || Ext.Date.defaultFormat);

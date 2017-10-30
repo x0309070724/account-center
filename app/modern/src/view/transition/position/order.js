@@ -59,7 +59,7 @@ Ext.define('APP.view.transition.position.order', {
           '<tpl case="open_price">',
             '<div class="x-ui-explain">',
               '<p><b class="x-ui-text-green">{open_time:date("Y-m-d")}</b></p>',
-              '<p><b class="x-ui-text-green">{open_time:date("H:i:s")}</b></p>',
+              '<p><b class="x-ui-text-grey">{open_time:date("H:i:s")}</b></p>',
             '</div>',
             '<div class="x-ui-right">',
               '<label>开仓价</label>',

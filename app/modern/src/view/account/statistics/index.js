@@ -7,12 +7,9 @@ Ext.define('APP.view.account.statistics.index', {
     {
       xtype: 'accountStatisticsAccountStatistics',
       title: '档案',
-      iconCls: 'f-mt mt-account-strate',
-      parameter: {login: 666666}
+      iconCls: 'f-mt mt-account-strate'
     },
     {xtype: 'accountStatisticsOrder', title: '历史订单', iconCls: 'f-mt mt-check-order'}
-    // {xtype: 'sdAccountDetailPositions', title: '持仓订单', iconCls: 'f-mt mt-premium-chart', parameter: {login: login}},
-    // {xtype: 'sdAccountDetailOrder', title: '历史订单', iconCls: 'f-mt mt-check-order', parameter: {login: login}}
   ],
   tabBar: {
     layout: {pack: 'center', align: 'center'},

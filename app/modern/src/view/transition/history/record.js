@@ -48,14 +48,14 @@ Ext.define('APP.view.transition.history.record', {
   itemCls: 'x-ui-list-report',
   itemTpl: [
     '<div class="x-ui-objects">',
-      '<p>#{order}</p>',
+      '<b>#{order}</b>',
       // '<p>{objects_tip}</p>',
     '</div>',
     '<tpl switch="_field">',
       // =====================================================================================交易类型
       '<tpl case="idxkey">',
         '<div class="x-ui-explain">',
-          '<p><b class="x-ui-text-green">时间：{t_day}</b></p>',
+          '<p><b class="x-ui-text-green">{open_time:date("Y-m-d H:m:s")}</b></p>',
           // '<p><label>交易类型：</label><b class="x-ui-text-red">{idxkey:stringInteger}</b></p>',
         '</div>',
         '<div class="x-ui-right">',

@@ -5,12 +5,7 @@ Ext.define('APP.view.account.asset.record', {
   store: {
     type: 'account.asset',
     autoLoad: false
-    // super: true,
-    // sorters: [{property: 'objects', direction: 'ASC'}]
   },
-  // plugins: [
-  //   {type: 'pullrefresh'}
-  // ],
   viewModel: {data: {parameter: {_field: 'balance'}}},
   items: [
     {xtype: 'navbar'},
@@ -28,18 +23,31 @@ Ext.define('APP.view.account.asset.record', {
   userCls: 'x-ui-list',
   itemTpl: [
     '<div>',
-      // '<b>{objects:ledgerDay}</b>',
       '<b>{time}</b>',
     '</div>',
-    '<div class="x-ui-float-right">',
-      '<tpl switch="_field">',
-        // =====================================================================================余额
-        '<tpl case="balance">',
-          '<b>{balance:stringInteger}</b>',
-        // =====================================================================================净值
-        '<tpl case="equity">',
-          '<b class="{equity:moneyColor}">{equity:money}</b>',
-      '</tpl>',
-    '</div>'
+    '<tpl switch="_field">',
+      // =====================================================================================余额
+      '<tpl case="balance">',
+        '<div class="x-ui-explain">',
+          '<p>',
+            '<b class="x-ui-text-green">入金：{funds_deposit:usMoney}</b></br>',
+            // '<r><b class="x-ui-text-grey">{funds_deposit_count:stringInteger}笔</b></r></br>',
+            '<b class="x-ui-text-red">出金：{funds_withdrawal:usMoney}</b>',
+            // '<r><b class="x-ui-text-grey">{funds_withdrawal_count:stringInteger}笔</b></r></br>',
+          '</p>',
+        '</div>',
+        '<div class="x-ui-float-right">',
+          '<b>{balance:usMoney}</b>',
+        '</div>',
+      // =====================================================================================净值
+      '<tpl case="equity">',
+        '<div class="x-ui-explain">',
+          // '<p><b class="x-ui-text-red">交易盈亏：</b></p>',
+          '<p><b class="x-ui-text-red">浮动盈亏：{balance:usMoney}</b></p>',
+        '</div>',
+        '<div class="x-ui-float-right">',
+          '<b class="{equity:moneyColor}">{equity:usMoney}</b>',
+        '</div>',
+    '</tpl>'
   ]
 });

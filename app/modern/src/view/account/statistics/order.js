@@ -34,6 +34,6 @@ Ext.define('APP.view.account.statistics.order', {
   ],
   listeners: {
     initialize: 'onApplyStoreLoad'
-    // initialize: 'onDetailOrderInitialize'
+    // itemTap: 'onDetailOrderInitialize'
   }
 });

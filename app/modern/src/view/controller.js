@@ -67,43 +67,11 @@
       params = view.parameter || {};
     Ext.apply(store.getProxy().getExtraParams(), params);
     store.loadPage(1);
-//		store.loadPage(1,{
-//			callback:function(records,operation,success){
-////				var params=store.getProxy().getExtraParams(),
-////					boxDatepart=view.down('boxdatepart'),
-////					boxTotal=view.down('boxtotal'),
-////					cartesian=view.down('cartesian');
-////
-////				if(cartesian){
-////					var chartData=[];
-////					Ext.Array.each(records,function(record,i){
-////						chartData.push({
-////							label:record.data.objects,
-////							value:record.data.funds_net_deposit
-////						});
-////					})
-////					cartesian.getStore().setData(chartData);
-////				}
-////				if(boxDatepart){
-////					boxDatepart.setHidden(!params.startdate);
-////					if(params.startdate==params.enddate){
-////						var html='<b>'+params.enddate+'<b>'
-////					}else{
-////						var html='From <b>'+params.startdate+'</b> To <b>'+params.enddate+'</b>'
-////					}
-////					boxDatepart.setHtml(html);
-////				}
-////				if(boxTotal){
-////					boxTotal.setHidden(!store.totalValue);
-////					boxTotal.setHtml(store.totalValueString);
-////				}
-//			}
-//		});
+    console.log(store);
   },
-  // ==========================================================================================================MAIN INIT
+  // =========================================================================================================MAIN INIT
   onMainInitialize: function (tabpanel) {
     var account = APP.app.getAppData('account'),
-      // var account = {username: '666666', password: 'abc123456', roles: {query: 100}},
       roles = account.roles,
       items = [];
     console.log(account);

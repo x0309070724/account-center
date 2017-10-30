@@ -16,9 +16,6 @@ Ext.define('APP.view.transition.analysis.symbol', {
       }
     }
   },
-  // plugins: [
-  //   {type: 'pullrefresh'}
-  // ],
   viewModel: {data: {parameter: {_field: 'trade_volume'}}},
   items: [
     {xtype: 'navbar', menu: [
@@ -46,10 +43,10 @@ Ext.define('APP.view.transition.analysis.symbol', {
       '<tpl switch="_field">',
         // =====================================================================================交易量
         '<tpl case="trade_volume">',
-          '<b>{trade_volume:money}量 | {trade_count:stringInteger}笔</b>',
+          '<b>{trade_volume:money}量 </b> <b class="x-ui-grey">{trade_count:stringInteger}笔</b>',
         // =====================================================================================交易盈亏
         '<tpl case="trade_profit">',
-          '<b class="{trade_profit:moneyColor}">{trade_profit:money}</b>',
+          '<b class="{trade_profit:moneyColor}">{trade_profit:usMoney}</b>',
       '</tpl>',
     '</div>'
   ]

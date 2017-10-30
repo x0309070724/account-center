@@ -1,4 +1,4 @@
-﻿Ext.define('APP.model.sd.trade.record', {
+﻿Ext.define('APP.model.trade.record', {
   extend: 'Ext.data.Model',
   idProperty: 'order',
   fields: [
