@@ -15,7 +15,7 @@ Ext.define('APP.view.system.index', {
       }
     ]
     },
-    {xtype: 'navList', navigation: 8001, hideTitle: true},
+    {xtype: 'navList', navigation: 8001, hideTitle: false},
     {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 8002, hideTitle: false},
     {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 8004},
     {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 8005},

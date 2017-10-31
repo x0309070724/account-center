@@ -1,6 +1,6 @@
-Ext.define('APP.view.depowith.statistics', {
+Ext.define('APP.view.depowith.deposit.statistics', {
   extend: 'Ext.List',
-  xtype: 'depowithStatistics',
+  xtype: 'depowithDepositStatistics',
   controller: 'depowith',
   store: {
     type: 'analysis.trade.trend',
@@ -40,10 +40,7 @@ Ext.define('APP.view.depowith.statistics', {
       '<tpl switch="_field">',
         // =====================================================================================入金统计
         '<tpl case="funds_deposit">',
-          '<b>{funds_deposit:usMoney} | {funds_deposit_count:stringInteger} 笔</b>',
-        // =====================================================================================出金统计
-        // '<tpl case="withdrawal">',
-        //   '<b>{funds_withdrawal:money} | {funds_withdrawal_count:stringInteger} 笔</b>',
+          '<b>{funds_deposit:usMoney} | </b><b class="x-ui-grey">{funds_deposit_count:stringInteger} 笔</b>',
       '</tpl>',
     '</div>'
   ]

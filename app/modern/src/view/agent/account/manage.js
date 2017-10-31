@@ -7,9 +7,7 @@ Ext.define('APP.view.agent.account.manage', {
     type: 'agent.account',
     autoLoad: false,
     proxy: {
-      extraParams: {
-        // login: this.getCmp(searchbar).getValue()
-      }
+      extraParams: {}
     }
   },
   items: [
@@ -30,18 +28,11 @@ Ext.define('APP.view.agent.account.manage', {
       '<p>{property_name}</p>',
     '</div>',
     '<div class="x-ui-explain">',
-      // '<p class="x-ui-first">',
-      //   '<span class="x-ui-label x-ui-bg-black">{regdate:date("Y-m-d")}</span><span class="x-ui-label x-ui-bg-black">{type}</span>',
-      // '</p>',
-      // '<p><label>销售：</label>{salesman_namecn} {salesman2_namecn}</p>',
-      // '<tpl if="agent">',
-      //   '<p><label>代理：</label>{agent} {agent_namecn}</p>',
-      // '</tpl>',
       '<p>',
         '<label>入金：</label>',
-        '<b class="x-ui-text-blue">{funds_deposit:money} <r>{trade_count} 笔</r></b></br>',
+        '<b class="x-ui-text-blue">{funds_deposit:usMoney} <r><b class="x-ui-grey">{trade_count} 笔</b></r></b></br>',
         '<label>出金：</label>',
-        '<b class="x-ui-text-blue">{funds_withdrawal:money}</b></br>',
+        '<b class="x-ui-text-blue">{funds_withdrawal:usMoney}</b></br>',
       '</p>',
       '<p>',
         '<label>成交量：</label>',

@@ -1,15 +1,11 @@
 Ext.define('APP.view.agent.account.record', {
   extend: 'Ext.List',
   xtype: 'agentAccountRecord',
-  controller: 'agent',
+  controller: 'agent.account',
   store: {
     type: 'agent.record',
     proxy: {
-      extraParams: {
-        // app: 'transfer',
-        // startdate: Ext.Date.format(new Date(), 'Y-m'),
-        // enddate: Ext.Date.format(new Date(), 'Y-m')
-      }
+      extraParams: {}
     }
   },
   viewModel: {data: {parameter: {_field: 'all', menu: 'type'}}},
@@ -41,7 +37,7 @@ Ext.define('APP.view.agent.account.record', {
   ],
   userCls: 'x-ui-list',
   itemCls: 'x-ui-listitem-ranking',
-  itemTpl: [
+  /*itemTpl: [
     '<div class="x-ui-objects">',
     '<p>{time:date("Y-m-d H:i:s")}</p>',
     // '<p>{objects_tip}</p>',
@@ -144,7 +140,7 @@ Ext.define('APP.view.agent.account.record', {
             '</div>',
         '</tpl>',
     '</tpl>'
-  ],
+  ],*/
   listeners: {
     // itemtap: 'onObjectsItemtap'
   }

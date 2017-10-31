@@ -44,7 +44,7 @@ Ext.define('APP.mate.segmentedTab', {
       // }
       params[segmented.name] = value;
       Ext.apply(store.proxy.extraParams, params);
-      console.log(store.proxy.extraParams);
+      // console.log(store.proxy.extraParams);
       // console.log(Ext.Date.format(new Date(), 'Y-m-d'));
       // console.log(store);
       // Loads a given 'page' of data by setting the start and limit values appropriately. Internally this just causes
@@ -79,7 +79,6 @@ Ext.define('APP.mate.segmentedTab', {
               // console.log(111);
               // html = '<b>' + params.enddate + '<b>'
             } else {
-
               html = 'From <b>' + params.startdate + '</b> To <b>' + params.enddate + '</b>'
             }
             boxDatepart.setHtml(html);

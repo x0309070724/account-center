@@ -50,19 +50,9 @@ Ext.define('APP.data.oaNav', {
 						{leaf:true,id:100103,iconCls:'f-mt mt-team',text:'仓位总结',view:'agent.account.statistics'}
 					]},
 					{id:1002,iconCls:'f-mt mt-out-audit',text:'账户佣金',expanded:true,children:[
-						{leaf:true,id:100201,iconCls:'f-mt mt-staff',text:'佣金明细',view:'agent.commission.detail',parameter:{menu:'staff',datepart:'month',field:'funds'}},
-						{leaf:true,id:100202,iconCls:'f-mt mt-department',text:'佣金统计',view:'sd.analysis.results.objects',parameter:{menu:'t1',datepart:'month',field:'funds'}},
-					]},
-// 					{id:1003,iconCls:'f-mt mt-out-audit',text:'账户',expanded:true,children:[
-// 						{leaf:true,id:100301,iconCls:'f-mt mt-account-strate',text:'申请记录',description:'查询账户申请的处理结果',view:'sd.account.applyRecord',parameter:{audit:'1'}},
-// 						{leaf:true,id:100302,iconCls:'f-mt mt-fulltime',text:'账户查询',description:'查询账户详细信息',view:'sd.account.record',parameter:{app:''}},
-// 						{leaf:true,id:100303,iconCls:'f-mt mt-customer',text:'账户报表',description:'交易账户数据统计',view:'sd.account.accountReport',parameter:{field:'funds'}},
-// 						{leaf:true,id:100304,iconCls:'f-mt mt-additve',text:'代理报表',description:'代理账户数据统计',view:'sd.account.agentReport',parameter:{field:'agent'}}
-// 					]},
-// 					{id:1004,iconCls:'f-mt mt-out-audit',text:'出入金',expanded:true,children:[
-// 						{leaf:true,id:100401,iconCls:'f-mt mt-access-gold-1',text:'申请记录',description:'查询账户出入金的处理结果',view:'sd.funds.applyRecord',parameter:{audit:''}},
-// 						{leaf:true,id:100402,iconCls:'f-mt mt-parttime-job',text:'出入金查询',description:'查询账户历史出入金记录',view:'sd.funds.record',parameter:{menu:''}}
-// 					]}
+						{leaf:true,id:100201,iconCls:'f-mt mt-staff',text:'佣金明细',view:'agent.commission.detail'},
+						{leaf:true,id:100202,iconCls:'f-mt mt-department',text:'佣金统计',view:'agent.commission.statistics'}
+					]}
 				]
 			},
       {
@@ -217,65 +207,23 @@ Ext.define('APP.data.oaNav', {
           {
             id: 3001, iconCls: 'f-mt mt-out-audit', text: '入金相关', expanded: true, children: [
             {
-              // leaf: true,
+              leaf: true,
               id: 300101,
               iconCls: 'f-mt mt-tree-3',
               text: '账户入金',
-              view: 'depowith.deposit.index',
-              children: [
-                {
-                  // leaf: true,
-                  id: 30010101,
-                  iconCls: 'f-mt mt-tree-3',
-                  text: '请选择入金方式',
-                  // expanded: true, children: [
-                  // {
-                  //   leaf: true,
-                  //   id: 3001010101,
-                  //   iconCls: 'f-mt mt-tree-3',
-                  //   text: '入金方式1',
-                  //   view: 'depowith.deposit.bank',
-                  // }
-                // ]
-                },
-                {
-                  // leaf: true,
-                  id: 30010102,
-                  iconCls: 'f-mt mt-tree-3',
-                  text: '请选择银行',
-                  view: 'depowith.deposit.bank',
-                  // parameter: {payAisle: 'bank'}
-                  // expanded: true, children: [
-                  // {
-                  //   leaf: true,
-                  //   id: 30010101,
-                  //   iconCls: 'f-mt mt-tree-3',
-                  //   text: '入金方式1',
-                  // }
-                  // ]
-                  // view: 'depowith.deposit.index',
-                },
-                // {
-                //   leaf: true,
-                //   id: 30010102,
-                //   iconCls: 'f-mt mt-tree-3',
-                //   text: '选择银行',
-                //   // view: 'depowith.deposit.index',
-                // }
-              ],
-              parameter: {app: 'deposit'}
+              view: 'depowith.deposit.index'
             },
             {
               leaf: true,
               id: 300102,
               iconCls: 'f-mt mt-tree-2',
               text: '入金记录',
-              view: 'depowith.depowith',
+              view: 'depowith.deposit.deposit',
               parameter: {app: 'deposit'}
             },
             {
               leaf: true, id: 300103, iconCls: 'f-mt mt-tree-2', text: '入金统计',
-              view: 'depowith.statistics',
+              view: 'depowith.deposit.statistics',
               parameter: {field: 'deposit'}
             }
           ]
@@ -285,11 +233,11 @@ Ext.define('APP.data.oaNav', {
             {leaf: true, id: 300201, iconCls: 'f-mt mt-tree-3', text: '账户出金'},
             {
               leaf: true, id: 300202, iconCls: 'f-mt mt-tree-2', text: '出金记录',
-              view: 'depowith.depowith',
-              parameter: {app: 'withdraw'}
+              view: 'depowith.withdrawal.withdrawal',
+              parameter: {app: 'withdrawal'}
             },
             {
-              leaf: true, id: 300203, iconCls: 'f-mt mt-tree-2', text: '出金统计', view: 'depowith.statisticsWith',
+              leaf: true, id: 300203, iconCls: 'f-mt mt-tree-2', text: '出金统计', view: 'depowith.withdrawal.statistics',
               parameter: {field: 'withdrawal'}
             }
             // {leaf: true, id: 300102, iconCls: 'f-mt mt-tree-2', text: '入金统计', view: 'hr.staff.tree'}

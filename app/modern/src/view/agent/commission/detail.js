@@ -8,9 +8,9 @@ Ext.define('APP.view.agent.commission.detail', {
     autoLoad: false,
     proxy: {
       extraParams: {
-        app:'rebate',
-        // datepart: 'month',
-        startdate: Ext.Date.format(new Date(new Date().getFullYear(),new Date().getMonth()-1,new Date().getDate()), 'Y-m-d'),
+        app: 'rebate',
+        datepart: 'day',
+        startdate: Ext.Date.format(new Date(new Date().getFullYear(), new Date().getMonth() - 1, new Date().getDate()), 'Y-m-d'),
         enddate: Ext.Date.format(new Date(), 'Y-m-d')
       }
     }

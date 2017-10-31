@@ -17,7 +17,8 @@ Ext.define('APP.view.account.index', {
     },
     {xtype: 'navList', navigation: 7001, hideTitle: false},
     {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 7002, hideTitle: false},
-    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 7003}
+    {xtype: 'navList', userCls: 'x-ui-nav x-ui-mini', navigation: 7003},
+    {xtype: 'button', flex: 1, text: '安全退出', margin: '15 0', handler: 'onLogoutTap'}
   ],
   listeners: {}
 });

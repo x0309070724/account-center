@@ -10,7 +10,7 @@ Ext.define('APP.view.agent.account.statistics', {
       extraParams: {
         app:'account',
         datepart: 'month',
-        startdate: Ext.Date.format(new Date(new Date().getFullYear()-1,new Date().getMonth()+1), 'Y-m'),
+        startdate: Ext.Date.format(new Date(new Date().getFullYear() - 1, new Date().getMonth() + 1), 'Y-m'),
         enddate: Ext.Date.format(new Date(), 'Y-m')
       }
     }
@@ -39,9 +39,9 @@ Ext.define('APP.view.agent.account.statistics', {
     '<div class="x-ui-explain">',
       '<p>',
         '<label>入金：</label>',
-        '<b class="x-ui-text-blue">{funds_deposit:money} <r>{trade_count} 笔</r></b></br>',
+        '<b class="x-ui-text-blue">{funds_deposit:usMoney} <r><b class="x-ui-grey">{trade_volume} 笔</b></r></b></br>',
         '<label>出金：</label>',
-        '<b class="x-ui-text-blue">{funds_withdrawal:money}</b></br>',
+        '<b class="x-ui-text-blue">{funds_withdrawal:usMoney}</b></br>',
       '</p>',
       '<p>',
         '<label>成交量：</label>',

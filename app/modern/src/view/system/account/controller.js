@@ -16,17 +16,11 @@
   // ===========================================================================================================账户详情
   onRecordTap: function (list, idx, el, record) {
     var navigation = list.up('navigationview');
-    // console.log(record.data.account.login);
-    // var login = record.data.account.login;
-    // login = parseInt(login) || 0;
     var view = Ext.create({
       xtype: 'systemAccountDetailInfo',
-      // parameter: {login: login},
       title: '账户详情信息==> ' + record.data.account.namecn
     });
     navigation.push(view);
-    // console.log(record);
-    view.setRecord(record);
   },
 
   // ========================================================================================================历史订单详情
@@ -63,30 +57,17 @@
   // =============================================================================================================详情页
   onDetailInfoInitialize: function (view) {
     view.setMasked({xtype: 'loadmask'});
-    var parameter = view.parameter;
-    // console.log(parameter);
-    Mate.ajax({
-      // url:Boot.appUrl('/sd/account/checkMt4Login.do'),
-      // url: Boot.appUrl('/sd/account/manager/getRecord.do'),
-      url: Boot.appUrl('/sd/account/manager/getRecord.do'),
-      params: {login: parameter.login},
-      success: function (json, opts) {
-        PushService.ready(function () {
-          var buffers = PushService.getBuffer(),
-            mt4Data = buffers.getUser(parameter.login);
-          var data = json.plant[0];
-          data.mt4Data = mt4Data;
-          // console.log(parameter.login, data);
-          console.log(parameter.login, data);
-          view.setData(data);
-          view.unmask();
-        });
-      },
-      failure: function (json, opts) {
-        view.unmask();
-        return false;
-      }
+    var account = APP.app.getAppData('account');
+    account.funds_total = account.funds_deposit + account.funds_withdrawal + account.funds_credit;
+    account.trade_total = account.trade_profit + account.trade_storage + account.trade_commission_agent;
+    PushService.ready(function () {
+      var buffers = PushService.getBuffer(),
+        mt4Data = buffers.getUser(account.login);
+      // console.log(mt4Data);
+      account.mt4Data = mt4Data;
     });
+    view.setData(account);
+    view.unmask();
   },
   // =============================================================================================================出入金
   // onDetailFundsInitialize: function (list) {

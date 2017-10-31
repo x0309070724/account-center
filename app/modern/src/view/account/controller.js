@@ -175,5 +175,31 @@
       store.setData(data);
       // list.unmask();
     });
+  },
+  // ===========================================================================================================退出系统
+  onLogoutTap: function (button) {
+    Mate.confirm('<h6>确定要退出系统？</h6>退出后，将清空当前登录用户的缓存信息并返回至登录界面...',
+      function (button) {
+        if (button === 'yes') {
+          // A configuration to allow you to mask this container. You can optionally pass an object block with and xtype
+          // of loadmask, and an optional message value to display
+          APP.app.getViewport().setMasked({xtype: 'loadmask', message: 'Exiting...'});
+          // Mate.waiting('<h6>正在安全退出系统</h6>请等待指令执行完成...');
+          Mate.ajax({
+            url: Boot.appUrl('/outLogin.do'),
+            success: function (data, opts) {
+              APP.app.getViewport().unmask();
+              // console.log(window.location);
+              // 重新加载文档
+              window.location.reload();
+            },
+            failure: function (data, opts) {
+              APP.app.getViewport().unmask();
+              Mate.showTask(data.message, true);
+            }
+          });
+        }
+      }
+    );
   }
 });

@@ -1,8 +1,6 @@
 Ext.define('APP.store.depowith.record', {
   extend: 'APP.store.summary',
   alias: 'store.depowith.record',
-  // model: 'APP.model.analysis',
-  // sorters: [{property: 'objects', direction: 'ASC'}],
   grouper: {
     groupFn: function (record) {
       return Ext.Date.format(record.data.time, 'Y-m-d')
@@ -10,15 +8,13 @@ Ext.define('APP.store.depowith.record', {
   },
   proxy: {
     url: Boot.appUrl('/funds/getRecord.do')
-    // extraParams: {sp: 'SP_VMS_TRADE_TREND'}
   },
   listeners: {
     load: function (store, records, successful, operation, eOpts) {
       this.summary(store, records, successful, operation, eOpts);
-      // var _field = store.data.items[0].data._field || '';
       var _field = store.getProxy().getExtraParams()._field;
-      console.log(_field);
-      switch (_field ) {
+      // console.log(_field);
+      switch (_field) {
         case 'reject' : {
           store.filter({property: 'audit', value: -1});
           store.clearFilter(true);

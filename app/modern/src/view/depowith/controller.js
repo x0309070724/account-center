@@ -175,55 +175,6 @@
     var navigation = button.up('navigationview');
     navigation.pop(1);
   },
-
-  onIndexActivate: function (view) {
-    var me = this,
-      carousel = view.down('carousel'),
-      // Retrieves all descendant components which match the passed selector.
-      boxs = carousel.query('box');
-    // direction = 'next';
-    console.log(444);
-    PushService.ready(function () {
-      var buffers = PushService.getBuffer();
-      if (this.task) {
-        Ext.TaskManager.destroy(this.task)
-      }
-      // console.log(buffers.getOnline());
-      // console.log(buffers.getOnlines());
-      // console.log(buffers.getOnlinesRef());
-      // console.log(buffers.getQuotes());
-      // console.log(buffers.getSummaryByAgentLogin());
-      // console.log(buffers.getSummaryRef());
-      // console.log(buffers.getSummaryWithAgent());
-      // console.log(buffers.getSummaryWithSymbol());
-      // console.log(buffers.getSummaryWithUser());
-      // console.log(buffers.getSymbol());
-      // console.log(buffers.getSymbols());
-      // console.log(buffers.getSymbolsRef());
-      // console.log(buffers.getTradeByOrder());
-      // console.log(buffers.getTradesByLogin());
-      // console.log(buffers.getUsers());
-      // this.task = Ext.TaskManager.start({
-      //   run: function () {
-      //     if (view.isHidden()) {
-      //       Ext.TaskManager.destroy(me.task);
-      //       return false;
-      //     }
-      //     me.getIndexData(function (data) {
-      //       var day = '今日业绩,' + data.day,
-      //         week = '本周业绩,' + data.week,
-      //         month = '本月业绩,' + data.month;
-      //       // console.log(day.split(','));
-      //       boxs[0].setData(day.split(','));
-      //       boxs[1].setData(week.split(','));
-      //       boxs[2].setData(month.split(','));
-      //     });
-      //   },
-      //   interval: 1000 * 60 * 3
-      // });
-    });
-  },
-
   getIndexData: function (callback) {
     Mate.ajax({
       url: Boot.appUrl('/super/getTrend.do'),
@@ -235,6 +186,46 @@
         var data = json.plant[0];
         return callback(data);
       }
+    });
+  },
+  onIndexActivate: function (view) {
+    var me = this,
+      carousel = view.down('carousel'),
+      boxs = carousel.query('box');
+    // direction = 'next';
+    console.log(333);
+    PushService.ready(function () {
+      var buffers = PushService.getBuffer();
+      // console.log(buffers);
+      if (this.task) {
+        Ext.TaskManager.destroy(this.task);
+      }
+      console.log(buffers.getSummary());
+      this.task = Ext.TaskManager.start({
+        run: function () {
+          if (view.isHidden()) {
+            Ext.TaskManager.destroy(me.task);
+            return false;
+          }
+          var summary = buffers.getSummary();
+          boxs[0].setData([
+            '盘面',
+            summary.account.count,
+            summary.account.online_count,
+            summary.assets.balance,
+            summary.assets.equity
+          ]);
+          boxs[1].setData([
+            '持仓',
+            summary.trade.market_count,
+            summary.trade.market_volume,
+            summary.trade.profit,
+            summary.trade.clear
+          ]);
+        },
+        // The frequency in milliseconds with which the task should be invoked.
+        interval: 5000
+      });
     });
   }
 });
