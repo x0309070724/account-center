@@ -62,26 +62,6 @@
     document.write('<' + 'script src="boot.js?rnd=' + Math.random() + '"' + '><' + '/script>');
     var Ext = Ext || {};
     Ext.beforeLoad = function (tags) {
-      // console.log(tags);
-      // Boot.upgrade();
-      /*var timer = 0,
-        rate = window.localStorage.length < 3 ? 200 : 50;
-      var task = window.setInterval(function () {
-        var versionDom = document.getElementById('version'),
-          dom = document.getElementById('timer');
-        if (dom) {
-          timer = timer + 1;
-          dom.innerHTML = timer + '%';
-          if (!versionDom.state) {
-            versionDom.state = true;
-            versionDom.innerHTML = 'version ' + Boot.version;
-          }
-        }
-        if (timer > 99) {
-          window.clearInterval(task);
-        }
-      }, rate);*/
-
       var ua = window.navigator.userAgent.toLowerCase(),
         s = location.search,
         profile, touch;
@@ -98,6 +78,12 @@
         touch = !tags.desktop;
       }
       Ext.touch = touch;
+
+//      console.log(profile);
+      if (profile === 'classic') {
+        alert('当前系统只有移动端，请使用移动端运行...');
+        return false;
+      }
       Ext.manifest = profile;
 
       // Boot.loadJs('/OSS/lib/mt4/pushservice.js',true);
@@ -118,14 +104,6 @@
 </head>
 <body>
 <div id="appLoadingIndicator">
-  <!--<div class="x-ui-app-loading">-->
-    <!--<p>-->
-      <!--<span>正在启动...</span>-->
-      <!--<span>OA Loading</span>-->
-      <!--<span id="version"></span>-->
-      <!--<b id="timer"></b>-->
-    <!--</p>-->
-  <!--</div>-->
 </div>
 </body>
 </html>

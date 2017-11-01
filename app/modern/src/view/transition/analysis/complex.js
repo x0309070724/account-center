@@ -5,10 +5,8 @@ Ext.define('APP.view.transition.analysis.complex', {
   store: {
     type: 'analysis.trade.statistics',
     autoLoad: false,
-    // super: true,
     proxy: {
       extraParams: {
-        // menu: 'account',
         datepart:'month',
         app: 'symbol',
         startdate: Ext.Date.format(new Date(new Date().getFullYear()-1,new Date().getMonth()+1,new Date().getDate()), 'Y-m'),
@@ -37,7 +35,6 @@ Ext.define('APP.view.transition.analysis.complex', {
   userCls: 'x-ui-list',
   itemTpl: [
     '<div>',
-      // '<b>{objects:ledgerDay}</b>',
       '<b>{objects}</b>',
     '</div>',
     '<div class="x-ui-float-right">',
@@ -53,5 +50,8 @@ Ext.define('APP.view.transition.analysis.complex', {
           '<b class="{trade_profit_average:moneyColor}">{trade_profit_average:usMoney}</b>',
       '</tpl>',
     '</div>'
-  ]
+  ],
+  listeners: {
+    itemtap: 'onRecordItemtap'
+  }
 });

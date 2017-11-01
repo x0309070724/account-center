@@ -201,5 +201,16 @@
         }
       }
     );
+  },
+  // ===============================================================LIST ITEM 点击
+  onRecordItemtap: function (list, idx, el, record) {
+    var navigation = list.up('navigationview');
+    var view = Ext.create({
+      xtype: 'accountAssetDetail',
+      title: record.data.time + ' 资产详情'
+    });
+    view.setData(record.data);
+    // console.log(record.data);
+    navigation.push(view);
   }
 });

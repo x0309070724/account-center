@@ -53,8 +53,8 @@ Ext.define('APP.Application', {
       var hash = Ext.util.History.getHash();
       // window.location.hash
       // Mate.showTask(hash)
-      if (hash == '') {
-        if (typeof(wx) != 'undefined') {
+      if (hash === '') {
+        if (typeof(wx) !== 'undefined') {
           wx.closeWindow();
         }
       } else {

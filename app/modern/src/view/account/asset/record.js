@@ -49,5 +49,8 @@ Ext.define('APP.view.account.asset.record', {
           '<b class="{equity:moneyColor}">{equity:usMoney}</b>',
         '</div>',
     '</tpl>'
-  ]
+  ],
+  listeners: {
+    itemtap: 'onRecordItemtap'
+  }
 });

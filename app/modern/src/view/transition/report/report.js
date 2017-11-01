@@ -8,9 +8,9 @@ Ext.define('APP.view.transition.report.report', {
     proxy: {
       extraParams: {
         // menu: 'account',
-        datepart: 'day',
-        startdate: Ext.Date.format(new Date(new Date().getFullYear(),new Date().getMonth()-1,new Date().getDate()), 'Y-m-d'),
-        enddate: Ext.Date.format(new Date(), 'Y-m-d')
+        datepart: 'month',
+        startdate: Ext.Date.format(new Date(new Date().getFullYear()-1,new Date().getMonth(),new Date().getDate()), 'Y-m'),
+        enddate: Ext.Date.format(new Date(), 'Y-m')
       }
     }
   },
