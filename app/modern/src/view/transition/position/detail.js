@@ -1,0 +1,40 @@
+Ext.define('APP.view.transition.position.detail', {
+  extend: 'Ext.Container',
+  xtype: 'transitionPositionDetail',
+  controller: 'transition.position',
+  scrollable: true,
+  tpl:[
+		'<div class="x-ui-part">',
+			'<div class="x-ui-grid">',
+				'<h3>当前持仓</h3>',
+				'<div class="x-ui-grid-inner">',
+					'<dl><dt>NO.</dt><dd><b class="x-ui-text-black">#{order}</b></dd></dl>',
+          '<tpl switch="cmd">',
+            '<tpl case="2" case="3" case="4" case="5">',
+              '<dl><dt>交易类型</dt><dd><b class="x-ui-text-grey">{cmd:tradeCmd} &nbsp; {symbol}</b></dd></dl>',
+            '<tpl case="0">',
+              '<dl><dt>交易类型</dt><dd><b class="x-ui-text-green">{cmd:tradeCmd} &nbsp; {symbol}</b></dd></dl>',
+            '<tpl case="1">',
+              '<dl><dt>交易类型</dt><dd><b class="x-ui-text-red">{cmd:tradeCmd} &nbsp; {symbol}</b></dd></dl>',
+            '<tpl default>',
+              '<dl><dt>交易类型</dt><dd><b class="x-ui-text-yellow">{cmd:tradeCmd} &nbsp; {symbol}</b></dd></dl>',
+          '</tpl>',
+					'<dl><dt>成交量</dt><dd><b class="x-ui-text-black">{volume}</b></dd></dl>',
+					'<dl><dt>开仓</dt><dd><b class="x-ui-text-black">{open_time:date1000("Y-m-d h:m:s")} &nbsp;&nbsp; </b><b class="x-ui-text-grey">{open_price}</b></dd></dl>',
+					'<dl><dt>止损/止盈</dt><dd><b class="x-ui-text-grey">{sl:stringSl} | {sl:stringSl}</b></dd></dl>',
+					'<dl><dt>现价</dt><dd><b class="x-ui-text-blue">{close_price:money}</b></dd></dl>',
+					'<dl><dt>手续费</dt><dd><b class="x-ui-text-black">{taxes:usMoney}</b></dd></dl>',
+					'<dl><dt>库存费</dt><dd><b class="x-ui-text-black">{storage:usMoney}</b></dd></dl>',
+          '<tpl if="profit &lt; 0">',
+            '<dl><dt>交易盈亏</dt><dd><b class="x-ui-text-red">{profit:usMoney}</b></dd></dl>',
+          '<tpl else>',
+            '<dl><dt>交易盈亏</dt><dd><b class="x-ui-text-green">{profit:usMoney}</b></dd></dl>',
+          '</tpl>',
+				'</div>',
+			'</div>',
+		'</div>'
+	],
+  listeners: {
+    // initialize: 'onDetailInitialize'
+  }
+});

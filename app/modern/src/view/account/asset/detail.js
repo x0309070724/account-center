@@ -20,9 +20,9 @@ Ext.define('APP.view.account.asset.detail', {
 				'<h3>交易盈亏</h3>',
 				'<div class="x-ui-grid-inner">',
 					'<dl><dt>交易盈亏</dt><dd>{trade_profit:money}</dd></dl>',
-					'<dl><dt>浮动盈亏</dt><dd>{balance:money}</dd></dl>',
-          '<dl><dt>余额</dt><dd>{balance:money}</dd></dl>',
-          '<dl><dt>净值</dt><dd>{equity:money}</dd></dl>',
+					'<dl><dt>浮动盈亏</dt><dd><b class="x-ui-text-green">{balance:money}</b></dd></dl>',
+          '<dl><dt>余额</dt><dd><b class="x-ui-text-green">{balance:money}</b></dd></dl>',
+          '<dl><dt>净值</dt><dd><b class="x-ui-text-red">{equity:money}</b></dd></dl>',
 				'</div>',
 			'</div>',
 		'</div>'

@@ -49,7 +49,16 @@ Ext.define('APP.view.transition.position.order', {
           // ===================================================交易类型
           '<tpl case="type">',
             '<div class="x-ui-explain">',
-              '<p><b class="x-ui-text-green">{cmd:tradeCmd}==>{symbol}</b></p>',
+              '<tpl switch="cmd">',
+                '<tpl case="2" case="3" case="4" case="5">',
+                  '<p><b class="x-ui-text-grey">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '<tpl case="0">',
+                  '<p><b class="x-ui-text-green">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '<tpl case="1">',
+                  '<p><b class="x-ui-text-red">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '<tpl default>',
+                  '<p><b class="x-ui-text-yellow">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '</tpl>',
             '</div>',
             '<div class="x-ui-right">',
               '<label>成交量</label>',
@@ -58,8 +67,7 @@ Ext.define('APP.view.transition.position.order', {
           // ===================================================开仓
           '<tpl case="open_price">',
             '<div class="x-ui-explain">',
-              '<p><b class="x-ui-text-green">{open_time:date("Y-m-d")}</b></p>',
-              '<p><b class="x-ui-text-grey">{open_time:date("H:i:s")}</b></p>',
+              '<p><b class="x-ui-text-green">{open_time:date1000("Y-m-d")} </b><b class="x-ui-text-grey">{open_time:date1000("H:i:s")}</b></p>',
             '</div>',
             '<div class="x-ui-right">',
               '<label>开仓价</label>',
@@ -93,7 +101,16 @@ Ext.define('APP.view.transition.position.order', {
           // ===================================================交易类型
           '<tpl case="type">',
             '<div class="x-ui-explain">',
-              '<p><b class="x-ui-text-green">{cmd:tradeCmd}==>{symbol}</b></p>',
+              '<tpl switch="cmd">',
+                '<tpl case="2" case="3" case="4" case="5">',
+                  '<p><b class="x-ui-text-grey">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '<tpl case="0">',
+                  '<p><b class="x-ui-text-green">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '<tpl case="1">',
+                  '<p><b class="x-ui-text-red">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '<tpl default>',
+                  '<p><b class="x-ui-text-yellow">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '</tpl>',
             '</div>',
             '<div class="x-ui-right">',
               '<label>成交量</label>',
@@ -102,8 +119,7 @@ Ext.define('APP.view.transition.position.order', {
           // ===================================================开仓
           '<tpl case="open_price">',
             '<div class="x-ui-explain">',
-              '<p><b class="x-ui-text-green">{open_time:date("Y-m-d")}</b></p>',
-              '<p><b class="x-ui-text-green">{open_time:date("H:i:s")}</b></p>',
+              '<p><b class="x-ui-text-green">{open_time:date1000("Y-m-d")} </b><b class="x-ui-text-grey">{open_time:date1000("H:i:s")}</b></p>',
             '</div>',
             '<div class="x-ui-right">',
               '<label>开仓价</label>',
@@ -137,7 +153,16 @@ Ext.define('APP.view.transition.position.order', {
           // ===================================================交易类型
           '<tpl case="type">',
             '<div class="x-ui-explain">',
-              '<p><b class="x-ui-text-green">{cmd:tradeCmd}==>{symbol}</b></p>',
+              '<tpl switch="cmd">',
+                '<tpl case="2" case="3" case="4" case="5">',
+                  '<p><b class="x-ui-text-grey">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '<tpl case="0">',
+                  '<p><b class="x-ui-text-green">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '<tpl case="1">',
+                  '<p><b class="x-ui-text-red">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '<tpl default>',
+                  '<p><b class="x-ui-text-yellow">{cmd:tradeCmd} ==> {symbol}</b></p>',
+                '</tpl>',
             '</div>',
             '<div class="x-ui-right">',
               '<label>成交量</label>',
@@ -146,8 +171,7 @@ Ext.define('APP.view.transition.position.order', {
           // ===================================================开仓
           '<tpl case="open_price">',
             '<div class="x-ui-explain">',
-              '<p><b class="x-ui-text-green">{open_time:date("Y-m-d")}</b></p>',
-              '<p><b class="x-ui-text-green">{open_time:date("H:i:s")}</b></p>',
+              '<p><b class="x-ui-text-green">{open_time:date1000("Y-m-d")} </b><b class="x-ui-text-grey">{open_time:date1000("H:i:s")}</b></p>',
             '</div>',
             '<div class="x-ui-right">',
               '<label>开仓价</label>',
@@ -178,6 +202,6 @@ Ext.define('APP.view.transition.position.order', {
     '</tpl>'
   ],
   listeners: {
-    // itemtap: 'onObjectsItemtap'
+    itemtap: 'onOrderItemtap'
   }
 });

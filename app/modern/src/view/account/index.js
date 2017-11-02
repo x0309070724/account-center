@@ -11,7 +11,7 @@ Ext.define('APP.view.account.index', {
         xtype: 'container',
         userCls: 'x-ui-user-icon',
         items: [{xtype: 'image', height: 100, width: 100, alt: '', bind: {src: '/resources/images/extlogo.gif'}}],
-        bind: {html: '<p>{account.login}</p><p>{account.property_name} {account.namecn}</p>'}
+        bind: {html: '<p>{account.login}</p><p>{account.name} {account.namecn}</p>'}
       }
     ]
     },

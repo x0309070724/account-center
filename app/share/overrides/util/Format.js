@@ -11,6 +11,16 @@ Ext.define('Override.util.Format', {
     }
     return Ext.Date.dateFormat(value, format || Ext.Date.defaultFormat);
   },
+  date1000: function (value, format) {
+    if (!value) {
+      return '';
+    }
+    if (!Ext.isDate(value)) {
+      value *= 1000;
+      value = new Date(value);
+    }
+    return Ext.Date.dateFormat(value, format || Ext.Date.defaultFormat);
+  },
   stringify: function (json) {
     return JSON.stringify(json);
   },

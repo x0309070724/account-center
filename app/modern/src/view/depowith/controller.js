@@ -167,14 +167,13 @@
     // Ext.util.History.add('main')
 
   },
-
-  onNavigationPop: function (button) {
-    var token = Ext.util.History.getToken();
-    token = token.substring(0, token.length - 2);
-    Ext.util.History.add(token);
-    var navigation = button.up('navigationview');
-    navigation.pop(1);
-  },
+  // onNavigationPop: function (button) {
+  //   var token = Ext.util.History.getToken();
+  //   token = token.substring(0, token.length - 2);
+  //   Ext.util.History.add(token);
+  //   var navigation = button.up('navigationview');
+  //   navigation.pop(1);
+  // },
   getIndexData: function (callback) {
     Mate.ajax({
       url: Boot.appUrl('/super/getTrend.do'),

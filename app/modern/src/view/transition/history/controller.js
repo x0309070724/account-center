@@ -1,7 +1,7 @@
 ﻿Ext.define('APP.view.transition.history.controller', {
   extend: 'APP.view.transition.controller',
   alias: 'controller.transition.history',
-  // ===========================================================================================================账户详情
+  // ===========================================================================================================记录详情
   onRecordItemtap: function (list, idx, el, record) {
     var navigation = list.up('navigationview');
     var view = Ext.create({

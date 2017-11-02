@@ -1,23 +1,15 @@
 Ext.define('APP.view.depowith.transfer.record', {
   extend: 'Ext.List',
   xtype: 'depowithTransferRecord',
-  controller: 'depowith',
-  // name: 'results',
+  controller: 'depowith.transfer',
   store: {
     type: 'depowith.record',
-    // autoLoad: false,
-    // super: true,
     proxy: {
       extraParams: {
-        app: 'transfer',
-        // startdate: Ext.Date.format(new Date(), 'Y-m'),
-        // enddate: Ext.Date.format(new Date(), 'Y-m')
+        app: 'transfer'
       }
     }
   },
-  // plugins: [
-  //   {type: 'pullrefresh'}
-  // ],
   viewModel: {data: {parameter: {_field: 'all', menu: 'type'}}},
   items: [
     {
@@ -42,15 +34,13 @@ Ext.define('APP.view.depowith.transfer.record', {
         {text: '类型', iconCls: 'f-mt mt-staff', value: 'type'},
         {text: '金额', iconCls: 'f-mt mt-team', value: 'balance'}
       ]
-    },
-    // {xtype: 'boxtotal'}
+    }
   ],
   userCls: 'x-ui-list',
   itemCls: 'x-ui-listitem-ranking',
   itemTpl: [
     '<div class="x-ui-objects">',
-    '<p>{time:date("Y-m-d H:i:s")}</p>',
-    // '<p>{objects_tip}</p>',
+      '<p>{time:date("Y-m-d")} <b class="x-ui-grey">{time:date("H:i:s")}</b></p>',
     '</div>',
     '<tpl switch="_field">',
       // =====================================================================================全部
@@ -63,7 +53,7 @@ Ext.define('APP.view.depowith.transfer.record', {
             '</div>',
             '<div class="x-ui-right">',
               '<label>对方账户</label>',
-              '<b>{transfer:stringInteger}</b>',
+              '<b class="x-ui-blue">{transfer}</b>',
             '</div>',
           // ===================================================金额
           '<tpl case="balance">',
@@ -74,7 +64,7 @@ Ext.define('APP.view.depowith.transfer.record', {
             '</div>',
             '<div class="x-ui-right">',
               '<label>注释：</label>',
-              '<b>{explain}</b>',
+              '<b class="x-ui-grey">{explain}</b>',
             '</div>',
         '</tpl>',
       // =====================================================================================已拒绝
@@ -87,7 +77,7 @@ Ext.define('APP.view.depowith.transfer.record', {
             '</div>',
             '<div class="x-ui-right">',
               '<label>对方账户</label>',
-              '<b>{transfer:stringInteger}</b>',
+              '<b class="x-ui-blue">{transfer}</b>',
             '</div>',
           // ===================================================金额
           '<tpl case="balance">',
@@ -98,7 +88,7 @@ Ext.define('APP.view.depowith.transfer.record', {
             '</div>',
             '<div class="x-ui-right">',
               '<label>注释：</label>',
-              '<b>{explain}</b>',
+              '<b class="x-ui-grey">{explain}</b>',
             '</div>',
         '</tpl>',
       // =====================================================================================已完成
@@ -111,7 +101,7 @@ Ext.define('APP.view.depowith.transfer.record', {
             '</div>',
             '<div class="x-ui-right">',
               '<label>对方账户</label>',
-              '<b>{transfer:stringInteger}</b>',
+              '<b class="x-ui-blue">{transfer}</b>',
             '</div>',
           // ===================================================金额
           '<tpl case="balance">',
@@ -122,7 +112,7 @@ Ext.define('APP.view.depowith.transfer.record', {
             '</div>',
             '<div class="x-ui-right">',
               '<label>注释：</label>',
-              '<b>{explain}</b>',
+              '<b class="x-ui-grey">{explain}</b>',
             '</div>',
         '</tpl>',
       // =====================================================================================处理中
@@ -135,7 +125,7 @@ Ext.define('APP.view.depowith.transfer.record', {
             '</div>',
             '<div class="x-ui-right">',
               '<label>对方账户</label>',
-              '<b>{transfer:stringInteger}</b>',
+              '<b class="x-ui-blue">{transfer}</b>',
             '</div>',
           // ===================================================金额
           '<tpl case="balance">',
@@ -146,12 +136,12 @@ Ext.define('APP.view.depowith.transfer.record', {
             '</div>',
             '<div class="x-ui-right">',
               '<label>注释：</label>',
-              '<b>{explain}</b>',
+              '<b class="x-ui-grey">{explain}</b>',
             '</div>',
         '</tpl>',
     '</tpl>'
   ],
   listeners: {
-    // itemtap: 'onObjectsItemtap'
+    itemtap: 'onRecordItemtap'
   }
 });
