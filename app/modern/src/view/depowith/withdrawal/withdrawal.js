@@ -99,4 +99,3 @@ Ext.define('APP.view.depowith.withdrawal.withdrawal', {
     // itemtap:'onRecordItemtap'
   }
 });
-

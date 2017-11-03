@@ -117,41 +117,7 @@ Ext.define('APP.data.oaNav', {
               parameter: {app: 'credit'}
             }
           ]
-          },
-          // {
-          //   id: 2005, iconCls: 'f-mt mt-out-audit', text: '持仓报表', expanded: true, children: [
-          //   {
-          //     leaf: true,
-          //     id: 200501,
-          //     iconCls: 'f-mt mt-customer',
-          //     text: '账户',
-          //     view: 'rd.analysis.account.market',
-          //     parameter: {field: 'funds'}
-          //   },
-          //   {
-          //     leaf: true,
-          //     id: 200502,
-          //     iconCls: 'f-mt mt-additve',
-          //     text: '代理',
-          //     view: 'rd.analysis.agent.market',
-          //     parameter: {field: 'agent'}
-          //   },
-          //   {
-          //     leaf: true,
-          //     id: 200503,
-          //     iconCls: 'f-mt mt-additve',
-          //     text: '商品',
-          //     view: 'rd.analysis.symbol.market',
-          //     parameter: {field: 'trade'}
-          //   }
-          // ]
-          // },
-          // {
-          //   id: 2008, iconCls: 'f-mt mt-out-audit', text: 'QQ 群', expanded: true, children: [
-          //   {leaf: true, id: 200801, iconCls: 'f-mt mt-users', text: '群查询', view: 'rd.qun.record'},
-          //   {leaf: true, id: 200802, iconCls: 'f-mt mt-user-3', text: '成员查询', view: 'rd.qun.memberRecord'}
-          // ]
-          // }
+          }
         ]
       },
 
@@ -175,8 +141,6 @@ Ext.define('APP.data.oaNav', {
         }
       ]
       },
-
-
       {
         id: 3000, iconCls: 'f-mt mt-dollar-4', text: '出入金', view: 'deopwith.index',
         children: [
@@ -206,7 +170,7 @@ Ext.define('APP.data.oaNav', {
           },
           {
             id: 3002, iconCls: 'f-mt mt-out-audit', text: '出金相关', expanded: true, children: [
-            {leaf: true, id: 300201, iconCls: 'f-mt mt-tree-3', text: '账户出金'},
+            {leaf: true, id: 300201, iconCls: 'f-mt mt-tree-3', text: '账户出金', view: 'depowith.withdrawal.index'},
             {
               leaf: true, id: 300202, iconCls: 'f-mt mt-tree-2', text: '出金记录',
               view: 'depowith.withdrawal.withdrawal',
@@ -227,21 +191,6 @@ Ext.define('APP.data.oaNav', {
           }
         ]
       },
-// 			{id:5000,iconCls:'f-mt mt-dollar-4',text:'分析',view:'analysis.index',
-// 				children:[
-// 					{id:5001,iconCls:'f-mt mt-out-audit',text:'盘面',expanded:true,children:[
-// 						{leaf:true,id:500101,iconCls:'f-mt mt-dollar-1',text:'盘面资产',description:'记录每日盘余额与净值',view:'rd.analysis.assets'}
-// 					]},
-// 					{id:5002,iconCls:'f-mt mt-out-audit',text:'业绩报表',expanded:true,children:[
-// 						{leaf:true,id:500201,iconCls:'f-mt mt-results',text:'按对象统计',description:'销售顾问、团队、部门',view:'analysis.results.objects',parameter:{datepart:'month',menu:'staff',field:'funds'}},
-// 						{leaf:true,id:500202,iconCls:'f-mt mt-day',text:'按时间统计',description:'日报、周报、月报',view:'analysis.results.time',parameter:{datepart:'month',field:'funds'}}
-// 					]},
-// 					{id:5003,iconCls:'f-mt mt-out-audit',text:'运营报表',expanded:true,children:[
-// 						{leaf:true,id:500301,iconCls:'f-mt mt-results',text:'按对象统计',description:'销售顾问、团队、部门',view:'analysis.operations.objects',parameter:{datepart:'month',menu:'staff',field:'clear'}},
-// 						{leaf:true,id:500302,iconCls:'f-mt mt-day',text:'按时间统计',description:'日报、周报、月报',view:'analysis.operations.time',parameter:{datepart:'month',field:'clear'}}
-// 					]}
-// 				]
-// 			},
       {
         id: 8000, iconCls: 'f-mt mt-dollar-4', text: '系统主页', view: 'system.index',
         children: [
