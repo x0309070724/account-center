@@ -6,7 +6,7 @@ Ext.define('APP.view.depowith.withdrawal.index', {
     type: 'cross',
     autoLoad: true,
     proxy: {
-      url:Boot.appUrl('/withdrawal/getConfig.do')
+      url: Boot.appUrl('/withdrawal/getConfig.do')
     }
   },
   items: [
@@ -45,10 +45,10 @@ Ext.define('APP.view.depowith.withdrawal.index', {
     }
   ],
   listeners: {
-    painted:function (me) {
+    painted: function (me) {
       // console.log(me.getStore());
-      console.log(111);
-      me.load();
+      console.log(me);
+      me.load(1);
     }
     // painted: function (me) {
     //   // console.log(me.getView().getStore());
