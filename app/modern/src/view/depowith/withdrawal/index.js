@@ -1,25 +1,40 @@
 Ext.define('APP.view.depowith.withdrawal.index', {
   extend: 'Ext.form.Panel',
   xtype: 'depowithWithdrawalIndex',
-  controller: 'depowith',
-  // scrollable: true,
-  // defaults: {scrollable: false},
+  controller: 'depowith.withdrawal',
+  store: {
+    type: 'cross',
+    autoLoad: true,
+    proxy: {
+      url:Boot.appUrl('/withdrawal/getConfig.do')
+    }
+  },
   items: [
     {
       xtype: 'fieldset', name: 'mateOld', title: '账户出金', items: [
-      {xtype: 'field', label: '出金到银行卡：'},
       {
-        xtype: 'button', text: '民生银行(2051)', badgeText: '2'
+        xtype: 'container', items: [{xtype: 'field', label: '出金到银行卡：'}, {
+        xtype: 'button', text: '民生银行（2051）', name: 'bank'
+      }]
       }
     ]
     },
     {
-      xtype: 'fieldset', name: 'mateNew', title: '入金金额', items: [
+      xtype: 'fieldset', name: 'mateNew', title: '出金金额', items: [
       {
-        xtype: 'textfield',
-        name: 'newValue',
-        label: '金额（$）',
-        placeholder: '入金金额至少0.01（$）'
+        xtype: 'container', items: [
+        {
+          xtype: 'textfield',
+          name: 'newValue',
+          label: '金额（$）',
+          placeholder: '入金金额至少0.01（$）'
+        },
+        {
+          xtype: 'button',
+          name: 'balance',
+          text: '账户余额（$）'
+        }
+      ]
       }
     ]
     },
@@ -29,5 +44,18 @@ Ext.define('APP.view.depowith.withdrawal.index', {
       ui: 'border background red large', margin: 20, handler: 'onSubmitAccountUpdate'
     }
   ],
-  listeners: {}
+  listeners: {
+    painted:function (me) {
+      // console.log(me.getStore());
+      console.log(111);
+      me.load();
+    }
+    // painted: function (me) {
+    //   // console.log(me.getView().getStore());
+    //   console.log(me);
+    //   me.load(1);
+    //   var bank = me.down('button[name=bank]');
+    //   console.log(bank);
+    // }
+  }
 });

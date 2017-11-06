@@ -26,7 +26,6 @@ Ext.define('APP.view.depowith.transfer.account', {
   listeners: {
     activate: function (me) {
       console.log(APP.app.getAppData('crm'));
-
       me.setFieldset();
     }
   },

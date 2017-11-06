@@ -1,7 +1,7 @@
 ﻿Ext.define('APP.view.transition.analysis.controller', {
   extend: 'APP.view.transition.controller',
   alias: 'controller.transition.analysis',
-  // ===============================================================LIST ITEM 点击
+  // =====================================================================================================LIST ITEM 点击
   onRecordItemtap: function (list, idx, el, record) {
     var navigation = list.up('navigationview');
     var view = Ext.create({
