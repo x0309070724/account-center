@@ -2,19 +2,12 @@ Ext.define('APP.view.depowith.withdrawal.index', {
   extend: 'Ext.form.Panel',
   xtype: 'depowithWithdrawalIndex',
   controller: 'depowith.withdrawal',
-  store: {
-    type: 'cross',
-    autoLoad: true,
-    proxy: {
-      url: Boot.appUrl('/withdrawal/getConfig.do')
-    }
-  },
   items: [
     {
       xtype: 'fieldset', name: 'mateOld', title: '账户出金', items: [
       {
         xtype: 'container', items: [{xtype: 'field', label: '出金到银行卡：'}, {
-        xtype: 'button', text: '民生银行（2051）', name: 'bank'
+        xtype: 'comboAccountBank'
       }]
       }
     ]
@@ -47,8 +40,9 @@ Ext.define('APP.view.depowith.withdrawal.index', {
   listeners: {
     painted: function (me) {
       // console.log(me.getStore());
-      console.log(me);
-      me.load(1);
+      // console.log(me);
+      // console.log(111111111);
+      // me.load(1);
     }
     // painted: function (me) {
     //   // console.log(me.getView().getStore());

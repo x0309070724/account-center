@@ -14,7 +14,7 @@ Ext.define('APP.view.combo.commissionWay', {
   name: 'commission',
   valueField: 'value',
   displayField: 'display',
-  forceSelection: false,
+  forceSelection: true,
   // listConfig: {
   //   getInnerTpl: function () {
   //     return '<span class="x-ui-text-grey">hahaha</span>'
