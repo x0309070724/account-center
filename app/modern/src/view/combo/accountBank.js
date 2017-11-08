@@ -37,15 +37,10 @@ Ext.define('APP.view.combo.accountBank', {
     // }
     // afterRender: function(combo) {
     painted: function(combo) {
-      // console.log(111111111);
-      // console.log(combo.getStore());
-      // console.log(combo.getStore().totalCount);
-      combo.getStore().load(function () {
-        var test2 = combo.getStore().getAt(0);
-        console.log(test2.data.name);
-        combo.setValue(test2);
-
-
+      combo.getStore().load(function (records, operation, success) {
+        // var test2 = combo.getStore().getAt(0);
+        console.log(records);
+        // combo.setValue(test2);
       });
       // var test = combo.getStore().data.items;
       // var test2 = combo.getStore().getAt(0);
